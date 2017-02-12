@@ -1,0 +1,210 @@
+#tabs{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 3px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+label{
+  background: $color2;
+  color: $color7;
+  display: inline-block;
+  padding: 14px 10px;
+  font-size: $regularFontSize;
+  cursor: pointer;
+  transition: background .2s;
+  -webkit-transition: background .2s;
+  width: 19%;
+  text-align: center;
+}
+
+.tab{
+  min-height: 200px;
+  background: $color7;
+  display: none;
+  padding: 12px;
+  color: $color2;
+}
+
+.tab-bis{
+  margin-top: 85px;
+}
+
+.tab-profile {
+  min-height: 350px;
+  background: $color7;
+  display: block;
+  padding: 12px;
+  color: $color2; 
+  min-height: 55vh;
+  padding: 40px;
+}
+
+#toggle-tab1:checked ~ label[for="toggle-tab1"],#toggle-tab2:checked ~ label[for="toggle-tab2"],#toggle-tab3:checked ~ label[for="toggle-tab3"],#toggle-tab4:checked ~ label[for="toggle-tab4"],#toggle-tab5:checked ~ label[for="toggle-tab5"] {
+  background: $color7;
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 18px;
+  color: $color4;
+  cursor: default;
+}
+
+#toggle-tab1:checked ~ #tab1,#toggle-tab2:checked ~ #tab2,#toggle-tab3:checked ~ #tab3,#toggle-tab4:checked ~ #tab4,#toggle-tab5:checked ~ #tab5{
+  display:block;
+}
+
+.tabs input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.tabs input[type="radio"]:checked + label {
+    background: $color7;
+    color: $color4;
+}
+
+.tabs input[type="radio"]:checked + label + .tab {
+    display: block;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  height: 48px;
+  font-weight: $regularFontWeight;
+  color: $color2;
+  background-color: none;
+  font-size: $subTitleFontSize;
+  padding: 0px;
+}
+
+.tabs-cell {
+  height: 48px;
+  max-width: 227px;
+  min-width: 227px;
+  text-align: left;
+  font-size: $subTitleFontSize;
+  font-weight: $regularFontWeight;
+  font-style: normal;
+  color: $color7;
+  background: $color2;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px 2px 0px 0px;
+  line-height: 48px;
+}
+
+.tabs-cell:hover {
+  color: $color4;
+}
+
+.highlightedTab {
+  color: $color4;
+  background: $color7;
+  font-weight: $largeFontWeight;
+}
+
+.tabs-cell-outer:not(:first-child) {
+  margin-left: 3px;
+}
+
+.main-container-k {
+  position: relative;
+  padding: 20px 40px 0 40px;
+  height: 100%;
+}
+
+.tab-content{
+  height: 75vh;
+  position: relative;
+  margin-right: 15px;
+  background: $color7;
+  padding: 12px;
+  color: $color2;
+  padding-left: 25px;
+  padding-right: 40px;
+}
+.recipient {
+  width: auto !important;
+  height: 35px !important;
+  margin: 8px 8px;
+  background-color: $color7 !important;
+  line-height: 40px !important;
+  cursor: default; }
+
+.field-name {
+  width: 100px !important;
+  padding: 0px !important; }
+
+.field {
+  width: 100% !important;
+  min-width: 300px; }
+
+#email-input-container {
+  flex-grow: 2; }
+
+.close {
+  float: right;
+  margin-top: 12px;
+  margin-left: 6px;
+  margin-right: -8px; }
+
+#email {
+  background-color: $color1;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2; }
+
+.add-field {
+  flex-grow: 1; }
+
+.fa-times {
+  color: $color2; }
+
+.user-found {
+  height: 56px;
+  background-color: $color7;
+  margin-bottom: 8px;
+  text-align: center;
+  line-height: 50px;
+  border-bottom: 1px solid $color1;
+  cursor: default; }
+
+.fa-calendar {
+  color: $color9;
+  margin-top: 10px;
+  margin-left: 16px;
+  cursor: pointer; }
+
+.date-picker-container {
+  background-color: $color9;
+  height: 50px;
+  margin-bottom: 20px; }
+
+#delete-btn {
+  color: $color9;
+  background-color: white;
+  width: 200px;
+  height: 40px;
+  margin-left: 16px; }
+
+.icon-calendar {
+  color: $color9 !important;
+  font-size: 2em;
+  cursor: pointer; }
+
+.icon-Downarrow {
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  width: 132px !important;
+  background-color: $color7 !important;
+  color: $color9 !important; }

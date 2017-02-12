@@ -1,0 +1,165 @@
+.clientPopup {
+  width: 450px;
+  height: 170px;
+  background-color: $color7;
+  color: $color2;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 30%;
+  left: 40%;
+  padding: 40px 35px;
+  top: 176px;
+  display: inline-block;
+}
+
+#clientYes {
+  width: 100px;
+}
+#clientYes2 {
+  width: 100px;
+}
+#clientCancel2 {
+  width: 100px;
+  height: 40px;
+  background-color: $color7;
+  color: $color11;
+  margin-left: 20px;
+  border-radius: 3px;
+}
+#clientCancel2:hover {
+  background-color: $color6;
+}
+
+#clientCancel {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  color: #52B1CA;
+  margin-left: 20px;
+  border-radius: 3px;
+}
+#clientCancel:hover {
+  background-color: $color6;
+}
+
+@mixin popup($width) {
+  width: $width;
+  background-color: $color7;
+  color: $color2;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+}
+
+.popuptext {
+  @include popup(300px);
+  padding: 30px 50px 50px 50px;
+  margin: 19.5% 44%;
+}
+
+.specialistPopup {
+  @include popup(450px);
+  font-weight: $regularFontWeight;
+  padding: 40px 35px;
+  margin: 20% 40%;
+}
+
+#specialistCancel {
+  width: 100px;
+  height: 40px;
+  background-color: $color7;
+  color: $color11;
+  font-weight: $regularFontWeight;
+  font-size: $subTitleFontSize;
+  margin-left: 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  &:hover {
+    color: $color10;
+  }
+}
+
+#specialistDelete {
+  width: 200px;
+  height: 40px;
+  background-color: $color7;
+  color: $color11;
+  border-radius: 3px;
+  margin-left: 25px;
+  &:hover {
+    background-color: $color1;
+  }
+}
+
+#specialistYes {
+  width: 160px;
+  margin-top: 32px;
+}
+
+#subMessage {
+  margin-top: 8px;
+  font-weight: $smallFontWeight;
+}
+
+.popUpBox {
+  position: absolute;
+  float: right;
+  width: calc(100% - 140px) !important;
+  height: auto !important;
+  max-height:200px;
+  left: 16px;
+  background-color: $color7 !important;
+  z-index: 1000;
+  box-shadow: 0 4px 2px 0px gray;
+  overflow:scroll;
+  border-radius: 2px;
+}
+
+.popUpBox ul {
+  list-style-type:none;
+  width: 100%;
+}
+
+.popUpBox ul li{
+  background: $color7;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 15px;
+  cursor: pointer;
+  width: calc(100% + 32px);
+  position: relative;
+  right: 16px;
+  font-size: $regularFontSize;
+  font-weight: $regularFontWeight;
+  &:hover {
+    background: $color2;
+    color: white;
+  }
+}
+
+
+.popUpBoxType {
+  top: 24.5%;
+}
+
+.popUpBoxManager {
+  top: .1%;
+}
+
+.popUpBoxState {
+  top: 74.5%;
+}

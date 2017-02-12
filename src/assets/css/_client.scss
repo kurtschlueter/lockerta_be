@@ -1,0 +1,212 @@
+.clientEdit {
+	position: relative;
+	cursor: pointer;
+	width: 40px;
+	height: 20px;
+	background: transparent;
+	vertical-align: top;
+	color: $color11;
+	font-size: 1.17em;
+}
+
+.clientEdit:hover {
+	color: $color4;
+}
+
+.clientEdit span {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	white-space: wrap;
+	z-index: 1;
+}
+
+.col-lg-6-info-tab {
+	width: 50%;
+	float: left;
+	position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+	h3 {
+		margin-left: 20px;
+	}
+}
+
+.col-lg-12-info-tab {
+	width: 100%;
+	float: left;
+	position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+}
+
+.col-lg-12-integrations {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: scroll;
+	min-height: 1px;
+    padding-left: 15px;
+}
+
+.tab-content-info-tab {
+	margin-right: 20px;
+	height:100vh;
+	background: $color7;
+	padding: 32px 27px 600px 12px;
+	color: $color2;
+	overflow: scroll;
+}
+.form-info-tab form aside {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+
+}
+.form-info-tab form span {
+	white-space: nowrap;
+	background-color: $color6;
+	border-radius: 2px 0 0 2px;
+	color: $color3;
+	display: block;
+	float: left;
+	line-height: 50px;
+	text-align: left;
+	width: 140px;
+	height: 50px;
+	padding: 0 20px 0 20px;
+	font-size: $regularFontSize;
+	font-weight: $smallFontWeight;
+	color: $color5;
+}
+.form-info-tab form .fa-caret-down {
+	color: $color5;
+}
+
+.form-info-tab form input[type="text"] {
+	background-color: $color1;
+	color: $color2;
+	margin-bottom: 1em;
+	border-radius: 0 2px 2px 0;
+	padding: 0 16px;
+	flex-grow: 2;
+	height: 50px;
+	outline: none;
+	flex-grow: 2;
+	font-size: $regularFontSize;
+  font-weight: $regularFontWeight;
+	&:focus[type="text"] {
+		background-color: $color5;
+		transition: background 0.2s ease-in-out;
+	}
+}
+
+.form-info-tab form input[type="password"] {
+	background-color: $color1;
+	color: $color2;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 250px;
+	height: 50px;
+	outline: none;
+}
+
+.form-info-tab form div {
+	background-color: $color1;
+	display: flex;
+	flex-direction: row;
+	color: $color2;
+	margin-bottom: 1em;
+	margin-left: 140px;
+	height: 50px;
+	outline: none;
+	padding: 16px 16px;
+	font-size: $regularFontSize;
+	font-weight: $regularFontWeight;
+}
+
+.addCursor {
+	font-size: $regularFontSize;
+  font-weight: $regularFontWeight;
+	cursor: pointer;
+}
+
+.errorText {
+	text-align: center;
+	color: $color12;
+	visibility: hidden;
+}
+
+input[type="delete"] {
+  background: $color12;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  font-size: $subTitleFontSize;
+  color: $color7;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 40px;
+  text-align: center;
+    &:hover {
+      background: $color13;
+    }
+}
+
+input[type="cancel"] {
+  border: 0;
+  width: 200px;
+  height: 40px;
+  border-radius: 3px;
+  font-size: $subTitleFontSize;
+  font-weight: $regularFontWeight;
+  color: $color11;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 40px;
+  text-align: center;
+  &:hover {
+    color: $color10;
+  }
+}
+
+input[type="submit"] {
+	-webkit-appearance: push-button;
+	user-select: none;
+	align-items: flex-start;
+	margin-top: 40px;
+	border: 0;
+	width: 160px;
+	height: 40px;
+	border-radius: 3px;
+	background: $color10;
+	color: white;
+	cursor: pointer;
+	font-size: $subTitleFontSize;
+	font-weight: $regularFontWeight;
+	transition: background 0.3s ease-in-out;
+	&:hover {
+	  background: $color11;
+	}
+}
+
+
+@media (max-width: 1300px) {     /*client detail fix: li's width 100% and edit button stays in view*/
+   
+  
+    input[type="submit"] {
+        width:100%;
+    }
+    input[type="cancel"] {
+        width:100%;
+ 				border:1px solid;
+	}
+	input[type="delete"] {
+			width:100%;
+	
+	}
+}

@@ -1,0 +1,222 @@
+#import-csv-dropdown {
+  height: 35px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color7;
+  color: black;
+  width: 100%;
+  -webkit-user-select: none;
+  font-size: $subTitleFontSize;
+  font-weight: $smallFontWeight !important;
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+#upload-error {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $color12;
+  margin-top: -20px;
+  color: $color6;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: $subTitleFontSize;
+  margin-bottom: 9px;
+  padding: 5px;
+}
+
+#import-csv-container {
+  width: 75%;
+  background-color: $color7;
+  min-height: 300px;
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $color5;
+  padding: 20px 0px;
+}
+#csv-drop {
+  border: 1px dashed $color5;
+  min-height: 150px;
+  width: 60%;
+  margin: 20px 0px 40px;
+  border-radius: 3px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 20px 0px;
+  .icon-csv {
+    color: $color11;
+    font-size: 2em;
+  }
+}
+
+#csv-local-file {
+  color: $color11;
+  background-color: transparent;
+  width: 60%;
+  padding: 0px;
+}
+
+#drop-zone {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.drop-zone-show {
+  border: none !important;
+  background-color: $color11 !important;
+  opacity: 0.2;
+}
+
+.file {
+  background-color: $color1;
+  color: $color5;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2px 11px;
+  margin: 4px 0px;
+  align-items: center;
+  border-radius: 3px;
+  cursor: default;
+  .icon-x {
+    cursor: pointer;
+  }
+}
+
+.button {
+  background-color: $color10;
+  width: 200px;
+  height: 40px;
+  color: $color7;
+  border-radius: 3px;
+  &:hover {
+    background-color: $color11;
+  }
+}
+
+#csv-container {
+  width: 60%;
+  background-color: $color7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  padding: 30px;
+  text-align: center;
+  position: absolute;
+  left: 21%;
+  top: 25%;
+}
+
+#csv-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#upload-success {
+  width: 70%;
+  background-color: transparent;
+  margin-left: 12.7%;
+  height: 50vh;
+  position: relative;
+  p {
+    margin: 0;
+    color: $color7;
+    font-weight: $smallFontWeight;
+  }
+}
+
+#success-banner {
+  background-color: $color4;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-weight: $largeFontWeight;
+  span{
+    color: $color7;
+    font-size: $largeFontSize;
+  }
+}
+#upload-list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: transparent;
+  height: 100%;
+  position: relative;
+  margin-top: 9px;
+}
+.upload-list {
+  position: relative;
+  background-color: $color7;
+  width: 49%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 9px 1px rgba(0, 0, 0, 0.2);
+}
+.client-upload-list {
+  text-align: left;
+  border-bottom: 1px solid $color5;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  font-weight: $smallFontWeight;
+  font-size: $regularFontSize;
+}
+.upload-list-title {
+  text-align: center;
+  color: $color4;
+  font-size: $subTitleFontSize;
+  margin-top: 5px;
+  font-weight: $regularFontWeight;
+}
+.upload-scroll {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  position: absolute;
+  height: 91%;
+  width: 100%;
+  bottom: 0;
+  padding: 0 20px;
+}
+
+#ok-button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: -175px;
+  font-size: $subTitleFontSize;
+}
+#close {
+  color: $color5;
+}
