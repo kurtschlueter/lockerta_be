@@ -18,7 +18,45 @@ class ClientListContainer extends Component {
       hasClients: null,
       showNewClientDropdown: false,
       showImportCSV: false,
-      filteredClients: []
+      filteredClients: [],
+      schools: [
+        {
+          id: 1,
+          logo: 'http://portfolio.hbune.com/wp-content/uploads/2014/02/depaul-01.png', 
+          name: 'DePaul University',
+          nickname: 'Blue Demons',
+          website: 'sthatd.edu',
+          state: 'IL',
+          city: 'Chicago',
+          population: 40000,
+          male_population: 20000,
+          female_population: 20000,
+        },
+        {
+          id: 2,
+          logo: 'http://news.berkeley.edu/wp-content/uploads/2013/05/ucseal410.png', 
+          name: 'University of California at Berkeley',
+          nickname: 'Golden Bears',
+          website: 'sthatd.edu',
+          state: 'CA',
+          city: 'Berkeley',
+          population: 40000,
+          male_population: 20000,
+          female_population: 20000,
+        },
+        {
+          id: 3,
+          logo: 'http://www.crimsonhoops.com/_/img/UI/dock_icon_06.png', 
+          name: 'University of Alabam at Tuskagooska',
+          nickname: 'Crimson Tide',
+          website: 'sthatd.edu',
+          state: 'AL',
+          city: 'Tuskagooska',
+          population: 40000,
+          male_population: 20000,
+          female_population: 20000,
+        }
+      ]
     };
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
@@ -58,6 +96,10 @@ class ClientListContainer extends Component {
   }
 
   render() {
+// debugger
+    console.log('resourceConstants.schoolListMetaData', resourceConstants.schoolListMetaData)
+    console.log('resourceConstants.mappedSchools(this.state.filteredClients)', resourceConstants.mappedSchools(this.state.filteredClients))
+
     if (this.state.hasClients === null) {
       return <div>Loading</div>;
     }
@@ -67,6 +109,7 @@ class ClientListContainer extends Component {
     return (
       <ClientListPresenter
         clients={this.state.filteredClients}
+        schools={this.state.schools}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
       />

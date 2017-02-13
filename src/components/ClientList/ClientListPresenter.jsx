@@ -2,9 +2,11 @@ import React, { PropTypes } from 'react';
 import Grid from 'tc-reactui/components/Grid/Grid.jsx';
 
 const resourceConstants = require(`../../assets/resources/${process.env.RESOURCES}/constants.js`);
+const resourceConstantsLockerta = require(`../../assets/resources/lockerta/constants.js`);
 
 const ClientListPresenter = ({
   clients,
+  schools,
   importCSVHandler,
   rowClickListener
 }) => {
@@ -16,18 +18,21 @@ const ClientListPresenter = ({
     bottom: '150px',
     width: '100%'
   };
+
   return (
     <div className="content-wrapper">
       {(clients.length !== 0) ? (
+
         <div>
           <section style={sectionStyle}>
             <Grid
-              metadata={resourceConstants.clientListMetaData}
-              data={resourceConstants.mappedClients(clients)}
+              metadata={resourceConstantsLockerta.schoolListMetaData}
+              data={resourceConstantsLockerta.mappedSchools(schools)}
               rowClickListener={rowClickListener}
             />
           </section>
         </div>
+
       ) : (
         <div>
           <div id="csv-container">

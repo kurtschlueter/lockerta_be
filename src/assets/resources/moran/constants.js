@@ -16,7 +16,7 @@ export const basePaths = {
 const headerStyle = { width: '40px', height: '14px', marginTop: '16px', marginRight: '20px', color: '#0d2832' };
 const rowStyle = { width: '40px', height: '14px', marginTop: '25px', backgroundColor: '', marginRight: '20px' };
 
-export const clientListMetaData = {
+export const schoolListMetaData = {
   columns: [
         { field: 'agency', title: 'AGENCY', headerDefinition: 'agencyHeader' },
         { field: 'acronym', title: 'ACRONYM', headerDefinition: 'acronymHeader' },
@@ -76,7 +76,7 @@ export const clientListMetaData = {
   ]
 };
 
-export function mappedClients(clients) {
+export function mappedSchools(clients) {
   return clients.map((c) => {
     let leftMargin = 0;
     switch (c.agencyId) {
