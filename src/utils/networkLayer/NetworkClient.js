@@ -7,6 +7,7 @@
    }
 
    function generateRequest(apiDefinition, finalUrl, requestHandler) {
+    console.log('api apiDefinition in generate request', apiDefinition, finalUrl)
      let requestBuilder = request;
      if (apiDefinition.method === httpMethods.POST) {
        requestBuilder = request.post(finalUrl);

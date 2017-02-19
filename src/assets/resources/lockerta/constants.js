@@ -45,10 +45,14 @@ export const schoolListMetaData = {
   ]
 };
 
+
+
+
 export function mappedSchools(schools) {
   return schools.map((school) => {
     let leftMargin = 12;
     return {
+      id: school.id,
       logo: {
         value: school.logo ? school.logo : '',
         type: 'image',

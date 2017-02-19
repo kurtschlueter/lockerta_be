@@ -1,7 +1,7 @@
 import {
-  GET_CLIENTS,
-  GET_CLIENT,
-  SET_CLIENT,
+  GET_SCHOOLS,
+  GET_SCHOOL,
+  SET_SCHOOL,
   POST_CLIENT,
   PUT_CLIENT,
   DELETE_CLIENT,
@@ -13,17 +13,20 @@ import {
 
 import * as clientApi from './../api/clientApi';
 
-export function getClients(data) {
+export function getSchools(data) {
+  console.log('getSchools actions data', data)
   return {
-    type: GET_CLIENTS,
+    type: GET_SCHOOLS,
     data
   };
 }
 
-export const fetchClients = (filters, offset, limit) => (dispatch) => {
-  clientApi.getClients().subscribe(
+export const fetchSchools = (filters, offset, limit) => (dispatch) => {
+  console.log('fetch schools')
+
+  clientApi.getSchools().subscribe(
     (data) => {
-      dispatch(getClients(data));
+      dispatch(getSchools(data));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -32,17 +35,17 @@ export const fetchClients = (filters, offset, limit) => (dispatch) => {
   );
 };
 
-export function getClient(data) {
+export function getSchool(data) {
   return {
-    type: GET_CLIENT,
+    type: GET_SCHOOL,
     data
   };
 }
 
-export const fetchClient = (id) => (dispatch) => {
-  clientApi.getClient(id).subscribe(
+export const fetchSchool = (id) => (dispatch) => {
+  clientApi.getSchool(id).subscribe(
     (data) => {
-      dispatch(getClient(data));
+      dispatch(getSchool(data));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -76,9 +79,10 @@ export const requestPostClient = (client) => (dispatch) => {
   });
 };
 
-export function setClient(data) {
+export function setSchool(data) {
+  console.log('data setClient', data)
   return {
-    type: SET_CLIENT,
+    type: SET_SCHOOL,
     data
   }
 };

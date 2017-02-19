@@ -18,7 +18,7 @@ class ClientListContainer extends Component {
       hasClients: null,
       showNewClientDropdown: false,
       showImportCSV: false,
-      filteredClients: [],
+      filteredSchools: [],
       schools: [
         {
           id: 1,
@@ -64,16 +64,18 @@ class ClientListContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.fetchClients();
+    this.props.fetchSchools();
     this.props.showNewClientButton();
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('nextProps', nextProps)
     if (this.props !== nextProps) {
       this.setState({
         hasClients: nextProps.hasClients,
         showImportCSV: nextProps.showImportCSV,
-        filteredClients: nextProps.clients.filter(client => client.isActive)
+        filteredSchools: nextProps.schools
+        // filteredSchools: nextProps.schools.filter(school => school.isActive)
       });
     }
   }
@@ -89,17 +91,16 @@ class ClientListContainer extends Component {
   newClientDropdownHandler() {
     this.setState({ showNewClientDropdown: !this.state.showNewClientDropdown });
   }
-  rowClickListener(client) {
-    this.props.setClient(this.state.filteredClients.filter(c => c.id === client.id));
+  rowClickListener(school) {
+    console.log('yassssss', school)
+    console.log('filtered school', this.state.filteredSchools)
+    this.props.setSchool(this.state.filteredSchools.filter(s => s.id === school.id));
+    console.log('after setschool in row click listener', this.props)
     this.props.hideNewClientButton();
-    browserHistory.push(`/clientDetail/${client.id}`);
+    browserHistory.push(`/clientDetail/${school.id}`);
   }
 
   render() {
-// debugger
-    console.log('resourceConstants.schoolListMetaData', resourceConstants.schoolListMetaData)
-    console.log('resourceConstants.mappedSchools(this.state.filteredClients)', resourceConstants.mappedSchools(this.state.filteredClients))
-
     if (this.state.hasClients === null) {
       return <div>Loading</div>;
     }
@@ -108,7 +109,7 @@ class ClientListContainer extends Component {
     }
     return (
       <ClientListPresenter
-        clients={this.state.filteredClients}
+        schools2={this.state.filteredSchools}
         schools={this.state.schools}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
@@ -122,21 +123,21 @@ ClientListContainer.contextTypes = {
 };
 
 ClientListContainer.propTypes = {
-  fetchClients: React.PropTypes.func,
-  setClient: React.PropTypes.func,
+  fetchSchools: React.PropTypes.func,
+  setSchool: React.PropTypes.func,
   hideNewClientButton: React.PropTypes.func,
   showNewClientButton: React.PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  clients: selectors.getClients(state),
-  hasClients: state.clients.hasClients,
-  showImportCSV: state.clients.showImportCSV
+  schools: selectors.getSchools(state),
+  hasClients: state.schools.hasClients,
+  showImportCSV: state.schools.showImportCSV
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchClients: () => dispatch(clientActions.fetchClients()),
-  setClient: client => dispatch(clientActions.setClient(client)),
+  fetchSchools: () => dispatch(clientActions.fetchSchools()),
+  setSchool: school => dispatch(clientActions.setSchool(school)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton())
 });

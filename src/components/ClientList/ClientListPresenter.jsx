@@ -21,7 +21,7 @@ const ClientListPresenter = ({
 
   return (
     <div className="content-wrapper">
-      {(clients.length !== 0) ? (
+      {(schools.length !== 0) ? (
 
         <div>
           <section style={sectionStyle}>

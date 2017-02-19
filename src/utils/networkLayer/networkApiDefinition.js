@@ -6,25 +6,43 @@ const basicHeaders = {
   'Content-Type': 'application/json'
 };
 
-// ******* Clients **********
+// ******* Schools **********
 
-export function getClientDefinition(id) {
+export function getSchoolDefinition(id) {
   return {
     method: httpMethods.GET,
     headers: basicHeaders,
-    path: `/UserManagement/client/${id}`,
-    basePath: basePaths.userManagement[process.env.STAGE]
+    path: '/Test/schools/${id}',
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
   };
 }
 
-export function getClientsDefinition() {
+// export function getSchoolDefinition(id) {
+//   return {
+//     method: httpMethods.GET,
+//     headers: basicHeaders,
+//     path: `/UserManagement/client/${id}`,
+//     basePath: basePaths.userManagement[process.env.STAGE]
+//   };
+// }
+
+export function getSchoolsDefinition() {
   return {
     method: httpMethods.GET,
     headers: basicHeaders,
-    path: '/UserManagement/clientsWithProducts',
-    basePath: basePaths.userManagement[process.env.STAGE]
+    path: '/Test/schools',
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
   };
 }
+
+// export function getClientsDefinition() {
+//   return {
+//     method: httpMethods.GET,
+//     headers: basicHeaders,
+//     path: '/UserManagement/clientsWithProducts',
+//     basePath: basePaths.userManagement[process.env.STAGE]
+//   };
+// }
 
 export function postClientDefinition(client) {
   return {
@@ -45,7 +63,7 @@ export function postClientDefinition(client) {
     })
   };
 }
-console.log('base paths', basePaths);
+
 export function deleteClientDefinition(client) {
   return {
     method: httpMethods.DELETE,
@@ -55,6 +73,7 @@ export function deleteClientDefinition(client) {
     body: client
   };
 }
+
 export function putClientDefinition(client) {
   return {
     method: httpMethods.PUT,

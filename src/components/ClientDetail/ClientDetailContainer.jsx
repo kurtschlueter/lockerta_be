@@ -12,29 +12,31 @@ class ClientDetailContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      client: {},
+      school: {},
       activeTab: null,
       basicTabs: {}
     };
     this.tabSelect = this.tabSelect.bind(this);
-    this.updateClient = this.updateClient.bind(this);
+    this.updateSchool = this.updateSchool.bind(this);
   }
 
   componentWillMount() {
-    this.props.fetchClient(this.props.clientId);
+    this.props.fetchSchool(this.props.school.id);
+    console.log('component will mount', this.props)
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', nextProps)
     if (this.props !== nextProps) {
-      if (nextProps.client) {
+      if (nextProps.school) {
         this.setState({
-          client: nextProps.client,
+          school: nextProps.school,
           activeTab: 0,
           basicTabs: {
             metadata: tabs.map(tab => {
               const compProps = {
-                client: nextProps.client,
-                updateClient: tab.tabID === 'information' ? this.updateClient : null
+                school: nextProps.school,
+                updateSchool: tab.tabID === 'information' ? this.updateSchool : null
               };
               tab.component = tab.generateComponent(compProps);
               return tab;
@@ -49,11 +51,13 @@ class ClientDetailContainer extends Component {
     this.setState({ activeTab: activeTabIndex });
   }
 
-  updateClient(updatedClient) {
-    Object.assign(this.client, updatedClient);
+  updateSchool(updatedSchool) {
+    Object.assign(this.school, updatedSchool);
   }
 
   render() {
+    console.log('in render state', this.state)
+    console.log('in render props', this.props)
     if (this.state.basicTabs && this.state.activeTab !== null) {
       let activeTabComponent = this.state.basicTabs.metadata[this.state.activeTab].component;
       return (
@@ -75,13 +79,13 @@ ClientDetailContainer.contextTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  client: selectors.setClient(state),
-  clientId: ownProps.params.clientId
+  school: selectors.setSchool(state),
+  schoolId: ownProps.params.schoolId
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchClient: (id) => {
-    return dispatch(clientActions.fetchClient(id));
+  fetchSchool: (id) => {
+    return dispatch(clientActions.fetchSchool(id));
   }
 });
 
