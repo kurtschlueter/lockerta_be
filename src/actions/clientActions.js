@@ -1,29 +1,33 @@
 import {
-  GET_CLIENTS,
-  GET_CLIENT,
-  SET_CLIENT,
+  GET_SCHOOLS,
+  GET_SCHOOL,
+  SET_SCHOOL,
   POST_CLIENT,
-  PUT_CLIENT,
+  PUT_SCHOOL,
   DELETE_CLIENT,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
   UPLOAD_CSV_SUCCESS,
-  UPLOAD_CSV_ERROR
+  UPLOAD_CSV_ERROR,
+  SET_DETAIL_VIEW
 } from './actionTypes';
 
 import * as clientApi from './../api/clientApi';
 
-export function getClients(data) {
+export function getSchools(data) {
+  // console.log('getSchools actions data', data)
   return {
-    type: GET_CLIENTS,
+    type: GET_SCHOOLS,
     data
   };
 }
 
-export const fetchClients = (filters, offset, limit) => (dispatch) => {
-  clientApi.getClients().subscribe(
+export const fetchSchools = (filters, offset, limit) => (dispatch) => {
+  // console.log('fetch schools')
+
+  clientApi.getSchools().subscribe(
     (data) => {
-      dispatch(getClients(data));
+      dispatch(getSchools(data));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -32,17 +36,19 @@ export const fetchClients = (filters, offset, limit) => (dispatch) => {
   );
 };
 
-export function getClient(data) {
+export function getSchool(data) {
+  // console.log('get school action', data)
   return {
-    type: GET_CLIENT,
+    type: GET_SCHOOL,
     data
   };
 }
 
-export const fetchClient = (id) => (dispatch) => {
-  clientApi.getClient(id).subscribe(
+export const fetchSchool = (id) => (dispatch) => {
+  // console.log('fetchSchool action', id)
+  clientApi.getSchool(id).subscribe(
     (data) => {
-      dispatch(getClient(data));
+      dispatch(getSchool(data[0]));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -76,27 +82,28 @@ export const requestPostClient = (client) => (dispatch) => {
   });
 };
 
-export function setClient(data) {
+export function setSchool(data) {
+  // console.log('data setClient', data)
   return {
-    type: SET_CLIENT,
+    type: SET_SCHOOL,
     data
   }
 };
 
-export function putClient(data) {
+export function putSchool(data) {
 
   return {
-    type: PUT_CLIENT,
+    type: PUT_SCHOOL,
     data
   };
 };
 
-export const requestPutClient = (client) => (dispatch) => {
+export const requestPutSchool = (school) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    clientApi.putClient(client).subscribe(
+    clientApi.putSchool(school).subscribe(
       (data) => {
         if (data) {
-          dispatch(putClient(data));
+          dispatch(putSchool(data));
         }
         resolve();
       },
@@ -188,3 +195,12 @@ export const fetchUsers = (filters, offset, limit) => (dispatch) => {
     () => {}
   );
 };
+
+export function setDetailView(data) {
+  console.log('in set detail view ')
+  return {
+    type: SET_DETAIL_VIEW,
+    data
+  }
+};
+

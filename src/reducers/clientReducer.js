@@ -1,7 +1,7 @@
 import {
-  GET_CLIENT,
-  GET_CLIENTS,
-  SET_CLIENT,
+  GET_SCHOOL,
+  GET_SCHOOLS,
+  SET_SCHOOL,
   PUT_CLIENT,
   POST_CLIENT,
   GET_ACCOUNT_MANAGERS,
@@ -9,55 +9,59 @@ import {
   UPLOAD_CSV_ERROR,
   SHOW_NEW_CLIENT_BUTTON,
   SHOW_IMPORT_CSV,
-  HIDE_IMPORT_CSV
+  HIDE_IMPORT_CSV,
+  SET_DETAIL_VIEW
 } from '../actions/actionTypes.js';
 
 import Constants from '../utils/localConstants';
 
 const defaultState = {
-  clients: [],
+  schools: [],
   managers: [],
-  client: {},
+  school: {},
   showNewClientButton: false,
   showImportCSV: false,
   csvError: null,
   csvSuccess: null,
-  success: false
+  success: false,
+  detailViewNew: true,
 };
 
 export default function clientReducer(state = defaultState, action) {
+  console.log('actionssssssss', action)
   switch (action.type) {
-    case GET_CLIENT:
+    case GET_SCHOOL:
       {
+          console.log('action', action)
         let newState = state;
-        const currentClient = state.clients.find(c => c.id === action.data.id)
-        if (currentClient) {
-          const index = state.clients.indexOf(currentClient);
+        const currentSchool = state.schools.find(c => c.id === action.data.id)
+        if (currentSchool) {
+          const index = state.schools.indexOf(currentSchool);
           newState = {
             ...state,
-            client: action.data,
-            clients: [
-              ...state.clients.slice(0, index),
+            school: action.data,
+            schools: [
+              ...state.schools.slice(0, index),
               action.data,
-              ...state.clients.slice(index + 1)
+              ...state.schools.slice(index + 1)
             ]
           };
         } else {
           newState = {
             ...state,
-            client: action.data,
-            clients: [...state.clients, action.data]
+            school: action.data,
+            schools: [...state.schools, action.data]
           };
         }
 
         return newState;
       }
-    case GET_CLIENTS:
+    case GET_SCHOOLS:
       {
         return action.data.length > 0 ? (
           {
             ...state,
-            clients: action.data,
+            schools: action.data,
             hasClients: true,
             showImportCSV: false,
             success: false
@@ -65,18 +69,18 @@ export default function clientReducer(state = defaultState, action) {
         ) : (
           {
             ...state,
-            clients: action.data,
+            schools: action.data,
             hasClients: false,
             showImportCSV: false,
             success: false
            }
         )
       }
-    case SET_CLIENT:
+    case SET_SCHOOL:
       {
         return {
           ...state,
-          client: action.data[0]
+          school: action.data[0]
         }
       }
     case POST_CLIENT:
@@ -132,6 +136,14 @@ export default function clientReducer(state = defaultState, action) {
           showImportCSV: false
         }
       }
+    case SET_DETAIL_VIEW:
+      {
+        return {
+          ...state,
+          detailViewNew: action.data
+        };
+      }
+
     default:
       {
         return state;
@@ -140,8 +152,8 @@ export default function clientReducer(state = defaultState, action) {
 }
 
 //Selectors
-export const getClients = (state) => {
-  return state.clients;
+export const getSchools = (state) => {
+  return state.schools;
 }
 export const postClient = (state) => {
   return state.clients;
@@ -152,12 +164,15 @@ export const deleteClient = (state) => {
 export const putClient = (state) => {
   return state.clients;
 }
-export const setClient = (state) => {
-  return state.client
+export const setSchool = (state) => {
+  return state.school
 }
 export const csvError = (state) => {
   return state.csvError
 }
 export const csvSuccess = (state) => {
   return state.csvSuccess
+}
+export const setDetailView = (state) => {
+  return state.detailViewNew;
 }

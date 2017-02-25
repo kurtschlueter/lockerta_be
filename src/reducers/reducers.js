@@ -11,7 +11,7 @@ import modalReducer from './modalReducer';
 import navbarReducer from './navbarReducer';
 
 const moranReducers = combineReducers({
-  clients: clientReducer,
+  schools: clientReducer,
   loginState: loginReducer,
   integrations: integrationReducer,
   profile: profileReducer,
@@ -33,8 +33,9 @@ import * as agencySelectors from './agencyReducer'
 import * as managerSelectors from './managerReducer'
 import * as specialistSelector from './specialistReducer'
 
-export const getClients = (state) => {
-  return clientSelectors.getClients(state.clients);
+export const getSchools = (state) => {
+  // console.log('clientSelectors', clientSelectors  )
+  return clientSelectors.getSchools(state.schools);
 }
 
 export const getIntegrations = (state) => {
@@ -61,8 +62,9 @@ export const getAgencies = (state) => {
   return agencySelectors.getAgencies(state.managers);
 }
 
-export const setClient = (state) => {
-  return clientSelectors.setClient(state.clients);
+export const setSchool = (state) => {
+  console.log('setSchools main reducers', state )
+  return clientSelectors.setSchool(state.schools);
 }
 
 export const csvError = (state) => {
@@ -71,4 +73,8 @@ export const csvError = (state) => {
 
 export const csvSuccess = (state) => {
   return clientSelectors.csvSuccess(state.clients)
+}
+
+export const setDetailView = (state) => {
+  return clientSelectors.detailView(state.detailViewNew)
 }

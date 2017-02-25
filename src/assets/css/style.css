@@ -1,4 +1,4 @@
-/* Moran Group Theme */
+/* Health Care Sucess Theme */
 /* Colors */
 /* Fonts */
 #tabs {
@@ -48,7 +48,7 @@ label {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   padding-bottom: 18px;
-  color: #52B1CA;
+  color: #7A9A01;
   cursor: default; }
 
 #toggle-tab1:checked ~ #tab1, #toggle-tab2:checked ~ #tab2, #toggle-tab3:checked ~ #tab3, #toggle-tab4:checked ~ #tab4, #toggle-tab5:checked ~ #tab5 {
@@ -60,7 +60,7 @@ label {
 
 .tabs input[type="radio"]:checked + label {
   background: #FFFFFF;
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .tabs input[type="radio"]:checked + label + .tab {
   display: block; }
@@ -92,10 +92,10 @@ label {
   line-height: 48px; }
 
 .tabs-cell:hover {
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .highlightedTab {
-  color: #52B1CA;
+  color: #7A9A01;
   background: #FFFFFF;
   font-weight: 600; }
 
@@ -165,25 +165,25 @@ label {
   cursor: default; }
 
 .fa-calendar {
-  color: #52B1CA;
+  color: #65B989;
   margin-top: 10px;
   margin-left: 16px;
   cursor: pointer; }
 
 .date-picker-container {
-  background-color: #52B1CA;
+  background-color: #65B989;
   height: 50px;
   margin-bottom: 20px; }
 
 #delete-btn {
-  color: #52B1CA;
+  color: #65B989;
   background-color: white;
   width: 200px;
   height: 40px;
   margin-left: 16px; }
 
 .icon-calendar {
-  color: #52B1CA !important;
+  color: #65B989 !important;
   font-size: 2em;
   cursor: pointer; }
 
@@ -193,7 +193,7 @@ label {
   right: 0;
   width: 132px !important;
   background-color: #FFFFFF !important;
-  color: #52B1CA !important; }
+  color: #65B989 !important; }
 
 #form form span {
   background-color: #EDEFF1;
@@ -239,7 +239,7 @@ label {
   outline: none; }
 
 input[type="submit"] {
-  background: #53B0C9;
+  background: #2559B4;
   border: 0;
   width: 200px;
   height: 40px;
@@ -250,7 +250,7 @@ input[type="submit"] {
   transition: background 0.3s ease-in-out;
   margin-top: 40px; }
   input[type="submit"]:hover {
-    background: #2559B4; }
+    background: #53B0C9; }
 
 .delete-client input[type="reset"] {
   background-color: transparent;
@@ -293,7 +293,7 @@ input[type="submit"] {
   margin-bottom: 10px; }
 
 #table-client tbody a {
-  color: #52B1CA; }
+  color: #65B989; }
 
 #table-client th, td {
   text-align: left;
@@ -317,18 +317,18 @@ input[type="submit"] {
   color: #EDEFF1; }
 
 .active {
-  color: #52B1CA; }
+  color: #65B989; }
 
 .fa-exclamation-triangle {
   color: #F5A623; }
 
 .single p {
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .load {
   text-align: center;
   padding: 40px;
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .client-list {
   display: flex;
@@ -380,16 +380,16 @@ input[type="submit"] {
   padding: 20px; }
 
 .users-list .fa-file-text {
-  color: #52B1CA; }
+  color: #65B989; }
 
 .users-list .fa-pencil {
   color: #798392;
   margin-top: 5px; }
   .users-list .fa-pencil:active {
-    color: #52B1CA; }
+    color: #65B989; }
 
 .login-body {
-  background: #0D2832;
+  background: #7A9A01;
   margin: 0;
   min-height: 100vh; }
 
@@ -423,7 +423,7 @@ input[type="submit"] {
     -moz-appearance: none;
     outline: 0px; }
     #login input:focus {
-      background-color: rgba(82, 177, 202, 0.5);
+      background-color: rgba(101, 185, 137, 0.5);
       transition: background 0.2s ease-in-out;
       color: #0D2832; }
   #login a {
@@ -497,7 +497,7 @@ input[type="submit"] {
   padding-top: 7px; }
 
 #login input[type="button"] {
-  background: #52B1CA;
+  background: #65B989;
   border: 0;
   width: 100%;
   height: 48px;
@@ -510,7 +510,7 @@ input[type="submit"] {
   transition: background 0.3s ease-in-out;
   font-size: 14px; }
   #login input[type="button"]:hover {
-    background: #2559B4;
+    background: #3A4709;
     box-shadow: 0px 0px 0px #777777; }
   #login input[type="button"]:focus {
     color: #FFFFFF; }
@@ -734,7 +734,7 @@ input[type="submit"] {
   margin-top: 0px; }
 
 .dropdown-content2 input[type="submit"]:hover {
-  background: #2559B4; }
+  background: #53B0C9; }
 
 .dropdown-toggle3 {
   font-size: 0;
@@ -779,7 +779,7 @@ input[type="submit"] {
   margin-top: 0px; }
 
 .dropdown-content3 input[type="submit"]:hover {
-  background: #2559B4; }
+  background: #53B0C9; }
 
 .dropdown-content3 input[type="reset"] {
   width: 70px;
@@ -787,10 +787,10 @@ input[type="submit"] {
   margin-top: 0px; }
 
 .dropdown-content3 input[type="reset"]:hover {
-  background: #2559B4; }
+  background: #53B0C9; }
 
 input[type="reset"] {
-  background: #52B1CA;
+  background: #7A9A01;
   border: 0;
   width: 200px;
   height: 40px;
@@ -838,7 +838,7 @@ input[type="reset"] {
   width: 100px;
   height: 40px;
   background-color: #FFFFFF;
-  color: #2559B4;
+  color: #53B0C9;
   margin-left: 20px;
   border-radius: 3px; }
 
@@ -899,20 +899,20 @@ input[type="reset"] {
   width: 100px;
   height: 40px;
   background-color: #FFFFFF;
-  color: #2559B4;
+  color: #53B0C9;
   font-weight: 400;
   font-size: 16px;
   margin-left: 20px;
   cursor: pointer;
   border-radius: 3px; }
   #specialistCancel:hover {
-    color: #53B0C9; }
+    color: #2559B4; }
 
 #specialistDelete {
   width: 200px;
   height: 40px;
   background-color: #FFFFFF;
-  color: #2559B4;
+  color: #53B0C9;
   border-radius: 3px;
   margin-left: 25px; }
   #specialistDelete:hover {
@@ -1038,12 +1038,12 @@ table span {
   display: inline-block;
   position: absolute;
   left: -3px;
-  color: #52B1CA;
+  color: #7A9A01;
   font-size: 26px;
   margin-top: -3; }
 
 .groups input:hover[type=checkbox] + label:before, input:hover[type=checkbox] + label:after {
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .groups input[type=checkbox] + label:before {
   content: "\f1db"; }
@@ -1058,7 +1058,7 @@ table span {
   -ms-transform-origin: 0.45em 0.5em;
   transform-origin: 0.45em 0.5em; }
 
-/* Moran Group Theme */
+/* Health Care Sucess Theme */
 /* Colors */
 /* Fonts */
 #import-csv-dropdown {
@@ -1120,11 +1120,11 @@ table span {
   display: flex;
   padding: 20px 0px; }
   #csv-drop .icon-csv {
-    color: #2559B4;
+    color: #53B0C9;
     font-size: 2em; }
 
 #csv-local-file {
-  color: #2559B4;
+  color: #53B0C9;
   background-color: transparent;
   width: 60%;
   padding: 0px; }
@@ -1139,7 +1139,7 @@ table span {
 
 .drop-zone-show {
   border: none !important;
-  background-color: #2559B4 !important;
+  background-color: #53B0C9 !important;
   opacity: 0.2; }
 
 .file {
@@ -1158,13 +1158,13 @@ table span {
     cursor: pointer; }
 
 .button {
-  background-color: #53B0C9;
+  background-color: #2559B4;
   width: 200px;
   height: 40px;
   color: #FFFFFF;
   border-radius: 3px; }
   .button:hover {
-    background-color: #2559B4; }
+    background-color: #53B0C9; }
 
 #csv-container {
   width: 60%;
@@ -1196,7 +1196,7 @@ table span {
     font-weight: 100; }
 
 #success-banner {
-  background-color: #52B1CA;
+  background-color: #7A9A01;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1239,7 +1239,7 @@ table span {
 
 .upload-list-title {
   text-align: center;
-  color: #52B1CA;
+  color: #7A9A01;
   font-size: 16px;
   margin-top: 5px;
   font-weight: 400; }
@@ -1273,11 +1273,11 @@ table span {
   height: 20px;
   background: transparent;
   vertical-align: top;
-  color: #2559B4;
+  color: #53B0C9;
   font-size: 1.17em; }
 
 .clientEdit:hover {
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .clientEdit span {
   display: block;
@@ -1415,13 +1415,13 @@ input[type="cancel"] {
   border-radius: 3px;
   font-size: 16px;
   font-weight: 400;
-  color: #2559B4;
+  color: #53B0C9;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
   margin-top: 40px;
   text-align: center; }
   input[type="cancel"]:hover {
-    color: #53B0C9; }
+    color: #2559B4; }
 
 input[type="submit"] {
   -webkit-appearance: push-button;
@@ -1432,14 +1432,14 @@ input[type="submit"] {
   width: 160px;
   height: 40px;
   border-radius: 3px;
-  background: #53B0C9;
+  background: #2559B4;
   color: white;
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
   transition: background 0.3s ease-in-out; }
   input[type="submit"]:hover {
-    background: #2559B4; }
+    background: #53B0C9; }
 
 @media (max-width: 1300px) {
   /*client detail fix: li's width 100% and edit button stays in view*/
@@ -1539,7 +1539,7 @@ a {
   font-weight: 500; }
 
 .main-header .navbar {
-  background-color: #52B1CA;
+  background-color: #7A9A01;
   height: 64px;
   -webkit-box-shadow: 0px 3px 5px -2px rgba(102, 102, 102, 0.5);
   -moz-box-shadow: 0px 3px 5px -2px rgba(102, 102, 102, 0.5);
@@ -1552,7 +1552,7 @@ a {
   .sidebar-menu li {
     line-height: 6px; }
     .sidebar-menu li:first-child {
-      background: #253D46; }
+      background: #0D2832; }
   .sidebar-menu li > a {
     padding: 30px 5px 30px 23px;
     display: block;
@@ -1564,8 +1564,8 @@ a {
     transition: all .2s ease-in-out; }
 
 .sidebar-menu li:hover a {
-  color: #52B1CA;
-  background: #253D46;
+  color: #7A9A01;
+  background: #0D2832;
   text-decoration: none;
   height: 64px; }
 
@@ -1654,14 +1654,14 @@ button[type=saveIntegration] {
   width: 160px;
   height: 40px;
   border-radius: 3px;
-  background: #53B0C9;
+  background: #2559B4;
   color: #FFFFFF;
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
   transition: background 0.3s ease-in-out; }
   button[type=saveIntegration]:hover {
-    background: #2559B4; }
+    background: #53B0C9; }
 
 #accordion .btn-container {
   display: flex;
@@ -1677,12 +1677,12 @@ button[type=saveIntegration] {
   position: relative;
   font-weight: 400;
   font-size: 16px;
-  color: #2559B4;
+  color: #53B0C9;
   visibility: visible;
   margin-left: 75px;
   padding-bottom: 12px; }
   #accordion span#cancel:hover {
-    color: #53B0C9; }
+    color: #2559B4; }
 
 #accordion span#integration {
   position: static;
@@ -1875,7 +1875,7 @@ select {
 .fa-plus-circle {
   float: right;
   margin-top: -8px;
-  color: #52B1CA; }
+  color: #7A9A01; }
 
 .clearfix {
   padding: 30px; }
@@ -1893,10 +1893,10 @@ select {
   padding: 50px 0 30px 0; }
   .add-user a {
     text-decoration: none;
-    color: #52B1CA; }
+    color: #7A9A01; }
     .add-user a:hover, .add-user a:focus {
       text-decoration: none;
-      color: #52B1CA; }
+      color: #7A9A01; }
 
 #to_upload {
   background-color: #F6F7F8;
@@ -1907,7 +1907,7 @@ select {
   margin-left: 38px; }
 
 .fa-cloud-upload {
-  color: #52B1CA;
+  color: #7A9A01;
   font-size: 30px; }
 
 .file_input_file,
@@ -1980,7 +1980,7 @@ select {
 
 #csv-label {
   width: 125px;
-  background-color: #52B1CA;
+  background-color: #7A9A01;
   height: 40px;
   line-height: 16px;
   margin-right: 20px;
@@ -1988,7 +1988,7 @@ select {
 
 #add-client {
   width: 125px;
-  background-color: #52B1CA;
+  background-color: #7A9A01;
   color: white;
   font-size: 16px;
   font-weight: 100;
@@ -2050,7 +2050,7 @@ select {
     -moz-transform: rotate(45deg);
     width: 15px;
     height: 15px;
-    background-color: #52B1CA;
+    background-color: #7A9A01;
     top: 88%;
     z-index: 1;
     right: 57px;

@@ -1,21 +1,23 @@
 import networkClient from '../utils/networkLayer/NetworkClient';
 import {
-  getClientDefinition,
-  getClientsDefinition,
+  getSchoolDefinition,
+  getSchoolsDefinition,
   postClientDefinition,
-  putClientDefinition,
+  putSchoolDefinition,
   deleteClientDefinition,
   uploadCSVDefiniton
 } from '../utils/networkLayer/networkApiDefinition';
 
 
-export function getClient(id) {
-  const client = networkClient.observableClient(getClientDefinition(id));
+export function getSchool(id) {
+  // console.log('getSchool api', id)
+  const client = networkClient.observableClient(getSchoolDefinition(id));
   return client;
 }
 
-export function getClients() {
-  const client = networkClient.observableClient(getClientsDefinition());
+export function getSchools() {
+  // console.log('getClients api data')
+  const client = networkClient.observableClient(getSchoolsDefinition());
   return client;
 }
 
@@ -23,9 +25,10 @@ export function postClient(client) {
   return networkClient.observableClient(postClientDefinition(client));
 }
 
-export function putClient(client) {
-  return networkClient.observableClient(putClientDefinition(client))
+export function putSchool(school) {
+  return networkClient.observableClient(putSchoolDefinition(school))
 }
+
 
 export function deleteClient(client) {
   return networkClient.observableClient(deleteClientDefinition(client))

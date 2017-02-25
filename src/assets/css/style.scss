@@ -130,7 +130,7 @@ a{
     li{
       line-height: 6px;
       &:first-child {
-        background: $color3;
+        background: $color2;
       }
     }
     li>a {
@@ -146,7 +146,7 @@ a{
 }
 .sidebar-menu li:hover a{
     color: $color4;
-    background: $color3;
+    background: $color2;
     text-decoration: none;
     height: 64px;
 }

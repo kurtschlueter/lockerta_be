@@ -4,7 +4,7 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // For testing purposes the default flavor is MORAN
-const config = require('./config/moran.js');
+const config = require('./config/lockerta.js');
 
 const themeFilePath = path.join(__dirname, `src/assets/resources/${config.resources}/_theme.scss`);
 const iconPath = path.join(__dirname, `src/assets/resources/${config.resources}/favicon-32x32.png`);
