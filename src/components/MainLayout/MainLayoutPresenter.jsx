@@ -13,7 +13,7 @@ const userTitle = require(`../../assets/resources/${process.env.RESOURCES}/strin
 // TODO -  This tabs should come from the flavors configuration
 const menuItems =
   [
-    { title: 'CLIENTS', path: '/clientList' },
+    { title: 'SCHOOLS', path: '/schoolList' },
     {
       title: userTitle,
       path: `/${userType}`
@@ -73,7 +73,7 @@ class MainLayout extends Component {
   }
 
   render() {
-    const logo = require(`./../../assets/resources/${process.env.RESOURCES}/logo.jpg`);
+    const logo = require(`./../../assets/resources/${process.env.RESOURCES}/logo.png`);
     const name = localStorage.getItem('name') ? localStorage.getItem('name') : '';
     return (
       <div className="intro">

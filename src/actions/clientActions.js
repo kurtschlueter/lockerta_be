@@ -3,18 +3,19 @@ import {
   GET_SCHOOL,
   SET_SCHOOL,
   POST_CLIENT,
-  PUT_CLIENT,
+  PUT_SCHOOL,
   DELETE_CLIENT,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
   UPLOAD_CSV_SUCCESS,
-  UPLOAD_CSV_ERROR
+  UPLOAD_CSV_ERROR,
+  SET_DETAIL_VIEW
 } from './actionTypes';
 
 import * as clientApi from './../api/clientApi';
 
 export function getSchools(data) {
-  console.log('getSchools actions data', data)
+  // console.log('getSchools actions data', data)
   return {
     type: GET_SCHOOLS,
     data
@@ -22,7 +23,7 @@ export function getSchools(data) {
 }
 
 export const fetchSchools = (filters, offset, limit) => (dispatch) => {
-  console.log('fetch schools')
+  // console.log('fetch schools')
 
   clientApi.getSchools().subscribe(
     (data) => {
@@ -36,6 +37,7 @@ export const fetchSchools = (filters, offset, limit) => (dispatch) => {
 };
 
 export function getSchool(data) {
+  // console.log('get school action', data)
   return {
     type: GET_SCHOOL,
     data
@@ -43,9 +45,10 @@ export function getSchool(data) {
 }
 
 export const fetchSchool = (id) => (dispatch) => {
+  // console.log('fetchSchool action', id)
   clientApi.getSchool(id).subscribe(
     (data) => {
-      dispatch(getSchool(data));
+      dispatch(getSchool(data[0]));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -80,27 +83,27 @@ export const requestPostClient = (client) => (dispatch) => {
 };
 
 export function setSchool(data) {
-  console.log('data setClient', data)
+  // console.log('data setClient', data)
   return {
     type: SET_SCHOOL,
     data
   }
 };
 
-export function putClient(data) {
+export function putSchool(data) {
 
   return {
-    type: PUT_CLIENT,
+    type: PUT_SCHOOL,
     data
   };
 };
 
-export const requestPutClient = (client) => (dispatch) => {
+export const requestPutSchool = (school) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    clientApi.putClient(client).subscribe(
+    clientApi.putSchool(school).subscribe(
       (data) => {
         if (data) {
-          dispatch(putClient(data));
+          dispatch(putSchool(data));
         }
         resolve();
       },
@@ -192,3 +195,12 @@ export const fetchUsers = (filters, offset, limit) => (dispatch) => {
     () => {}
   );
 };
+
+export function setDetailView(data) {
+  console.log('in set detail view ')
+  return {
+    type: SET_DETAIL_VIEW,
+    data
+  }
+};
+

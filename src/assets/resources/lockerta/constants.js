@@ -110,31 +110,29 @@ export const clientDetailInformationTabElements = [
   },
   {
     type: 'TextInput',
-    title: 'Phone',
-    id: 'phone',
-    name: 'phone'
-  },
-  {
-    type: 'DropDown',
-    title: 'Agency',
-    id: 'agencyId'
-  },
-  {
-    type: 'DropDown',
-    title: 'Specialist',
-    id: 'specialistId'
+    title: 'Nickname',
+    id: 'nickname',
+    name: 'nickname'
   },
   {
     type: 'TextInput',
-    title: 'Street',
-    id: 'address',
-    name: 'address'
+    title: 'Website',
+    id: 'website'
   },
   {
     type: 'TextInput',
-    title: 'Zip Code',
-    id: 'zipCode',
-    name: 'zipCode'
+    title: 'Total Population',
+    id: 'population'
+  },
+  {
+    type: 'TextInput',
+    title: 'Male Population',
+    id: 'male_population'
+  },
+  {
+    type: 'TextInput',
+    title: 'Female Population',
+    id: 'female_population'
   },
   {
     type: 'TextInput',

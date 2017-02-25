@@ -34,7 +34,7 @@ import * as managerSelectors from './managerReducer'
 import * as specialistSelector from './specialistReducer'
 
 export const getSchools = (state) => {
-  console.log('clientSelectors', clientSelectors  )
+  // console.log('clientSelectors', clientSelectors  )
   return clientSelectors.getSchools(state.schools);
 }
 
@@ -73,4 +73,8 @@ export const csvError = (state) => {
 
 export const csvSuccess = (state) => {
   return clientSelectors.csvSuccess(state.clients)
+}
+
+export const setDetailView = (state) => {
+  return clientSelectors.detailView(state.detailViewNew)
 }

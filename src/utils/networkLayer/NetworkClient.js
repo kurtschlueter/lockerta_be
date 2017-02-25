@@ -7,7 +7,7 @@
    }
 
    function generateRequest(apiDefinition, finalUrl, requestHandler) {
-    console.log('api apiDefinition in generate request', apiDefinition, finalUrl)
+    // console.log('api apiDefinition in generate request', apiDefinition, finalUrl)
      let requestBuilder = request;
      if (apiDefinition.method === httpMethods.POST) {
        requestBuilder = request.post(finalUrl);
@@ -29,8 +29,10 @@
 
    NetworkClient.prototype.observableClient = function createObservableClient(apiDefinition) {
      const finalUrl = `${apiDefinition.basePath}${apiDefinition.path}`;
+     // debugger
      return Rx.Observable.create((observer) => {
        generateRequest(apiDefinition, finalUrl, (err, res) => {
+        console.log('observableClient', res)
          if (err) {
            observer.onError(err);
          } else {

@@ -3,63 +3,45 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import NavbarPresenter from './NavbarPresenter.jsx';
 import * as managerActions from '../../actions/managerActions';
+import * as navbarActions from './../../actions/navbarActions.js';
 import * as clientActions from '../../actions/clientActions';
 
 class NavbarContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showNewClientDropdown: false,
-      showNewClientButton: false,
+      showNewSchoolButton: false,
       showNewManagerButton: false,
-      hover: false,
     }
-    this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
-    this.importCSVHandler = this.importCSVHandler.bind(this);
-    this.onMouseEnterDropdown = this.onMouseEnterDropdown.bind(this);
-    this.onMouseLeaveDropdown = this.onMouseLeaveDropdown.bind(this);
+    this.newSchoolClickHandler = this.newSchoolClickHandler.bind(this);
   }
 
-  onMouseEnterDropdown(){
-    this.setState({hover: true})
-  }
-
-  onMouseLeaveDropdown(){
-    this.setState({hover: false})
-  }
 
   componentDidUpdate(){
-    if(this.state.showNewClientDropdown && document.getElementById("csv")){
-      document.getElementById("csv").addEventListener("mouseover",this.onMouseEnterDropdown);
-      document.getElementById("csv").addEventListener("mouseout",this.onMouseLeaveDropdown);
-    }
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props !== nextProps) {
       this.setState({
         showNewManagerButton: nextProps.showNewManagerButton,
-        showNewClientButton: nextProps.showNewClientButton
+        showNewSchoolButton: nextProps.showNewClientButton
       });
     }
   }
-  newClientDropdownHandler() {
-    this.setState({ showNewClientDropdown: !this.state.showNewClientDropdown })
+
+  newSchoolClickHandler() {
+    this.props.hideNewClientButton();
+    this.props.setDetailView(true);
+    browserHistory.push(`/schoolDetail/`);
   }
-  importCSVHandler() {
-    this.newClientDropdownHandler()
-    this.props.showImportCSV()
-  }
+
   render () {
     return (
       <NavbarPresenter
-        showNewClientDropdown={this.state.showNewClientDropdown}
-        newClientDropdownHandler={this.newClientDropdownHandler}
-        importCSVHandler={this.importCSVHandler}
-        showNewClientButton={this.state.showNewClientButton}
+        newSchoolClickHandler={this.newSchoolClickHandler}
+        showNewSchoolButton={this.state.showNewSchoolButton}
         showNewManagerButton={this.state.showNewManagerButton}
         showNewManagerView={this.props.showNewManagerView}
-        hover={this.state.hover}
       />
     )
   }
@@ -67,7 +49,8 @@ class NavbarContainer extends Component {
 
 const mapStateToProps = (state) => ({
   showNewClientButton: state.navbar.showNewClientButton,
-  showNewManagerButton: state.navbar.showNewManagerButton
+  showNewManagerButton: state.navbar.showNewManagerButton,
+  detailViewNew: state.schools.detailViewNew
 })
 const mapDispatchToProps = (dispatch) => ({
   showNewManagerView: () => {
@@ -75,7 +58,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   showImportCSV: () => {
     return dispatch(clientActions.showImportCSV())
-  }
+  },
+  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
+  setSchool: school => dispatch(clientActions.setSchool(school)),
+  setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);

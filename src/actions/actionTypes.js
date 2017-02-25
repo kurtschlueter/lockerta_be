@@ -6,14 +6,17 @@ export const SECOND_TEST_ACTION = 'SECOND_TEST_ACTION';
 export const GET_SCHOOL = 'GET_SCHOOL';
 export const GET_SCHOOLS = 'GET_SCHOOLS';
 export const SET_SCHOOL = 'SET_SCHOOL';
+export const PUT_SCHOOL = 'PUT_SCHOOL';
 
 export const DELETE_CLIENT = 'DELETE_CLIENTS';
-export const PUT_CLIENT = 'PUT_CLIENTS';
+
 export const POST_CLIENT = 'POST_CLIENTS';
 export const UPLOAD_CSV_SUCCESS = 'UPLOAD_CSV_SUCCESS';
 export const UPLOAD_CSV_ERROR = 'UPLOAD_CSV_ERROR';
 export const SHOW_IMPORT_CSV = 'SHOW_IMPORT_CSV';
 export const HIDE_IMPORT_CSV = 'HIDE_IMPORT_CSV';
+
+export const SET_DETAIL_VIEW = 'SET_DETAIL_VIEW';
 
 // Login
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

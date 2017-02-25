@@ -9,7 +9,8 @@ import {
   UPLOAD_CSV_ERROR,
   SHOW_NEW_CLIENT_BUTTON,
   SHOW_IMPORT_CSV,
-  HIDE_IMPORT_CSV
+  HIDE_IMPORT_CSV,
+  SET_DETAIL_VIEW
 } from '../actions/actionTypes.js';
 
 import Constants from '../utils/localConstants';
@@ -22,14 +23,16 @@ const defaultState = {
   showImportCSV: false,
   csvError: null,
   csvSuccess: null,
-  success: false
+  success: false,
+  detailViewNew: true,
 };
 
 export default function clientReducer(state = defaultState, action) {
-  console.log('action', action.type)
+  console.log('actionssssssss', action)
   switch (action.type) {
     case GET_SCHOOL:
       {
+          console.log('action', action)
         let newState = state;
         const currentSchool = state.schools.find(c => c.id === action.data.id)
         if (currentSchool) {
@@ -133,6 +136,14 @@ export default function clientReducer(state = defaultState, action) {
           showImportCSV: false
         }
       }
+    case SET_DETAIL_VIEW:
+      {
+        return {
+          ...state,
+          detailViewNew: action.data
+        };
+      }
+
     default:
       {
         return state;
@@ -161,4 +172,7 @@ export const csvError = (state) => {
 }
 export const csvSuccess = (state) => {
   return state.csvSuccess
+}
+export const setDetailView = (state) => {
+  return state.detailViewNew;
 }
