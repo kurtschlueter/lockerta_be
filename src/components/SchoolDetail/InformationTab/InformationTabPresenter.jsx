@@ -70,6 +70,12 @@ const InformationTabPresenter = ({
             readOnly: readOnlyOption,
             options: states.map(s => ({ key: s.name, text: s.name })),
             onChange: state => changeHandler('state', state)
+          }, 
+          {
+            id: 'logo',
+            value: profile.logo,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('logo', value)
           }
     ];
   } else {
@@ -123,6 +129,12 @@ const InformationTabPresenter = ({
             readOnly: readOnlyOption,
             options: states.map(s => ({ key: s.name, text: s.name })),
             onChange: state => changeHandler('state', state)
+          },
+          {
+            id: 'logo',
+            value: null,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('logo', value)
           }
     ];
   }
