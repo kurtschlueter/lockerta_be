@@ -2072,10 +2072,10 @@ select {
     top: -2px; } }
 .upload-image {
   display: table-cell;
-  text-align: center;
+  text-align: left;
   padding-left: 2em; }
   .upload-image h1 {
-    font-size: 22px; }
+    font-size: 19px; }
   .upload-image img {
     height: 36px; }
 

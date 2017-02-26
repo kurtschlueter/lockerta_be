@@ -81,7 +81,7 @@ class ImageUploader extends Component {
     return (
       <div className="upload-image">
         <div>
-          <h1>Upload new image</h1>
+          <h1>Upload new Logo</h1>
           <form onSubmit={this.handleSubmit} encType="multipart/form-data">
             <input type="file" onChange={this.handleFile} />
             {processing}
