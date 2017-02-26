@@ -18,7 +18,6 @@ export function getSchoolDefinition(id) {
   };
 }
 
-<<<<<<< HEAD
 export function searchSchoolsDefinition(term) {
   // console.log('getSchoolDefinition', term)
   return {
@@ -38,8 +37,7 @@ export function searchSchoolsDefinition(term) {
 //   };
 // }
 
-=======
->>>>>>> develop
+
 export function getSchoolsDefinition() {
   return {
     method: httpMethods.GET,

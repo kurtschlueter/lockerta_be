@@ -7,12 +7,9 @@ export const GET_SCHOOL = 'GET_SCHOOL';
 export const GET_SCHOOLS = 'GET_SCHOOLS';
 export const SET_SCHOOL = 'SET_SCHOOL';
 export const PUT_SCHOOL = 'PUT_SCHOOL';
-<<<<<<< HEAD
 export const SEARCH_SCHOOLS = 'SEARCH_SCHOOLS';
-=======
 export const POST_SCHOOL= 'POST_SCHOOL';
 export const DELETE_SCHOOL = 'DELETE_SCHOOL';
->>>>>>> develop
 
 
 export const UPLOAD_CSV_SUCCESS = 'UPLOAD_CSV_SUCCESS';
