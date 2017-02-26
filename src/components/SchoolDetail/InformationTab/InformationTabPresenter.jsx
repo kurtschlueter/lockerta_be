@@ -20,7 +20,8 @@ const InformationTabPresenter = ({
   editOption,
   deleteOption,
   buttonClicked,
-  newSchool
+  newSchool,
+  imageLoaderCallback
 }) => {
   if (!newSchool) {
     var values = [
@@ -81,7 +82,6 @@ const InformationTabPresenter = ({
           }
     ];
   } else {
-    let valueVal = 1==1 ? "pepe" : "biotch";
     var values = [
           {
             id: 'name',
@@ -157,7 +157,9 @@ const InformationTabPresenter = ({
       <Form elements={resourceConstants.clientDetailInformationTabElements} values={values} />
       {(saveCancelOption) &&
         <div>
-        <ImageUploader />
+        <ImageUploader
+          imageLoaderCallback={imageLoaderCallback}
+        />
         <div className="col-lg-12-info-tab">
           <br />
           <div className="errorText">

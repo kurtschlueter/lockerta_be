@@ -50,6 +50,7 @@ class InformationTabContainer extends Component {
     this.clientTypeClicked = this.clientTypeClicked.bind(this);
     this.managerClicked = this.managerClicked.bind(this);
     this.stateClicked = this.stateClicked.bind(this);
+    this.imageLoaderCallback = this.imageLoaderCallback.bind(this);
   }
 
   componentWillMount() {
@@ -340,6 +341,12 @@ class InformationTabContainer extends Component {
     }
   }
 
+  imageLoaderCallback(value) {
+
+    console.log('fubckfuckcfuckfuckfuckfuck')
+    this.changeHandler('logo', value)
+  }
+
   render() {
     return (
       <InformationTabPresenter
@@ -363,7 +370,7 @@ class InformationTabContainer extends Component {
         managerClicked={this.managerClicked}
         stateClicked={this.stateClicked}
         newSchool={this.state.newSchool}
-
+        imageLoaderCallback={this.imageLoaderCallback}
       />
     );
   }

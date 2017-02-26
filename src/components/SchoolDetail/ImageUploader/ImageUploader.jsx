@@ -34,6 +34,7 @@ class ImageUploader extends Component {
     });
 
     promise.done(function(data){
+    _this.props.imageLoaderCallback(data)
     console.log('promise complete!!!')
     console.log(data)
       _this.setState({
