@@ -2,9 +2,9 @@ import {
   GET_SCHOOLS,
   GET_SCHOOL,
   SET_SCHOOL,
-  POST_CLIENT,
+  POST_SCHOOL,
   PUT_SCHOOL,
-  DELETE_CLIENT,
+  DELETE_SCHOOL,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
   UPLOAD_CSV_SUCCESS,
@@ -80,19 +80,19 @@ export const searchSchools = (query) => (dispatch) => {
 };
 
 
-export function postClient(data) {
+export function postSchool(data) {
   return {
-    type: POST_CLIENT,
+    type: POST_SCHOOL,
     data
   };
 }
 
-export const requestPostClient = (client) => (dispatch) => {
+export const requestPostSchool = (school) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    clientApi.postClient(client).subscribe(
+    clientApi.postSchool(school).subscribe(
       (data) => {
         if (data) {
-          dispatch(postClient(data));
+          dispatch(postSchool(data));
         }
         resolve();
       },
@@ -137,21 +137,29 @@ export const requestPutSchool = (school) => (dispatch) => {
   });
 };
 
-export function deleteClient(data) {
+export function deleteSchool(data) {
   return {
-    type: DELETE_CLIENT,
-    data: {
-      name: data.name,
-      type: data.type,
-      phone: data.phone,
-      address: data.address,
-      zipCode: data.zipCode,
-      city: data.city,
-      state: data.state,
-      managerId: data.managerId
-    }
+    type: DELETE_SCHOOL,
+    data
   };
 }
+
+export const requestDeleteSchool = (school) => (dispatch) => {
+  return new Promise((resolve, reject) => {
+    clientApi.deleteSchool(school).subscribe(
+      (data) => {
+        if (data) {
+          dispatch(deleteSchool(data));
+        }
+        resolve();
+      },
+      (error) => {
+        reject(error);
+      },
+      () => {}
+    );
+  });
+};
 
 export function uploadCSVSuccess(data) {
   return {
@@ -189,22 +197,6 @@ export function hideImportCSV() {
     type: HIDE_IMPORT_CSV
   }
 }
-export const requestDeleteClient = (client) => (dispatch) => {
-  return new Promise((resolve, reject) => {
-    clientApi.deleteClient(client).subscribe(
-      (data) => {
-        if (data) {
-          dispatch(deleteClient(data));
-        }
-        resolve();
-      },
-      (error) => {
-        reject(error);
-      },
-      () => {}
-    );
-  });
-};
 
 export const fetchUsers = (filters, offset, limit) => (dispatch) => {
   clientApi.getClients(client).subscribe(

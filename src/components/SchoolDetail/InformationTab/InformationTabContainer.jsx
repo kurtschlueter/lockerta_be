@@ -50,6 +50,7 @@ class InformationTabContainer extends Component {
     this.clientTypeClicked = this.clientTypeClicked.bind(this);
     this.managerClicked = this.managerClicked.bind(this);
     this.stateClicked = this.stateClicked.bind(this);
+    this.imageLoaderCallback = this.imageLoaderCallback.bind(this);
   }
 
   componentWillMount() {
@@ -83,6 +84,7 @@ class InformationTabContainer extends Component {
         createState: false,
         newSchool: false
       });
+      console.log(this.props.school)
     } else {
       console.log('information tab container fuck entered for new school')
       this.setState({
@@ -100,33 +102,35 @@ class InformationTabContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.agencies !== nextProps.agencies) {
-      this.setState({
-        agencies: nextProps.agencies
-      });
-    }
-    if (this.state.managers !== nextProps.managers) {
-      this.setState({
-        managers: nextProps.managers
-      });
-    }
-    if (this.state.specialists !== nextProps.specialists) {
-      this.setState({
-        specialists: nextProps.specialists
-      });
-    }
+    // debugger
+    // if (this.state.agencies !== nextProps.agencies) {
+    //   this.setState({
+    //     agencies: nextProps.agencies
+    //   });
+    // }
+    // if (this.state.managers !== nextProps.managers) {
+    //   this.setState({
+    //     managers: nextProps.managers
+    //   });
+    // }
+    // if (this.state.specialists !== nextProps.specialists) {
+    //   this.setState({
+    //     specialists: nextProps.specialists
+    //   });
+    // }
     if (!this.props.done && nextProps.done) {
       browserHistory.push('/schoolList');
     }
     if (!this.props.isConfirmed && nextProps.isConfirmed && this.state.deleteState) {
       console.log('in compoment will receive props')
       const { profile } = this.state;
-      delete profile.products;
-      delete profile.managerName;
-      delete profile.specialistName;
-      delete profile.agencyName;
-      // this.props.editSchoolHandler({ ...profile, is_deleted: 1 });
-      browserHistory.push('/schoolList');
+      // delete profile.products;
+      // delete profile.managerName;
+      // delete profile.specialistName;
+      // delete profile.agencyName;
+
+      this.props.deleteSchoolHandler({ ...profile});
+
     }
     if (!this.props.success && nextProps.success) {
       if (this.state.putState) {
@@ -144,11 +148,13 @@ class InformationTabContainer extends Component {
       if (this.state.deleteState) {
         this.props.showModal({
           message: Constants.deleteClientSuccessMessage,
-          isConfirmed: true
+          isConfirmed: true,
+          type: Constants.delete
         });
       }
     }
   }
+
   buttonClicked(button) {
     switch (button) {
       case 'saveButton':
@@ -186,7 +192,8 @@ class InformationTabContainer extends Component {
             });
           }
           if (this.state.createState) {
-            this.props.addClientHandler({ ...profile, is_hidden: 0, is_deleted: 0});
+            console.log('yeeessss')
+            this.props.addSchoolHandler({ ...profile, is_hidden: 0, is_deleted: 0, logo: "https://s-media-cache-ak0.pinimg.com/originals/00/23/70/0023707f1caf3eb3757e751d08f06ac5.gif"});
           }
         }
         break;
@@ -309,7 +316,13 @@ class InformationTabContainer extends Component {
   }
 
   changeHandler(field, param) {
+    console.log('change handler field', field)
+    console.log('change handler param', param)
+
     const updatedProfile = Object.assign({}, this.state.profile);
+
+    console.log('updateProfile', updatedProfile)
+
     if (field === 'manager') {
       updatedProfile.managerId = param.id;
       updatedProfile.managerName = param.name;
@@ -326,6 +339,12 @@ class InformationTabContainer extends Component {
       updatedProfile[field] = param;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
     }
+  }
+
+  imageLoaderCallback(value) {
+
+    console.log('fubckfuckcfuckfuckfuckfuck')
+    this.changeHandler('logo', value)
   }
 
   render() {
@@ -351,7 +370,7 @@ class InformationTabContainer extends Component {
         managerClicked={this.managerClicked}
         stateClicked={this.stateClicked}
         newSchool={this.state.newSchool}
-
+        imageLoaderCallback={this.imageLoaderCallback}
       />
     );
   }
@@ -373,11 +392,15 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateProfile: client => dispatch(clientDetailFunctions.updatedProfile(client)),
+
+  deleteSchoolHandler: school => dispatch(clientActions.requestDeleteSchool(school)),
   editSchoolHandler: school => dispatch(clientActions.requestPutSchool(school)),
+  addSchoolHandler: school => dispatch(clientActions.requestPostSchool(school)),
+
   fetchAgencies: options => dispatch(agencyActions.fetchAgencies(options)),
   fetchAccountManagers: options => dispatch(managerActions.fetchAccountManagers(options)),
   fetchSpecialists: options => dispatch(specialistActions.fetchSpecialists(options)),
-  showModal: modalMessage => dispatch(modalActions.showModal(modalMessage))
+  showModal: modalMessage => dispatch(modalActions.showModal(modalMessage)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InformationTabContainer);

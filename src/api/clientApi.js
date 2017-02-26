@@ -2,26 +2,32 @@ import networkClient from '../utils/networkLayer/NetworkClient';
 import {
   getSchoolDefinition,
   getSchoolsDefinition,
-  postClientDefinition,
+  postSchoolDefinition,
   putSchoolDefinition,
+<<<<<<< HEAD
   deleteClientDefinition,
   uploadCSVDefiniton,
   searchSchoolsDefinition
+=======
+  deleteSchoolDefinition,
+  uploadCSVDefiniton
+>>>>>>> develop
 } from '../utils/networkLayer/networkApiDefinition';
 
 
 export function getSchool(id) {
   // console.log('getSchool api', id)
-  const client = networkClient.observableClient(getSchoolDefinition(id));
-  return client;
+  const school = networkClient.observableClient(getSchoolDefinition(id));
+  return school;
 }
 
 export function getSchools() {
   // console.log('getClients api data')
-  const client = networkClient.observableClient(getSchoolsDefinition());
-  return client;
+  const school = networkClient.observableClient(getSchoolsDefinition());
+  return school;
 }
 
+<<<<<<< HEAD
 export function getSearchedSchools(query) {
   // console.log('getClients api data')
   const client = networkClient.observableClient(searchSchoolsDefinition(query));
@@ -30,6 +36,10 @@ export function getSearchedSchools(query) {
 
 export function postClient(client) {
   return networkClient.observableClient(postClientDefinition(client));
+=======
+export function postSchool(school) {
+  return networkClient.observableClient(postSchoolDefinition(school));
+>>>>>>> develop
 }
 
 export function putSchool(school) {
@@ -37,8 +47,8 @@ export function putSchool(school) {
 }
 
 
-export function deleteClient(client) {
-  return networkClient.observableClient(deleteClientDefinition(client))
+export function deleteSchool(school) {
+  return networkClient.observableClient(deleteSchoolDefinition(school))
 }
 
 export function uploadCSVFiles(csv) {

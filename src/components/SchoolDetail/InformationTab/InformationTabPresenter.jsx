@@ -1,6 +1,8 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import { browserHistory } from 'react-router';
+import ImageUploader from '../ImageUploader/ImageUploader.jsx';
+
 
 import Form from './../../tcReactUI/Form.jsx';
 
@@ -18,7 +20,8 @@ const InformationTabPresenter = ({
   editOption,
   deleteOption,
   buttonClicked,
-  newSchool
+  newSchool,
+  imageLoaderCallback
 }) => {
   if (!newSchool) {
     var values = [
@@ -70,10 +73,15 @@ const InformationTabPresenter = ({
             readOnly: readOnlyOption,
             options: states.map(s => ({ key: s.name, text: s.name })),
             onChange: state => changeHandler('state', state)
+          }, 
+          {
+            id: 'logo',
+            value: profile.logo,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('logo', value)
           }
     ];
   } else {
-    let valueVal = 1==1 ? "pepe" : "biotch";
     var values = [
           {
             id: 'name',
@@ -123,6 +131,12 @@ const InformationTabPresenter = ({
             readOnly: readOnlyOption,
             options: states.map(s => ({ key: s.name, text: s.name })),
             onChange: state => changeHandler('state', state)
+          },
+          {
+            id: 'logo',
+            value: null,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('logo', value)
           }
     ];
   }
@@ -142,6 +156,10 @@ const InformationTabPresenter = ({
       </div>
       <Form elements={resourceConstants.clientDetailInformationTabElements} values={values} />
       {(saveCancelOption) &&
+        <div>
+        <ImageUploader
+          imageLoaderCallback={imageLoaderCallback}
+        />
         <div className="col-lg-12-info-tab">
           <br />
           <div className="errorText">
@@ -154,6 +172,7 @@ const InformationTabPresenter = ({
           <div className="col-lg-6-info-tab text-left">
             <input className="tests" type="cancel" value="Cancel" onClick={() => buttonClicked('cancelButton')} />
           </div>
+        </div>
         </div>
       }
       {(deleteOption) &&
