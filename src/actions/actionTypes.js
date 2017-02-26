@@ -7,6 +7,7 @@ export const GET_SCHOOL = 'GET_SCHOOL';
 export const GET_SCHOOLS = 'GET_SCHOOLS';
 export const SET_SCHOOL = 'SET_SCHOOL';
 export const PUT_SCHOOL = 'PUT_SCHOOL';
+export const SEARCH_SCHOOLS = 'SEARCH_SCHOOLS';
 
 export const DELETE_CLIENT = 'DELETE_CLIENTS';
 

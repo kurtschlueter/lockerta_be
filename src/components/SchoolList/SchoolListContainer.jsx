@@ -68,27 +68,11 @@ class SchoolListContainer extends Component {
 
   searchHandler(e) {
     console.log("come on")
-    if (e.key == "Enter") {
+    if (this.state.searchTerm !== "") {
       console.log(this.state.searchTerm);
-      this.setState({
-        filteredSchools:  [ 
-        {
-            "id": 3,
-            "name": "University of Alabama",
-            "nickname": "Crimson Tide",
-            "logo": "https://s-media-cache-ak0.pinimg.com/originals/00/23/70/0023707f1caf3eb3757e751d08f06ac5.gif",
-            "website": "www.roletide.com",
-            "state": "Alabama",
-            "city": "Tuscaloosa",
-            "population": 60000,
-            "male_population": 30000,
-            "female_population": 30000,
-            "is_hidden": 0,
-            "is_deleted": 0
-          } 
-          ]
-
-      })
+      this.props.searchSchools(this.state.searchTerm)
+    } else {
+      this.props.fetchSchools()
     }
   }
 
@@ -133,7 +117,8 @@ const mapDispatchToProps = dispatch => ({
   setSchool: school => dispatch(clientActions.setSchool(school)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
-  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton())
+  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
+  searchSchools: query => dispatch(clientActions.searchSchools(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SchoolListContainer);

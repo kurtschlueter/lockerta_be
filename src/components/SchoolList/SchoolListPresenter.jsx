@@ -28,7 +28,7 @@ const SchoolListPresenter = ({
       {(schools.length !== 0) ? (
 
         <div>
-          <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyPress={(e) => searchHandler(e)} /><FontAwesome name='search' />
+          <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
           <section style={sectionStyle}>
             <Grid
               metadata={resourceConstantsLockerta.schoolListMetaData}

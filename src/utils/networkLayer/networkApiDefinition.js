@@ -18,6 +18,16 @@ export function getSchoolDefinition(id) {
   };
 }
 
+export function searchSchoolsDefinition(term) {
+  // console.log('getSchoolDefinition', term)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/schools/search/${term}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
 // export function getSchoolDefinition(id) {
 //   return {
 //     method: httpMethods.GET,

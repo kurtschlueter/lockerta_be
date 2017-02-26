@@ -9,7 +9,8 @@ import {
   HIDE_IMPORT_CSV,
   UPLOAD_CSV_SUCCESS,
   UPLOAD_CSV_ERROR,
-  SET_DETAIL_VIEW
+  SET_DETAIL_VIEW,
+  SEARCH_SCHOOLS
 } from './actionTypes';
 
 import * as clientApi from './../api/clientApi';
@@ -49,6 +50,27 @@ export const fetchSchool = (id) => (dispatch) => {
   clientApi.getSchool(id).subscribe(
     (data) => {
       dispatch(getSchool(data[0]));
+    },
+    (error) => {
+      console.log('parsing failed', error);
+    },
+    () => {}
+  );
+};
+
+export function getSearchedSchools(data) {
+  // console.log('get school action', data)
+  return {
+    type: GET_SCHOOLS,
+    data
+  };
+}
+
+export const searchSchools = (query) => (dispatch) => {
+  // console.log('fetchSchool action', query)
+  clientApi.getSearchedSchools(query).subscribe(
+    (data) => {
+      dispatch(getSearchedSchools(data));
     },
     (error) => {
       console.log('parsing failed', error);
