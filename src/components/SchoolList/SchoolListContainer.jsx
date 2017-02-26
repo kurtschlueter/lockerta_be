@@ -19,10 +19,13 @@ class SchoolListContainer extends Component {
       showNewClientDropdown: false,
       showImportCSV: false,
       filteredSchools: [],
+      searchTerm: "",
     };
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
+    this.searchHandler = this.searchHandler.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   componentWillMount() {
@@ -63,6 +66,38 @@ class SchoolListContainer extends Component {
     browserHistory.push(`/schoolDetail/${school.id}`);
   }
 
+  searchHandler(e) {
+    console.log("come on")
+    if (e.key == "Enter") {
+      console.log(this.state.searchTerm);
+      this.setState({
+        filteredSchools:  [ 
+        {
+            "id": 3,
+            "name": "University of Alabama",
+            "nickname": "Crimson Tide",
+            "logo": "https://s-media-cache-ak0.pinimg.com/originals/00/23/70/0023707f1caf3eb3757e751d08f06ac5.gif",
+            "website": "www.roletide.com",
+            "state": "Alabama",
+            "city": "Tuscaloosa",
+            "population": 60000,
+            "male_population": 30000,
+            "female_population": 30000,
+            "is_hidden": 0,
+            "is_deleted": 0
+          } 
+          ]
+
+      })
+    }
+  }
+
+  handleSearchChange(e) {
+    this.setState({
+      searchTerm: e.target.value,
+    })
+  }
+
   render() {
     if (this.state.hasClients === null) {
       return <div>Loading</div>;
@@ -75,6 +110,9 @@ class SchoolListContainer extends Component {
         schools={this.state.filteredSchools}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
+        searchHandler={this.searchHandler}
+        searchTerm={this.searchTerm}
+        handleSearchChange={this.handleSearchChange}
       />
     );
   }

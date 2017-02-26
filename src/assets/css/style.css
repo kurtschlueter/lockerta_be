@@ -2067,6 +2067,19 @@ select {
 #welcome {
   font-weight: 600; }
 
+.searchbox {
+  background-color: #FFFFFF;
+  font-size: 16px;
+  padding: 2px;
+  margin: 20px 0 0 80px;
+  border-radius: 2px; }
+
+.content-wrapper .fa-search {
+  color: gray;
+  position: relative;
+  margin-left: -25px;
+  visibility: visible; }
+
 @-moz-document url-prefix() {
   .navbar {
     top: -2px; } }

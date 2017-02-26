@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Grid from 'tc-reactui/components/Grid/Grid.jsx';
+var FontAwesome = require('react-fontawesome');
 
 const resourceConstants = require(`../../assets/resources/${process.env.RESOURCES}/constants.js`);
 const resourceConstantsLockerta = require(`../../assets/resources/lockerta/constants.js`);
@@ -7,7 +8,10 @@ const resourceConstantsLockerta = require(`../../assets/resources/lockerta/const
 const SchoolListPresenter = ({
   schools,
   importCSVHandler,
-  rowClickListener
+  rowClickListener,
+  searchTerm,
+  handleSearchChange,
+  searchHandler,
 }) => {
   const sectionStyle = {
     position: 'absolute',
@@ -15,7 +19,8 @@ const SchoolListPresenter = ({
     overflowY: 'auto',
     top: '0',
     bottom: '150px',
-    width: '100%'
+    width: '100%',
+    marginTop: '40px',
   };
 
   return (
@@ -23,6 +28,7 @@ const SchoolListPresenter = ({
       {(schools.length !== 0) ? (
 
         <div>
+          <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyPress={(e) => searchHandler(e)} /><FontAwesome name='search' />
           <section style={sectionStyle}>
             <Grid
               metadata={resourceConstantsLockerta.schoolListMetaData}
