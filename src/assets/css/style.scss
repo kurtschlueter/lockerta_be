@@ -739,3 +739,17 @@ select {
       top: -2px;
     }
 }
+
+.upload-image {
+  display: table-cell;
+  text-align: left;
+  padding-left: 2em;
+  h1 {
+    font-size: 19px;
+  }
+  img {
+    height: 36px;
+  }
+}
+
+

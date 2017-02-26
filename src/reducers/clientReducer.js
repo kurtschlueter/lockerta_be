@@ -2,6 +2,7 @@ import {
   GET_SCHOOL,
   GET_SCHOOLS,
   SET_SCHOOL,
+  DELETE_SCHOOL,
   PUT_CLIENT,
   POST_CLIENT,
   GET_ACCOUNT_MANAGERS,
@@ -83,6 +84,16 @@ export default function clientReducer(state = defaultState, action) {
           school: action.data[0]
         }
       }
+
+    case DELETE_SCHOOL:
+      {
+        return {
+          ...state,
+          schools: [...state, action.data],
+          success: true
+        }
+      }
+
     case POST_CLIENT:
       {
         return {
@@ -91,6 +102,7 @@ export default function clientReducer(state = defaultState, action) {
            success: true
          }
       }
+
     case PUT_CLIENT:
       {
         return {

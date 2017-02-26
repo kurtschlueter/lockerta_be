@@ -144,5 +144,11 @@ export const clientDetailInformationTabElements = [
     type: 'DropDown',
     title: 'State',
     id: 'state'
-  }
+  },
+  {
+    type: 'TextInput',
+    title: 'Logo',
+    id: 'logo',
+    name: 'logo'
+  },
 ];

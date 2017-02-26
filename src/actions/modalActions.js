@@ -1,7 +1,8 @@
 import {
   SHOW_MODAL,
   CONFIRMED,
-  NO_MODAL
+  NO_MODAL,
+
 } from './actionTypes.js'
 
 export function showModal(data) {

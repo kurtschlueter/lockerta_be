@@ -32,6 +32,7 @@ import * as profileSelectors from './profileReducer';
 import * as agencySelectors from './agencyReducer'
 import * as managerSelectors from './managerReducer'
 import * as specialistSelector from './specialistReducer'
+import * as modalSelector from './modalReducer'
 
 export const getSchools = (state) => {
   // console.log('clientSelectors', clientSelectors  )
