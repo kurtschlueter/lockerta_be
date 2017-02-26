@@ -1,6 +1,8 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import { browserHistory } from 'react-router';
+import ImageUploader from '../ImageUploader/ImageUploader.jsx';
+
 
 import Form from './../../tcReactUI/Form.jsx';
 
@@ -154,6 +156,8 @@ const InformationTabPresenter = ({
       </div>
       <Form elements={resourceConstants.clientDetailInformationTabElements} values={values} />
       {(saveCancelOption) &&
+        <div>
+        <ImageUploader />
         <div className="col-lg-12-info-tab">
           <br />
           <div className="errorText">
@@ -166,6 +170,7 @@ const InformationTabPresenter = ({
           <div className="col-lg-6-info-tab text-left">
             <input className="tests" type="cancel" value="Cancel" onClick={() => buttonClicked('cancelButton')} />
           </div>
+        </div>
         </div>
       }
       {(deleteOption) &&
