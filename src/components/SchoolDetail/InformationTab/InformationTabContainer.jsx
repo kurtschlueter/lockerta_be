@@ -83,6 +83,7 @@ class InformationTabContainer extends Component {
         createState: false,
         newSchool: false
       });
+      console.log(this.props.school)
     } else {
       console.log('information tab container fuck entered for new school')
       this.setState({
