@@ -19,10 +19,13 @@ class SchoolListContainer extends Component {
       showNewClientDropdown: false,
       showImportCSV: false,
       filteredSchools: [],
+      searchTerm: "",
     };
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
+    this.searchHandler = this.searchHandler.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   componentWillMount() {
@@ -63,6 +66,22 @@ class SchoolListContainer extends Component {
     browserHistory.push(`/schoolDetail/${school.id}`);
   }
 
+  searchHandler(e) {
+    console.log("come on")
+    if (this.state.searchTerm !== "") {
+      console.log(this.state.searchTerm);
+      this.props.searchSchools(this.state.searchTerm)
+    } else {
+      this.props.fetchSchools()
+    }
+  }
+
+  handleSearchChange(e) {
+    this.setState({
+      searchTerm: e.target.value,
+    })
+  }
+
   render() {
     if (this.state.hasClients === null) {
       return <div>Loading</div>;
@@ -75,6 +94,9 @@ class SchoolListContainer extends Component {
         schools={this.state.filteredSchools}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
+        searchHandler={this.searchHandler}
+        searchTerm={this.searchTerm}
+        handleSearchChange={this.handleSearchChange}
       />
     );
   }
@@ -95,7 +117,8 @@ const mapDispatchToProps = dispatch => ({
   setSchool: school => dispatch(clientActions.setSchool(school)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
-  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton())
+  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
+  searchSchools: query => dispatch(clientActions.searchSchools(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SchoolListContainer);
