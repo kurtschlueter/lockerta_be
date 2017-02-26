@@ -7,10 +7,10 @@ export const GET_SCHOOL = 'GET_SCHOOL';
 export const GET_SCHOOLS = 'GET_SCHOOLS';
 export const SET_SCHOOL = 'SET_SCHOOL';
 export const PUT_SCHOOL = 'PUT_SCHOOL';
+export const POST_SCHOOL= 'POST_SCHOOL';
+export const DELETE_SCHOOL = 'DELETE_SCHOOL';
 
-export const DELETE_CLIENT = 'DELETE_CLIENTS';
 
-export const POST_CLIENT = 'POST_CLIENTS';
 export const UPLOAD_CSV_SUCCESS = 'UPLOAD_CSV_SUCCESS';
 export const UPLOAD_CSV_ERROR = 'UPLOAD_CSV_ERROR';
 export const SHOW_IMPORT_CSV = 'SHOW_IMPORT_CSV';

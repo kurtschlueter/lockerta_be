@@ -18,15 +18,6 @@ export function getSchoolDefinition(id) {
   };
 }
 
-// export function getSchoolDefinition(id) {
-//   return {
-//     method: httpMethods.GET,
-//     headers: basicHeaders,
-//     path: `/UserManagement/client/${id}`,
-//     basePath: basePaths.userManagement[process.env.STAGE]
-//   };
-// }
-
 export function getSchoolsDefinition() {
   return {
     method: httpMethods.GET,
@@ -36,42 +27,35 @@ export function getSchoolsDefinition() {
   };
 }
 
-// export function getClientsDefinition() {
-//   return {
-//     method: httpMethods.GET,
-//     headers: basicHeaders,
-//     path: '/UserManagement/clientsWithProducts',
-//     basePath: basePaths.userManagement[process.env.STAGE]
-//   };
-// }
-
-export function postClientDefinition(client) {
+export function postSchoolDefinition(school) {
   return {
     method: httpMethods.POST,
     headers: basicHeaders,
-    path: '/UserManagement/client',
-    basePath: basePaths.userManagement[process.env.STAGE],
+    path: `/Test/schools`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
     body: JSON.stringify({
-      name: client.name,
-      type: client.type,
-      phone: client.phone,
-      address: client.address,
-      zipCode: client.zipCode,
-      city: client.city,
-      state: client.state,
-      managerId: client.managerId,
-      isActive: client.isActive
+      name: school.name,
+      nickname: school.nickname,
+      website: school.website,
+      population: school.population,
+      male_population: school.male_population,
+      female_population: school.female_population,
+      state: school.state,
+      city: school.city,
+      is_hidden: school.is_hidden,
+      is_deleted: school.is_deleted,
+      logo: school.logo
     })
   };
 }
 
-export function deleteClientDefinition(client) {
+export function deleteSchoolDefinition(school) {
+  // debugger
   return {
     method: httpMethods.DELETE,
     headers: basicHeaders,
     path: `/Test/schools/${school.id}`,
-    basePath: basePaths.userManagement[process.env.STAGE],
-    body: client
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
   };
 }
 
@@ -92,7 +76,7 @@ export function putSchoolDefinition(school) {
       state: school.state,
       city: school.city,
       is_hidden: school.is_hidden,
-      is_deleted: school.is_deleted,
+      is_deleted: 0,
       logo: school.logo
     })
   };

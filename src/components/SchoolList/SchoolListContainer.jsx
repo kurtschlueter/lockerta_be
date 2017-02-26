@@ -36,8 +36,8 @@ class SchoolListContainer extends Component {
       this.setState({
         hasClients: nextProps.hasClients,
         showImportCSV: nextProps.showImportCSV,
-        filteredSchools: nextProps.schools
-        // filteredSchools: nextProps.schools.filter(school => !school.is_deleted)
+        // filteredSchools: nextProps.schools
+        filteredSchools: nextProps.schools.filter(school => !school.is_deleted)
       });
     }
   }

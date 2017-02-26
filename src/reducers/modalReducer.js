@@ -1,7 +1,8 @@
 import {
   SHOW_MODAL,
   CONFIRMED,
-  NO_MODAL
+  NO_MODAL,
+  SET_DONE
 } from '../actions/actionTypes';
 
 const defaultState = {
