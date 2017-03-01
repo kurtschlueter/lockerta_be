@@ -47,6 +47,15 @@ export function getSchoolsDefinition() {
   };
 }
 
+export function getReviewsDefinition() {
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: '/Test/reviews',
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
 export function postSchoolDefinition(school) {
   return {
     method: httpMethods.POST,

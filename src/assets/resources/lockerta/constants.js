@@ -101,6 +101,89 @@ export function mappedSchools(schools) {
   });
 }
 
+export const reviewListMetaData = {
+  columns: [
+        { field: 'athlete_fname', title: 'FIRST', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'athlete_lname', title: 'LAST', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'name', title: 'SCHOOL', headerDefinition: 'nameHeader', ascending: false },
+        { field: 'sport', title: 'TEAM', headerDefinition: 'nameHeader', ascending: false },
+  ],
+  cells: [
+    {
+      id: 'nameHeader',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '24px', color: 'red' }
+    },
+    {
+      id: 'nameRow',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '14px', color: 'red'}
+    },
+    {
+      id: 'logoHeader',
+      style: { width: '10%', marginRight: '20px' }
+    },
+    {
+      id: 'logoRow',
+      style: { width: '10%', marginRight: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }
+    },
+  ]
+};
+
+
+
+
+export function mappedReviews(reviews) {
+  return reviews.map((review) => {
+    let leftMargin = 12;
+    return {
+      id: review.id,
+      name: {
+        value: review.name ? review.name : '',
+        cellDefinition: 'nameRow'
+      },
+      sport: {
+        value: review.sport ? review.sport : '',
+        cellDefinition: 'nameRow'
+      },
+      athlete_fname: {
+        value: review.athlete_fname ? review.athlete_fname : '',
+        cellDefinition: 'nameRow'
+      },
+      athlete_lname: {
+        value: review.athlete_lname ? review.athlete_lname : '',
+        cellDefinition: 'nameRow'
+      },
+      nickname: {
+        value: review.nickname ? review.nickname : '',
+        cellDefinition: 'nameRow'
+      },
+      website: {
+        value: review.website ? review.website : '',
+        cellDefinition: 'nameRow'
+      },
+      state: {
+        value: review.state ? review.state : '',
+        cellDefinition: 'nameRow'
+      },
+      city: {
+        value: review.city ? review.city : '',
+        cellDefinition: 'nameRow'
+      },
+      population: {
+        value: review.population ? review.population : '',
+        cellDefinition: 'nameRow'
+      },
+      male_population: {
+        value: review.male_population ? review.male_population : '',
+        cellDefinition: 'nameRow'
+      },
+      female_population: {
+        value: review.female_population ? review.female_population : '',
+        cellDefinition: 'nameRow'
+      },
+    };
+  });
+}
+
 export const clientDetailInformationTabElements = [
   {
     type: 'TextInput',

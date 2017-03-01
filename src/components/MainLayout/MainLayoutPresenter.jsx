@@ -17,7 +17,8 @@ const menuItems =
     {
       title: userTitle,
       path: `/${userType}`
-    }
+    },
+    { title: 'REVIEWS', path: '/reviewList'}
   ];
 
 class MainLayout extends Component {

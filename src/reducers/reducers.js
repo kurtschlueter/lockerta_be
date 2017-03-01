@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import clientReducer from './clientReducer';
+import reviewReducer from './reviewReducer';
 import loginReducer from './loginReducer';
 import integrationReducer from './integrationReducer';
 import profileReducer from './profileReducer';
@@ -12,6 +13,7 @@ import navbarReducer from './navbarReducer';
 
 const moranReducers = combineReducers({
   schools: clientReducer,
+  reviews: reviewReducer,
   loginState: loginReducer,
   integrations: integrationReducer,
   profile: profileReducer,
@@ -27,6 +29,7 @@ export default moranReducers;
 
 // Selectors
 import * as clientSelectors from './clientReducer';
+import * as reviewSelectors from './reviewReducer';
 import * as integrationSelectors from './integrationReducer'
 import * as profileSelectors from './profileReducer';
 import * as agencySelectors from './agencyReducer'
@@ -37,6 +40,12 @@ import * as modalSelector from './modalReducer'
 export const getSchools = (state) => {
   // console.log('clientSelectors', clientSelectors  )
   return clientSelectors.getSchools(state.schools);
+}
+
+export const getReviews = (state) => {
+  // console.log('clientSelectors', clientSelectors  )
+  console.log('wtffffffffffffffff')
+  return reviewSelectors.getReviews(state.reviews);
 }
 
 export const getIntegrations = (state) => {

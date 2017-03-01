@@ -11,6 +11,15 @@ export const SEARCH_SCHOOLS = 'SEARCH_SCHOOLS';
 export const POST_SCHOOL= 'POST_SCHOOL';
 export const DELETE_SCHOOL = 'DELETE_SCHOOL';
 
+// Reviews
+export const GET_REVIEW = 'GET_REVIEW';
+export const GET_REVIEWS = 'GET_REVIEWS';
+export const SET_REVIEW = 'SET_REVIEW';
+export const PUT_REVIEW = 'PUT_REVIEW';
+export const SEARCH_REVIEWS = 'SEARCH_REVIEWS';
+export const POST_REVIEW= 'POST_REVIEW';
+export const DELETE_REVIEW = 'DELETE_REVIEW';
+
 
 export const UPLOAD_CSV_SUCCESS = 'UPLOAD_CSV_SUCCESS';
 export const UPLOAD_CSV_ERROR = 'UPLOAD_CSV_ERROR';
