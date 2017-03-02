@@ -44,7 +44,6 @@ export const getSchools = (state) => {
 
 export const getReviews = (state) => {
   // console.log('clientSelectors', clientSelectors  )
-  console.log('wtffffffffffffffff')
   return reviewSelectors.getReviews(state.reviews);
 }
 
@@ -75,6 +74,11 @@ export const getAgencies = (state) => {
 export const setSchool = (state) => {
   console.log('setSchools main reducers', state )
   return clientSelectors.setSchool(state.schools);
+}
+
+export const setReview = (state) => {
+  console.log('setReviews main reducers', state )
+  return reviewSelectors.setReview(state.reviews);
 }
 
 export const csvError = (state) => {

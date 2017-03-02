@@ -1,8 +1,7 @@
 import {
-  GET_SCHOOL,
-  GET_SCHOOLS,
   GET_REVIEWS,
-  SET_SCHOOL,
+  GET_REVIEW,
+  SET_REVIEW,
   DELETE_SCHOOL,
   PUT_CLIENT,
   POST_CLIENT,
@@ -32,32 +31,33 @@ const defaultState = {
 export default function reviewReducer(state = defaultState, action) {
   console.log('actionssssssss', action)
   switch (action.type) {
-    // case GET_SCHOOL:
-    //   {
-    //       console.log('action', action)
-    //     let newState = state;
-    //     const currentSchool = state.schools.find(c => c.id === action.data.id)
-    //     if (currentSchool) {
-    //       const index = state.schools.indexOf(currentSchool);
-    //       newState = {
-    //         ...state,
-    //         school: action.data,
-    //         schools: [
-    //           ...state.schools.slice(0, index),
-    //           action.data,
-    //           ...state.schools.slice(index + 1)
-    //         ]
-    //       };
-    //     } else {
-    //       newState = {
-    //         ...state,
-    //         school: action.data,
-    //         schools: [...state.schools, action.data]
-    //       };
-    //     }
+    case GET_REVIEW:
+      {
+        console.log('WILL IT EVER GET HERE')
+          console.log('action', action)
+        let newState = state;
+        const currentReview = state.reviews.find(c => c.id === action.data.id)
+        if (currentReview) {
+          const index = state.reviews.indexOf(currentReview);
+          newState = {
+            ...state,
+            review: action.data,
+            reviews: [
+              ...state.reviews.slice(0, index),
+              action.data,
+              ...state.reviews.slice(index + 1)
+            ]
+          };
+        } else {
+          newState = {
+            ...state,
+            review: action.data,
+            reviews: [...state.reviews, action.data]
+          };
+        }
 
-    //     return newState;
-    //   }
+        return newState;
+      }
     // case GET_SCHOOLS:
     //   {
     //     return action.data.length > 0 ? (
@@ -83,7 +83,7 @@ export default function reviewReducer(state = defaultState, action) {
         return action.data.length > 0 ? (
           {
             ...state,
-            schools: action.data,
+            reviews: action.data,
             hasClients: true,
             showImportCSV: false,
             success: false
@@ -91,20 +91,21 @@ export default function reviewReducer(state = defaultState, action) {
         ) : (
           {
             ...state,
-            schools: action.data,
+            reviews: action.data,
             hasClients: false,
             showImportCSV: false,
             success: false
            }
         )
       }
-    // case SET_SCHOOL:
-    //   {
-    //     return {
-    //       ...state,
-    //       school: action.data[0]
-    //     }
-    //   }
+    case SET_REVIEW:
+      {
+        console.log('IS IT EVER GONNA SET A REVIEW')
+        return {
+          ...state,
+          review: action.data[0]
+        }
+      }
 
     // case DELETE_SCHOOL:
     //   {
@@ -189,7 +190,7 @@ export default function reviewReducer(state = defaultState, action) {
 //   return state.schools;
 // }
 export const getReviews = (state) => {
-  return state.schools;
+  return state.reviews;
 }
 // export const postClient = (state) => {
 //   return state.clients;
@@ -200,9 +201,9 @@ export const getReviews = (state) => {
 // export const putClient = (state) => {
 //   return state.clients;
 // }
-// export const setSchool = (state) => {
-//   return state.school
-// }
+export const setReview = (state) => {
+  return state.review
+}
 // export const csvError = (state) => {
 //   return state.csvError
 // }

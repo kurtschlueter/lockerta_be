@@ -3,6 +3,7 @@ import {
   getSchoolDefinition,
   getSchoolsDefinition,
   getReviewsDefinition,
+  getReviewDefinition,
   postSchoolDefinition,
   putSchoolDefinition,
   searchSchoolsDefinition,
@@ -11,16 +12,10 @@ import {
 } from '../utils/networkLayer/networkApiDefinition';
 
 
-export function getSchool(id) {
+export function getReview(id) {
   // console.log('getSchool api', id)
-  const school = networkClient.observableClient(getSchoolDefinition(id));
-  return school;
-}
-
-export function getSchools() {
-  // console.log('getClients api data')
-  const school = networkClient.observableClient(getSchoolsDefinition());
-  return school;
+  const review = networkClient.observableClient(getReviewDefinition(id));
+  return review;
 }
 
 export function getReviews() {

@@ -1,5 +1,7 @@
 import {
   GET_REVIEWS,
+  GET_REVIEW,
+  SET_REVIEW,
   GET_SCHOOLS,
   GET_SCHOOL,
   SET_SCHOOL,
@@ -60,19 +62,19 @@ export const fetchReviews = (filters, offset, limit) => (dispatch) => {
   );
 };
 
-export function getSchool(data) {
+export function getReview(data) {
   // console.log('get school action', data)
   return {
-    type: GET_SCHOOL,
+    type: GET_REVIEW,
     data
   };
 }
 
-export const fetchSchool = (id) => (dispatch) => {
+export const fetchReview = (id) => (dispatch) => {
   // console.log('fetchSchool action', id)
-  reviewApi.getSchool(id).subscribe(
+  reviewApi.getReview(id).subscribe(
     (data) => {
-      dispatch(getSchool(data[0]));
+      dispatch(getReview(data[0]));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -127,10 +129,10 @@ export const requestPostSchool = (school) => (dispatch) => {
   });
 };
 
-export function setSchool(data) {
+export function setReview(data) {
   // console.log('data setClient', data)
   return {
-    type: SET_SCHOOL,
+    type: SET_REVIEW,
     data
   }
 };

@@ -56,14 +56,14 @@ class ReviewListContainer extends Component {
   newClientDropdownHandler() {
     this.setState({ showNewClientDropdown: !this.state.showNewClientDropdown });
   }
-  rowClickListener(school) {
+  rowClickListener(review) {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
-    this.props.setSchool(this.state.filteredSchools.filter(s => s.id === school.id));
+    this.props.setReview(this.state.filteredReviews.filter(s => s.id === review.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
     this.props.hideNewClientButton();
-    browserHistory.push(`/schoolDetail/${school.id}`);
+    browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
   searchHandler(e) {
@@ -114,7 +114,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchReviews: () => dispatch(reviewActions.fetchReviews()),
-  setSchool: school => dispatch(reviewActions.setSchool(school)),
+  setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(reviewActions.setDetailView(bool)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
