@@ -4,6 +4,7 @@ import InformationTabPresenter from './InformationTabPresenter.jsx';
 import * as clientDetailFunctions from './../ReviewDetailContainer.jsx';
 import { browserHistory } from 'react-router';
 import * as clientActions from './../../../actions/clientActions.js';
+import * as reviewActions from './../../../actions/reviewActions.js';
 import * as agencyActions from './../../../actions/agencyActions';
 import * as managerActions from './../../../actions/managerActions';
 import * as specialistActions from './../../../actions/specialistActions';
@@ -128,7 +129,7 @@ class InformationTabContainer extends Component {
       // delete profile.specialistName;
       // delete profile.agencyName;
 
-      this.props.deleteSchoolHandler({ ...profile});
+      this.props.deleteReviewHandler({ ...profile});
 
     }
     if (!this.props.success && nextProps.success) {
@@ -146,7 +147,7 @@ class InformationTabContainer extends Component {
       }
       if (this.state.deleteState) {
         this.props.showModal({
-          message: Constants.deleteClientSuccessMessage,
+          message: Constants.deleteReviewSuccessMessage,
           isConfirmed: true,
           type: Constants.delete
         });
@@ -214,16 +215,16 @@ class InformationTabContainer extends Component {
           createState: false
         });
         this.props.showModal({
-          message: Constants.deleteClientMessage,
+          message: Constants.deleteReviewMessage,
           isConfirmed: false,
           subMessage: Constants.deleteSubMessage,
-          okValue: 'Yes, delete client',
+          okValue: 'Yes, delete review',
           type: Constants.delete
         });
         break;
       case 'cancelButton':
         if (this.state.putState === true) {
-          const propClient = this.props.school;
+          const propClient = this.props.review;
           this.setState({
             profile: propClient,
             readOnlyOption: true,
@@ -392,7 +393,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateProfile: client => dispatch(clientDetailFunctions.updatedProfile(client)),
 
-  deleteSchoolHandler: school => dispatch(clientActions.requestDeleteSchool(school)),
+  deleteReviewHandler: review => dispatch(reviewActions.requestDeleteReview(review)),
   editSchoolHandler: school => dispatch(clientActions.requestPutSchool(school)),
   addSchoolHandler: school => dispatch(clientActions.requestPostSchool(school)),
 

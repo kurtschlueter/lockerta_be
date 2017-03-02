@@ -2,7 +2,7 @@ import {
   GET_REVIEWS,
   GET_REVIEW,
   SET_REVIEW,
-  DELETE_SCHOOL,
+  DELETE_REVIEW,
   PUT_CLIENT,
   POST_CLIENT,
   GET_ACCOUNT_MANAGERS,
@@ -22,11 +22,7 @@ const defaultState = {
   managers: [],
   review: {},
   showNewClientButton: false,
-  showImportCSV: false,
-  csvError: null,
-  csvSuccess: null,
-  success: false,
-  detailViewNew: true,
+  success: false
 };
 
 export default function reviewReducer(state = defaultState, action) {
@@ -86,7 +82,6 @@ export default function reviewReducer(state = defaultState, action) {
             ...state,
             reviews: action.data,
             hasClients: true,
-            showImportCSV: false,
             success: false
           }
         ) : (
@@ -94,7 +89,6 @@ export default function reviewReducer(state = defaultState, action) {
             ...state,
             reviews: action.data,
             hasClients: false,
-            showImportCSV: false,
             success: false
            }
         )
@@ -108,14 +102,14 @@ export default function reviewReducer(state = defaultState, action) {
         }
       }
 
-    // case DELETE_SCHOOL:
-    //   {
-    //     return {
-    //       ...state,
-    //       schools: [...state, action.data],
-    //       success: true
-    //     }
-    //   }
+    case DELETE_REVIEW:
+      {
+        return {
+          ...state,
+          reviews: [...state, action.data],
+          success: true
+        }
+      }
 
     // case POST_CLIENT:
     //   {
@@ -171,8 +165,8 @@ export default function reviewReducer(state = defaultState, action) {
     //       showImportCSV: false
     //     }
     //   }
-    case SET_REVIEW_DETAIL_VIEW:
-    console.log('setting detail view hopefully for reviews')
+    case SET_DETAIL_VIEW:
+    console.log('setting detail view hopefully')
       {
         return {
           ...state,
@@ -197,9 +191,9 @@ export const getReviews = (state) => {
 // export const postClient = (state) => {
 //   return state.clients;
 // }
-// export const deleteClient = (state) => {
-//   return state.clients;
-// }
+export const deleteReview = (state) => {
+  return state.clients;
+}
 // export const putClient = (state) => {
 //   return state.clients;
 // }
@@ -212,6 +206,6 @@ export const setReview = (state) => {
 // export const csvSuccess = (state) => {
 //   return state.csvSuccess
 // }
-export const setReviewDetailView = (state) => {
+export const setDetailView = (state) => {
   return state.detailViewNew;
 }

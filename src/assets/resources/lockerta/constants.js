@@ -152,34 +152,6 @@ export function mappedReviews(reviews) {
         value: review.athlete_lname ? review.athlete_lname : '',
         cellDefinition: 'nameRow'
       },
-      nickname: {
-        value: review.nickname ? review.nickname : '',
-        cellDefinition: 'nameRow'
-      },
-      website: {
-        value: review.website ? review.website : '',
-        cellDefinition: 'nameRow'
-      },
-      state: {
-        value: review.state ? review.state : '',
-        cellDefinition: 'nameRow'
-      },
-      city: {
-        value: review.city ? review.city : '',
-        cellDefinition: 'nameRow'
-      },
-      population: {
-        value: review.population ? review.population : '',
-        cellDefinition: 'nameRow'
-      },
-      male_population: {
-        value: review.male_population ? review.male_population : '',
-        cellDefinition: 'nameRow'
-      },
-      female_population: {
-        value: review.female_population ? review.female_population : '',
-        cellDefinition: 'nameRow'
-      },
     };
   });
 }
@@ -235,3 +207,178 @@ export const clientDetailInformationTabElements = [
     name: 'logo'
   },
 ];
+
+
+export const reviewDetailInformationTabElements = [
+  {
+    type: 'TextInput',
+    title: 'First Name',
+    id: 'athlete_fname',
+    name: 'athlete_fname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Last Name',
+    id: 'athlete_lname',
+    name: 'nickname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Jersey No.',
+    id: 'athlete_jersey_no'
+  },
+  {
+    type: 'TextInput',
+    title: 'Email',
+    id: 'athlete_email'
+  },
+  {
+    type: 'TextInput',
+    title: 'Best Teammate',
+    id: 'best_teammate'
+  },
+  {
+    type: 'TextInput',
+    title: 'Best Conf Player',
+    id: 'best_conf_player'
+  },
+  {
+    type: 'TextInput',
+    title: 'Rival',
+    id: 'team_rival',
+    name: 'team_rival'
+  },
+  {
+    type: 'TextInput',
+    title: 'Toughest Arena',
+    id: 'toughest_arena',
+    name: 'toughest_arena'
+  },
+  {
+    type: 'TextInput',
+    title: 'Head Coach',
+    id: 'head_coach_name',
+    name: 'head_coach_name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Recruiting',
+    id: 'recruiting_rating',
+    name: 'recruiting_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Relationships',
+    id: 'relationships_rating',
+    name: 'relationships_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Development',
+    id: 'development_rating',
+    name: 'development_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Knowledge',
+    id: 'knowledge_sport_rating',
+    name: 'knowledge_sport_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Program Tradition',
+    id: 'program_tradition_rating',
+    name: 'program_tradition_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Arena',
+    id: 'arena_rating',
+    name: 'arena_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Home Crowds',
+    id: 'home_crowds_rating',
+    name: 'home_crowds_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Weight Room',
+    id: 'weight_room_rating',
+    name: 'weight_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Locker Room',
+    id: 'locker_room_rating',
+    name: 'locker_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Training Room',
+    id: 'training_room_rating',
+    name: 'training_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Class Difficulty',
+    id: 'class_difficulty_rating',
+    name: 'class_difficulty_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Academic Reputation',
+    id: 'academic_rep_rating',
+    name: 'academic_rep_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Tutors',
+    id: 'tutors_rating',
+    name: 'tutors_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Weather',
+    id: 'weather_rating',
+    name: 'weather_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Nightlife',
+    id: 'nightlife_rating',
+    name: 'nightlife_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Fans',
+    id: 'fan_rating',
+    name: 'fan_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Graduated',
+    id: 'graduate',
+    name: 'graduate'
+  },
+  {
+    type: 'TextInput',
+    title: 'Comments',
+    id: 'comments',
+    name: 'comments'
+  },
+  {
+    type: 'TextInput',
+    title: 'School',
+    id: 'name',
+    name: 'name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Sport',
+    id: 'sport',
+    name: 'sport'
+  },
+];
+

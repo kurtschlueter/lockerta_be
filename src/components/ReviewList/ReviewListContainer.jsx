@@ -6,6 +6,7 @@ import ReviewListPresenter from './ReviewListPresenter.jsx';
 import ImportCSVContainer from '../ImportCSV/ImportCSVContainer.jsx';
 
 import * as reviewActions from './../../actions/reviewActions.js';
+import * as clientActions from './../../actions/clientActions.js';
 import * as navbarActions from './../../actions/navbarActions.js';
 import * as selectors from './../../reducers/reducers.js';
 
@@ -60,7 +61,7 @@ class ReviewListContainer extends Component {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
     this.props.setReview(this.state.filteredReviews.filter(s => s.id === review.id));
-    this.props.setReviewDetailView(false);
+    this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
     this.props.hideNewClientButton();
     browserHistory.push(`/reviewDetail/${review.id}`);
@@ -108,6 +109,7 @@ ReviewListContainer.contextTypes = {
 
 const mapStateToProps = state => ({
   reviews: selectors.getReviews(state),
+  schools: selectors.getSchools(state),
   hasClients: state.schools.hasClients,
   showImportCSV: state.schools.showImportCSV
 });
@@ -115,7 +117,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchReviews: () => dispatch(reviewActions.fetchReviews()),
   setReview: review => dispatch(reviewActions.setReview(review)),
-  setReviewDetailView: bool => dispatch(reviewActions.setReviewDetailView(bool)),
+  setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchSchools: query => dispatch(reviewActions.searchSchools(query))

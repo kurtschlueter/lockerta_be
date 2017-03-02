@@ -13,13 +13,5 @@ export const tabs = [
         generateComponent(props) {
             return <InformationTabContainer {...props} />;
         }
-    },
-    {
-        tabID: 'integrations',
-        label: 'Integrations',
-        tabIndex: 1,
-        generateComponent(props) {
-            return <IntegrationsTabContainer {...props} />;
-        }
     }
 ];

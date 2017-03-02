@@ -90,7 +90,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchReview: (id) => {
-    console.log('idididididid', id)
     return dispatch(reviewActions.fetchReview(id));
   }
 });

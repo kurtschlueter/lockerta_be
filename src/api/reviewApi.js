@@ -7,7 +7,7 @@ import {
   postSchoolDefinition,
   putSchoolDefinition,
   searchSchoolsDefinition,
-  deleteSchoolDefinition,
+  deleteReviewDefinition,
   uploadCSVDefiniton
 } from '../utils/networkLayer/networkApiDefinition';
 
@@ -39,8 +39,8 @@ export function putSchool(school) {
 }
 
 
-export function deleteSchool(school) {
-  return networkClient.observableClient(deleteSchoolDefinition(school))
+export function deleteReview(review) {
+  return networkClient.observableClient(deleteReviewDefinition(review))
 }
 
 export function uploadCSVFiles(csv) {

@@ -7,7 +7,7 @@ import {
   SET_SCHOOL,
   POST_SCHOOL,
   PUT_SCHOOL,
-  DELETE_SCHOOL,
+  DELETE_REVIEW,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
   UPLOAD_CSV_SUCCESS,
@@ -163,19 +163,19 @@ export const requestPutSchool = (school) => (dispatch) => {
   });
 };
 
-export function deleteSchool(data) {
+export function deleteReview(data) {
   return {
-    type: DELETE_SCHOOL,
+    type: DELETE_REVIEW,
     data
   };
 }
 
-export const requestDeleteSchool = (school) => (dispatch) => {
+export const requestDeleteReview = (review) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    reviewApi.deleteSchool(school).subscribe(
+    reviewApi.deleteReview(review).subscribe(
       (data) => {
         if (data) {
-          dispatch(deleteSchool(data));
+          dispatch(deleteReview(data));
         }
         resolve();
       },

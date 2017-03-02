@@ -28,58 +28,183 @@ const InformationTabPresenter = ({
           {
             id: 'name',
             value: profile.name,
-            readOnly: readOnlyOption,
+            readOnly: true,
             onChange: value => changeHandler('name', value)
           },
           {
-            id: 'nickname',
-            value: profile.nickname,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('nickname', value)
+            id: 'sport',
+            value: profile.sport,
+            readOnly: true,
+            onChange: value => changeHandler('sport', value)
           },
           {
-            id: 'website',
-            value: profile.website,
+            id: 'athlete_fname',
+            value: profile.athlete_fname,
             readOnly: readOnlyOption,
-            onChange: value => changeHandler('website', value)
+            onChange: value => changeHandler('athlete_fname', value)
           },
           {
-            id: 'population',
-            value: profile.population,
+            id: 'athlete_lname',
+            value: profile.athlete_lname,
             readOnly: readOnlyOption,
-            onChange: value => changeHandler('population', parseInt(value))
+            onChange: value => changeHandler('athlete_lname', value)
           },
           {
-            id: 'male_population',
-            value: profile.male_population,
+            id: 'athlete_jersey_no',
+            value: profile.athlete_jersey_no,
             readOnly: readOnlyOption,
-            onChange: value => changeHandler('male_population', parseInt(value))
+            onChange: value => changeHandler('athlete_jersey_no', parseInt(value))
           },
           {
-            id: 'female_population',
-            value: profile.female_population,
+            id: 'athlete_email',
+            value: profile.athlete_email,
             readOnly: readOnlyOption,
-            onChange: value => changeHandler('female_population', parseInt(value))
+            onChange: value => changeHandler('athlete_email', value)
           },
           {
-            id: 'city',
-            value: profile.city,
+            id: 'best_teammate',
+            value: profile.best_teammate,
             readOnly: readOnlyOption,
-            onChange: value => changeHandler('city', value)
+            onChange: value => changeHandler('best_teammate', value)
           },
           {
-            id: 'state',
-            value: profile.state,
+            id: 'best_conf_player',
+            value: profile.best_conf_player,
             readOnly: readOnlyOption,
-            options: states.map(s => ({ key: s.name, text: s.name })),
-            onChange: state => changeHandler('state', state)
-          }, 
+            onChange: value => changeHandler('best_conf_player', value)
+          },
           {
-            id: 'logo',
-            value: profile.logo,
+            id: 'team_rival',
+            value: profile.team_rival,
             readOnly: readOnlyOption,
-            onChange: value => changeHandler('logo', value)
-          }
+            onChange: value => changeHandler('team_rival', value)
+          },
+          {
+            id: 'toughest_arena',
+            value: profile.toughest_arena,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('toughest_arena', value)
+          },
+          {
+            id: 'head_coach_name',
+            value: profile.head_coach_name,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('head_coach_name', value)
+          },
+          {
+            id: 'play_for_coach_again',
+            value: profile.play_for_coach_again,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('play_for_coach_again', value)
+          },
+          {
+            id: 'graduate',
+            value: profile.graduate,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('graduate', value)
+          },
+          {
+            id: 'comments',
+            value: profile.comments,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('comments', value)
+          },
+          {
+            id: 'recruiting_rating',
+            value: profile.recruiting_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('recruiting_rating', parseInt(value))
+          },
+          {
+            id: 'relationships_rating',
+            value: profile.relationships_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('relationships_rating', parseInt(value))
+          },
+          {
+            id: 'development_rating',
+            value: profile.development_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('development_rating', parseInt(value))
+          },
+          {
+            id: 'knowledge_sport_rating',
+            value: profile.knowledge_sport_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('knowledge_sport_rating', parseInt(value))
+          },
+          {
+            id: 'program_tradition_rating',
+            value: profile.program_tradition_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('program_tradition_rating', parseInt(value))
+          },
+          {
+            id: 'arena_rating',
+            value: profile.arena_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('arena_rating', parseInt(value))
+          },
+          {
+            id: 'home_crowds_rating',
+            value: profile.home_crowds_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('home_crowds_rating', parseInt(value))
+          },
+          {
+            id: 'weight_room_rating',
+            value: profile.weight_room_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('weight_room_rating', parseInt(value))
+          },
+          {
+            id: 'locker_room_rating',
+            value: profile.locker_room_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('locker_room_rating', parseInt(value))
+          },
+          {
+            id: 'training_room_rating',
+            value: profile.training_room_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('training_room_rating', parseInt(value))
+          },
+          {
+            id: 'class_difficulty_rating',
+            value: profile.class_difficulty_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('class_difficulty_rating', parseInt(value))
+          },
+          {
+            id: 'academic_rep_rating',
+            value: profile.academic_rep_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('academic_rep_rating', parseInt(value))
+          },
+          {
+            id: 'tutors_rating',
+            value: profile.tutors_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('tutors_rating', parseInt(value))
+          },
+          {
+            id: 'weather_rating',
+            value: profile.weather_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('weather_rating', parseInt(value))
+          },
+          {
+            id: 'nightlife_rating',
+            value: profile.nightlife_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('nightlife_rating', parseInt(value))
+          },
+          {
+            id: 'fan_rating',
+            value: profile.fan_rating,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('fan_rating', parseInt(value))
+          },
     ];
   } else {
     var values = [
@@ -144,7 +269,7 @@ const InformationTabPresenter = ({
   return (
     <div className="tab-content-info-tab">
       <div className="col-lg-6-info-tab">
-        <h3>Client Detail</h3>
+        <h3>Review Detail</h3>
       </div>
       <div className="col-lg-6-info-tab text-right" style={{ paddingRight: '26px' }}>
         {(editOption) &&
@@ -154,12 +279,9 @@ const InformationTabPresenter = ({
       <div className="col-lg-12-info-tab ">
         <hr /><br />
       </div>
-      <Form elements={resourceConstants.clientDetailInformationTabElements} values={values} />
+      <Form elements={resourceConstants.reviewDetailInformationTabElements} values={values} />
       {(saveCancelOption) &&
         <div>
-        <ImageUploader
-          imageLoaderCallback={imageLoaderCallback}
-        />
         <div className="col-lg-12-info-tab">
           <br />
           <div className="errorText">
@@ -177,7 +299,7 @@ const InformationTabPresenter = ({
       }
       {(deleteOption) &&
         <div className="col-lg-12-info-tab">
-          <input type="delete" value="Delete Client" onClick={() => buttonClicked('deleteButton')} />
+          <input type="delete" value="Delete Review" onClick={() => buttonClicked('deleteButton')} />
         </div>
       }
     </div>

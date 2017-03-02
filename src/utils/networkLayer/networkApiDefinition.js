@@ -98,6 +98,16 @@ export function deleteSchoolDefinition(school) {
   };
 }
 
+export function deleteReviewDefinition(review) {
+  // debugger
+  return {
+    method: httpMethods.DELETE,
+    headers: basicHeaders,
+    path: `/Test/reviews/${review.id}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
+  };
+}
+
 export function putSchoolDefinition(school) {
   // debugger
   return {
