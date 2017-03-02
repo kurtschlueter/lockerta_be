@@ -27,6 +27,7 @@ export const SHOW_IMPORT_CSV = 'SHOW_IMPORT_CSV';
 export const HIDE_IMPORT_CSV = 'HIDE_IMPORT_CSV';
 
 export const SET_DETAIL_VIEW = 'SET_DETAIL_VIEW';
+export const SET_REVIEW_DETAIL_VIEW = 'SET_REVIEW_DETAIL_VIEW';
 
 // Login
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

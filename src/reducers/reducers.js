@@ -92,3 +92,7 @@ export const csvSuccess = (state) => {
 export const setDetailView = (state) => {
   return clientSelectors.detailView(state.detailViewNew)
 }
+
+export const setReviewDetailView = (state) => {
+  return reviewSelectors.detailView(state.detailViewNew)
+}

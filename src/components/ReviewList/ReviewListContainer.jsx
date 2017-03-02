@@ -60,7 +60,7 @@ class ReviewListContainer extends Component {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
     this.props.setReview(this.state.filteredReviews.filter(s => s.id === review.id));
-    this.props.setDetailView(false);
+    this.props.setReviewDetailView(false);
     // console.log('after setschool in row click listener', this.props)
     this.props.hideNewClientButton();
     browserHistory.push(`/reviewDetail/${review.id}`);
@@ -115,7 +115,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchReviews: () => dispatch(reviewActions.fetchReviews()),
   setReview: review => dispatch(reviewActions.setReview(review)),
-  setDetailView: bool => dispatch(reviewActions.setDetailView(bool)),
+  setReviewDetailView: bool => dispatch(reviewActions.setReviewDetailView(bool)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchSchools: query => dispatch(reviewActions.searchSchools(query))

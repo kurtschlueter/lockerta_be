@@ -84,7 +84,6 @@ class InformationTabContainer extends Component {
         createState: false,
         newReview: false
       });
-      console.log(this.props.review)
     } else {
       console.log('information tab container fuck entered for new review')
       this.setState({

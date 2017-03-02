@@ -13,7 +13,8 @@ import {
   UPLOAD_CSV_SUCCESS,
   UPLOAD_CSV_ERROR,
   SET_DETAIL_VIEW,
-  SEARCH_SCHOOLS
+  SEARCH_SCHOOLS,
+  SET_REVIEW_DETAIL_VIEW
 } from './actionTypes';
 
 import * as reviewApi from './../api/reviewApi';
@@ -235,10 +236,10 @@ export const fetchUsers = (filters, offset, limit) => (dispatch) => {
   );
 };
 
-export function setDetailView(data) {
-  console.log('in set detail view ')
+export function setReviewDetailView(data) {
+  console.log('in set detail view reviews')
   return {
-    type: SET_DETAIL_VIEW,
+    type: SET_REVIEW_DETAIL_VIEW,
     data
   }
 };

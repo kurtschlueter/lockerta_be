@@ -11,7 +11,8 @@ import {
   SHOW_NEW_CLIENT_BUTTON,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
-  SET_DETAIL_VIEW
+  SET_DETAIL_VIEW,
+  SET_REVIEW_DETAIL_VIEW
 } from '../actions/actionTypes.js';
 
 import Constants from '../utils/localConstants';
@@ -170,13 +171,14 @@ export default function reviewReducer(state = defaultState, action) {
     //       showImportCSV: false
     //     }
     //   }
-    // case SET_DETAIL_VIEW:
-    //   {
-    //     return {
-    //       ...state,
-    //       detailViewNew: action.data
-    //     };
-    //   }
+    case SET_REVIEW_DETAIL_VIEW:
+    console.log('setting detail view hopefully for reviews')
+      {
+        return {
+          ...state,
+          detailViewNew: action.data
+        };
+      }
 
     default:
       {
@@ -210,6 +212,6 @@ export const setReview = (state) => {
 // export const csvSuccess = (state) => {
 //   return state.csvSuccess
 // }
-// export const setDetailView = (state) => {
-//   return state.detailViewNew;
-// }
+export const setReviewDetailView = (state) => {
+  return state.detailViewNew;
+}
