@@ -38,6 +38,16 @@ export function searchSchoolsDefinition(term) {
   };
 }
 
+export function searchReviewsDefinition(term) {
+  // console.log('getSchoolDefinition', term)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/reviews/search/${term}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
 // export function getSchoolDefinition(id) {
 //   return {
 //     method: httpMethods.GET,
@@ -84,6 +94,50 @@ export function postSchoolDefinition(school) {
       is_hidden: school.is_hidden,
       is_deleted: school.is_deleted,
       logo: school.logo
+    })
+  };
+}
+
+export function postReviewDefinition(review) {
+  return {
+    method: httpMethods.POST,
+    headers: basicHeaders,
+    path: `/Test/reviews`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
+    body: JSON.stringify({
+      // will need to update team and school id, but can't do it yet
+      team_id: 1,
+      school_id: 1,
+      athlete_fname: review.athlete_fname,
+      athlete_lname: review.athlete_lname,
+      athlete_jersey_no: review.athlete_jersey_no,
+      athlete_email: review.athlete_email,
+      best_teammate: review.best_teammate,
+      best_conf_player: review.best_conf_player,
+      team_rival: review.team_rival,
+      toughest_arena: review.toughest_arena,
+      head_coach_name: review.head_coach_name,
+      recruiting_rating: review.recruiting_rating,
+      relationships_rating: review.relationships_rating,
+      development_rating: review.development_rating,
+      knowledge_sport_rating: review.knowledge_sport_rating,
+      program_tradition_rating: review.program_tradition_rating,
+      arena_rating: review.arena_rating,
+      home_crowds_rating: review.home_crowds_rating,
+      weight_room_rating: review.weight_room_rating,
+      locker_room_rating: review.locker_room_rating,
+      training_room_rating: review.training_room_rating,
+      class_difficulty_rating: review.class_difficulty_rating,
+      academic_rep_rating: review.academic_rep_rating,
+      tutors_rating: review.tutors_rating,
+      weather_rating: review.weather_rating,
+      nightlife_rating: review.nightlife_rating,
+      fan_rating: review.fan_rating,
+      play_for_coach_again: review.play_for_coach_again,
+      graduate: review.graduate,
+      comments: review.comments,
+      is_hidden: review.is_hidden,
+      is_deleted: review.is_deleted
     })
   };
 }

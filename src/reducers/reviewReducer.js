@@ -4,7 +4,7 @@ import {
   SET_REVIEW,
   DELETE_REVIEW,
   PUT_REVIEW,
-  POST_CLIENT,
+  POST_REVIEW,
   GET_ACCOUNT_MANAGERS,
   UPLOAD_CSV_SUCCESS,
   UPLOAD_CSV_ERROR,
@@ -55,26 +55,6 @@ export default function reviewReducer(state = defaultState, action) {
 
         return newState;
       }
-    // case GET_SCHOOLS:
-    //   {
-    //     return action.data.length > 0 ? (
-    //       {
-    //         ...state,
-    //         schools: action.data,
-    //         hasClients: true,
-    //         showImportCSV: false,
-    //         success: false
-    //       }
-    //     ) : (
-    //       {
-    //         ...state,
-    //         schools: action.data,
-    //         hasClients: false,
-    //         showImportCSV: false,
-    //         success: false
-    //        }
-    //     )
-    //   }
     case GET_REVIEWS:
       {
         return action.data.length > 0 ? (
@@ -111,14 +91,14 @@ export default function reviewReducer(state = defaultState, action) {
         }
       }
 
-    // case POST_CLIENT:
-    //   {
-    //     return {
-    //       ...state,
-    //        clients: [...state, action.data],
-    //        success: true
-    //      }
-    //   }
+    case POST_REVIEW:
+      {
+        return {
+          ...state,
+           reviews: [...state, action.data],
+           success: true
+         }
+      }
 
     case PUT_REVIEW:
       {
@@ -128,41 +108,11 @@ export default function reviewReducer(state = defaultState, action) {
           success: true
         }
       }
-    // case UPLOAD_CSV_SUCCESS:
-    //   {
-    //     return {
-    //       ...state,
-    //       csvSuccess: action.data,
-    //       csvError: null
-    //     }
-    //   }
-    // case UPLOAD_CSV_ERROR:
-    //  {
-    //    return {
-    //      ...state,
-    //      csvError: action.error,
-    //      csvSuccess: null
-    //    }
-    //  }
     // case SHOW_NEW_CLIENT_BUTTON:
     //   {
     //     return {
     //       ...state,
     //       showNewClientButton: !state.showNewClientButton
-    //     }
-    //   }
-    // case SHOW_IMPORT_CSV:
-    //   {
-    //     return {
-    //       ...state,
-    //       showImportCSV: true
-    //     }
-    //   }
-    // case HIDE_IMPORT_CSV:
-    //   {
-    //     return {
-    //       ...state,
-    //       showImportCSV: false
     //     }
     //   }
     case SET_DETAIL_VIEW:
@@ -188,9 +138,9 @@ export default function reviewReducer(state = defaultState, action) {
 export const getReviews = (state) => {
   return state.reviews;
 }
-// export const postClient = (state) => {
-//   return state.clients;
-// }
+export const postReview = (state) => {
+  return state.reviews;
+}
 export const deleteReview = (state) => {
   return state.reviews;
 }
@@ -200,12 +150,6 @@ export const putReview = (state) => {
 export const setReview = (state) => {
   return state.review
 }
-// export const csvError = (state) => {
-//   return state.csvError
-// }
-// export const csvSuccess = (state) => {
-//   return state.csvSuccess
-// }
 export const setDetailView = (state) => {
   return state.detailViewNew;
 }

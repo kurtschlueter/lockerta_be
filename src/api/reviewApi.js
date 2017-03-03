@@ -4,9 +4,9 @@ import {
   getSchoolsDefinition,
   getReviewsDefinition,
   getReviewDefinition,
-  postSchoolDefinition,
+  postReviewDefinition,
   putReviewDefinition,
-  searchSchoolsDefinition,
+  searchReviewsDefinition,
   deleteReviewDefinition,
   uploadCSVDefiniton
 } from '../utils/networkLayer/networkApiDefinition';
@@ -30,8 +30,14 @@ export function getSearchedSchools(query) {
   return client;
 }
 
-export function postSchool(school) {
-  return networkClient.observableClient(postSchoolDefinition(school));
+export function getSearchedReviews(query) {
+  // console.log('getClients api data')
+  const client = networkClient.observableClient(searchReviewsDefinition(query));
+  return client;
+}
+
+export function postReview(review) {
+  return networkClient.observableClient(postReviewDefinition(review));
 }
 
 export function putReview(review) {

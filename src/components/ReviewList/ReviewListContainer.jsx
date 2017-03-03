@@ -31,7 +31,7 @@ class ReviewListContainer extends Component {
 
   componentWillMount() {
     this.props.fetchReviews();
-    this.props.showNewClientButton();
+    this.props.showNewReviewButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -47,8 +47,8 @@ class ReviewListContainer extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextState.showImportCSV) this.props.hideNewClientButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewClientButton();
+    if (nextState.showImportCSV) this.props.hideNewReviewButton();
+    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewReviewButton();
   }
 
   importCSVHandler() {
@@ -63,7 +63,7 @@ class ReviewListContainer extends Component {
     this.props.setReview(this.state.filteredReviews.filter(s => s.id === review.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
-    this.props.hideNewClientButton();
+    this.props.hideNewReviewButton();
     browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
@@ -71,7 +71,7 @@ class ReviewListContainer extends Component {
     console.log("come on")
     if (this.state.searchTerm !== "") {
       console.log(this.state.searchTerm);
-      this.props.searchSchools(this.state.searchTerm)
+      this.props.searchReviews(this.state.searchTerm)
     } else {
       this.props.fetchReviews()
     }
@@ -118,9 +118,9 @@ const mapDispatchToProps = dispatch => ({
   fetchReviews: () => dispatch(reviewActions.fetchReviews()),
   setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
-  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
-  searchSchools: query => dispatch(reviewActions.searchSchools(query))
+  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
+  hideNewReviewButton: () => dispatch(navbarActions.hideNewReviewButton()),
+  searchReviews: query => dispatch(reviewActions.searchReviews(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewListContainer);

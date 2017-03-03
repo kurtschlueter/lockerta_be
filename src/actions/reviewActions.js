@@ -5,7 +5,7 @@ import {
   GET_SCHOOLS,
   GET_SCHOOL,
   SET_SCHOOL,
-  POST_SCHOOL,
+  POST_REVIEW,
   PUT_REVIEW,
   DELETE_REVIEW,
   SHOW_IMPORT_CSV,
@@ -84,19 +84,19 @@ export const fetchReview = (id) => (dispatch) => {
   );
 };
 
-export function getSearchedSchools(data) {
+export function getSearchedReviews(data) {
   // console.log('get school action', data)
   return {
-    type: GET_SCHOOLS,
+    type: GET_REVIEWS,
     data
   };
 }
 
-export const searchSchools = (query) => (dispatch) => {
+export const searchReviews = (query) => (dispatch) => {
   // console.log('fetchSchool action', query)
-  reviewApi.getSearchedSchools(query).subscribe(
+  reviewApi.getSearchedReviews(query).subscribe(
     (data) => {
-      dispatch(getSearchedSchools(data));
+      dispatch(getSearchedReviews(data));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -106,19 +106,19 @@ export const searchSchools = (query) => (dispatch) => {
 };
 
 
-export function postSchool(data) {
+export function postReview(data) {
   return {
-    type: POST_SCHOOL,
+    type: POST_REVIEW,
     data
   };
 }
 
-export const requestPostSchool = (school) => (dispatch) => {
+export const requestPostReview = (review) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    reviewApi.postSchool(school).subscribe(
+    reviewApi.postReview(review).subscribe(
       (data) => {
         if (data) {
-          dispatch(postSchool(data));
+          dispatch(postReview(data));
         }
         resolve();
       },

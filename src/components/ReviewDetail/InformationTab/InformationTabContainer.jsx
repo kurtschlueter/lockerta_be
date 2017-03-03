@@ -193,7 +193,7 @@ class InformationTabContainer extends Component {
           }
           if (this.state.createState) {
             console.log('yeeessss')
-            this.props.addSchoolHandler({ ...profile, is_hidden: 0, is_deleted: 0, logo: "https://s-media-cache-ak0.pinimg.com/originals/00/23/70/0023707f1caf3eb3757e751d08f06ac5.gif"});
+            this.props.addReviewHandler({ ...profile, is_hidden: 0, is_deleted: 0, logo: "https://s-media-cache-ak0.pinimg.com/originals/00/23/70/0023707f1caf3eb3757e751d08f06ac5.gif"});
           }
         }
         break;
@@ -241,7 +241,7 @@ class InformationTabContainer extends Component {
             createState: false,
             areYouSureChangesPopUpOption: false
           });
-          browserHistory.push('/clientList');
+          browserHistory.push('/reviewList');
         }
         break;
       default:
@@ -343,7 +343,6 @@ class InformationTabContainer extends Component {
 
   imageLoaderCallback(value) {
 
-    console.log('fubckfuckcfuckfuckfuckfuck')
     this.changeHandler('logo', value)
   }
 
@@ -395,7 +394,7 @@ const mapDispatchToProps = dispatch => ({
 
   deleteReviewHandler: review => dispatch(reviewActions.requestDeleteReview(review)),
   editReviewHandler: review => dispatch(reviewActions.requestPutReview(review)),
-  addSchoolHandler: school => dispatch(clientActions.requestPostSchool(school)),
+  addReviewHandler: review => dispatch(reviewActions.requestPostReview(review)),
 
   fetchAgencies: options => dispatch(agencyActions.fetchAgencies(options)),
   fetchAccountManagers: options => dispatch(managerActions.fetchAccountManagers(options)),
