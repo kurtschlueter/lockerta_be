@@ -25,355 +25,319 @@ const InformationTabPresenter = ({
   if (!newProgram) {
     var values = [
           {
+            id: 'sport',
+            value: profile.sport,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('sport', value)
+          },
+          {
+            id: 'division',
+            value: profile.division,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('division', value)
+          },
+          {
+            id: 'conference',
+            value: profile.conference,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('conference', value)
+          },
+          {
+            id: 'gear',
+            value: profile.gear,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('gear', value)
+          },
+          {
+            id: 'last_season_record',
+            value: profile.last_season_record,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('last_season_record', value)
+          },
+          {
+            id: 'national_titles',
+            value: profile.national_titles,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('national_titles', parseInt(value))
+          },
+          {
+            id: 'conference_titles',
+            value: profile.conference_titles,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('conference_titles', parseInt(value))
+          },
+          {
+            id: 'projected_openings',
+            value: profile.projected_openings,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('projected_openings', parseInt(value))
+          },
+          {
+            id: 'coach_fname',
+            value: profile.coach_fname,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_fname', value)
+          },
+          {
+            id: 'coach_lname',
+            value: profile.coach_lname,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_lname', value)
+          },
+          {
+            id: 'coach_last_record',
+            value: profile.coach_last_record,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_last_record', value)
+          },
+          {
+            id: 'coach_school_record',
+            value: profile.coach_school_record,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_school_record', value)
+          },
+          {
+            id: 'coach_alma_mater',
+            value: profile.coach_alma_mater,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_alma_mater', value)
+          },
+          {
+            id: 'coach_year_started',
+            value: profile.coach_year_started,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_year_started', parseInt(value))
+          },
+          {
+            id: 'coach_win_percent',
+            value: profile.coach_win_percent,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_win_percent', parseInt(value))
+          },
+          {
+            id: 'coach_seasons_w_team',
+            value: profile.coach_seasons_w_team,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_seasons_w_team', parseInt(value))
+          },
+          {
+            id: 'coach_ncaa_appearances',
+            value: profile.coach_ncaa_appearances,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_ncaa_appearances', parseInt(value))
+          },
+          {
+            id: 'coach_conf_championships',
+            value: profile.coach_conf_championships,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('coach_conf_championships', parseInt(value))
+          },
+          {
+            id: 'facilities_arena_name',
+            value: profile.facilities_arena_name,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('facilities_arena_name', value)
+          },
+          {
+            id: 'facilities_arena_built',
+            value: profile.facilities_arena_built,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('facilities_arena_built', parseInt(value))
+          },
+          {
+            id: 'facilities_capacity',
+            value: profile.facilities_capacity,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('facilities_capacity', parseInt(value))
+          },
+          {
+            id: 'facilities_home_attendance',
+            value: profile.facilities_home_attendance,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('facilities_home_attendance', parseInt(value))
+          },
+          {
+            id: 'education_cost',
+            value: profile.education_cost,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('education_cost', parseInt(value))
+          },
+          {
+            id: 'education_enrollment',
+            value: profile.education_enrollment,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('education_enrollment', parseInt(value))
+          },
+          {
+            id: 'education_graduation_rate',
+            value: profile.education_graduation_rate,
+            readOnly: readOnlyOption,
+            onChange: value => changeHandler('education_graduation_rate', parseInt(value))
+          },
+          {
             id: 'name',
             value: profile.name,
             readOnly: true,
             onChange: value => changeHandler('name', value)
           },
-          {
-            id: 'sport',
-            value: profile.sport,
-            readOnly: true,
-            onChange: value => changeHandler('sport', value)
-          },
-          {
-            id: 'athlete_fname',
-            value: profile.athlete_fname,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('athlete_fname', value)
-          },
-          {
-            id: 'athlete_lname',
-            value: profile.athlete_lname,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('athlete_lname', value)
-          },
-          {
-            id: 'athlete_jersey_no',
-            value: profile.athlete_jersey_no,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('athlete_jersey_no', parseInt(value))
-          },
-          {
-            id: 'athlete_email',
-            value: profile.athlete_email,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('athlete_email', value)
-          },
-          {
-            id: 'best_teammate',
-            value: profile.best_teammate,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('best_teammate', value)
-          },
-          {
-            id: 'best_conf_player',
-            value: profile.best_conf_player,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('best_conf_player', value)
-          },
-          {
-            id: 'team_rival',
-            value: profile.team_rival,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('team_rival', value)
-          },
-          {
-            id: 'toughest_arena',
-            value: profile.toughest_arena,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('toughest_arena', value)
-          },
-          {
-            id: 'head_coach_name',
-            value: profile.head_coach_name,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('head_coach_name', value)
-          },
-          {
-            id: 'play_for_coach_again',
-            value: profile.play_for_coach_again,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('play_for_coach_again', value)
-          },
-          {
-            id: 'graduate',
-            value: profile.graduate,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('graduate', value)
-          },
-          {
-            id: 'comments',
-            value: profile.comments,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('comments', value)
-          },
-          {
-            id: 'recruiting_rating',
-            value: profile.recruiting_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('recruiting_rating', parseInt(value))
-          },
-          {
-            id: 'relationships_rating',
-            value: profile.relationships_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('relationships_rating', parseInt(value))
-          },
-          {
-            id: 'development_rating',
-            value: profile.development_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('development_rating', parseInt(value))
-          },
-          {
-            id: 'knowledge_sport_rating',
-            value: profile.knowledge_sport_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('knowledge_sport_rating', parseInt(value))
-          },
-          {
-            id: 'program_tradition_rating',
-            value: profile.program_tradition_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('program_tradition_rating', parseInt(value))
-          },
-          {
-            id: 'arena_rating',
-            value: profile.arena_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('arena_rating', parseInt(value))
-          },
-          {
-            id: 'home_crowds_rating',
-            value: profile.home_crowds_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('home_crowds_rating', parseInt(value))
-          },
-          {
-            id: 'weight_room_rating',
-            value: profile.weight_room_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('weight_room_rating', parseInt(value))
-          },
-          {
-            id: 'locker_room_rating',
-            value: profile.locker_room_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('locker_room_rating', parseInt(value))
-          },
-          {
-            id: 'training_room_rating',
-            value: profile.training_room_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('training_room_rating', parseInt(value))
-          },
-          {
-            id: 'class_difficulty_rating',
-            value: profile.class_difficulty_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('class_difficulty_rating', parseInt(value))
-          },
-          {
-            id: 'academic_rep_rating',
-            value: profile.academic_rep_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('academic_rep_rating', parseInt(value))
-          },
-          {
-            id: 'tutors_rating',
-            value: profile.tutors_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('tutors_rating', parseInt(value))
-          },
-          {
-            id: 'weather_rating',
-            value: profile.weather_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('weather_rating', parseInt(value))
-          },
-          {
-            id: 'nightlife_rating',
-            value: profile.nightlife_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('nightlife_rating', parseInt(value))
-          },
-          {
-            id: 'fan_rating',
-            value: profile.fan_rating,
-            readOnly: readOnlyOption,
-            onChange: value => changeHandler('fan_rating', parseInt(value))
-          },
     ];
   } else {
     var values = [
- {
-             id: 'athlete_fname',
+           {
+             id: 'sport',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('athlete_fname', value)
+             onChange: value => changeHandler('sport', value)
            },
            {
-             id: 'athlete_lname',
+             id: 'division',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('athlete_lname', value)
+             onChange: value => changeHandler('division', value)
            },
            {
-             id: 'athlete_jersey_no',
+             id: 'conference',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('athlete_jersey_no', parseInt(value))
+             onChange: value => changeHandler('conference', value)
            },
            {
-             id: 'athlete_email',
+             id: 'gear',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('athlete_email', value)
+             onChange: value => changeHandler('gear', value)
            },
            {
-             id: 'best_teammate',
+             id: 'last_season_record',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('best_teammate', value)
+             onChange: value => changeHandler('last_season_record', value)
            },
            {
-             id: 'best_conf_player',
+             id: 'national_titles',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('best_conf_player', value)
+             onChange: value => changeHandler('national_titles', parseInt(value))
            },
            {
-             id: 'team_rival',
+             id: 'conference_titles',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('team_rival', value)
+             onChange: value => changeHandler('conference_titles', parseInt(value))
            },
            {
-             id: 'toughest_arena',
+             id: 'projected_openings',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('toughest_arena', value)
+             onChange: value => changeHandler('projected_openings', parseInt(value))
            },
            {
-             id: 'head_coach_name',
+             id: 'coach_fname',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('head_coach_name', value)
+             onChange: value => changeHandler('coach_fname', value)
            },
            {
-             id: 'play_for_coach_again',
+             id: 'coach_lname',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('play_for_coach_again', value)
+             onChange: value => changeHandler('coach_lname', value)
            },
            {
-             id: 'graduate',
+             id: 'coach_last_record',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('graduate', value)
+             onChange: value => changeHandler('coach_last_record', value)
            },
            {
-             id: 'comments',
+             id: 'coach_school_record',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('comments', value)
+             onChange: value => changeHandler('coach_school_record', value)
            },
            {
-             id: 'recruiting_rating',
+             id: 'coach_alma_mater',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('recruiting_rating', parseInt(value))
+             onChange: value => changeHandler('coach_alma_mater', value)
            },
            {
-             id: 'relationships_rating',
+             id: 'coach_year_started',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('relationships_rating', parseInt(value))
+             onChange: value => changeHandler('coach_year_started', parseInt(value))
            },
            {
-             id: 'development_rating',
+             id: 'coach_win_percent',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('development_rating', parseInt(value))
+             onChange: value => changeHandler('coach_win_percent', parseInt(value))
            },
            {
-             id: 'knowledge_sport_rating',
+             id: 'coach_seasons_w_team',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('knowledge_sport_rating', parseInt(value))
+             onChange: value => changeHandler('coach_seasons_w_team', parseInt(value))
            },
            {
-             id: 'program_tradition_rating',
+             id: 'coach_ncaa_appearances',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('program_tradition_rating', parseInt(value))
+             onChange: value => changeHandler('coach_ncaa_appearances', parseInt(value))
            },
            {
-             id: 'arena_rating',
+             id: 'coach_conf_championships',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('arena_rating', parseInt(value))
+             onChange: value => changeHandler('coach_conf_championships', parseInt(value))
            },
            {
-             id: 'home_crowds_rating',
+             id: 'facilities_arena_name',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('home_crowds_rating', parseInt(value))
+             onChange: value => changeHandler('facilities_arena_name', value)
            },
            {
-             id: 'weight_room_rating',
+             id: 'facilities_arena_built',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('weight_room_rating', parseInt(value))
+             onChange: value => changeHandler('facilities_arena_built', parseInt(value))
            },
            {
-             id: 'locker_room_rating',
+             id: 'facilities_capacity',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('locker_room_rating', parseInt(value))
+             onChange: value => changeHandler('facilities_capacity', parseInt(value))
            },
            {
-             id: 'training_room_rating',
+             id: 'facilities_home_attendance',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('training_room_rating', parseInt(value))
+             onChange: value => changeHandler('facilities_home_attendance', parseInt(value))
            },
            {
-             id: 'class_difficulty_rating',
+             id: 'education_cost',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('class_difficulty_rating', parseInt(value))
+             onChange: value => changeHandler('education_cost', parseInt(value))
            },
            {
-             id: 'academic_rep_rating',
+             id: 'education_enrollment',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('academic_rep_rating', parseInt(value))
+             onChange: value => changeHandler('education_enrollment', parseInt(value))
            },
            {
-             id: 'tutors_rating',
+             id: 'education_graduation_rate',
              value: null,
              readOnly: readOnlyOption,
-             onChange: value => changeHandler('tutors_rating', parseInt(value))
+             onChange: value => changeHandler('education_graduation_rate', parseInt(value))
            },
            {
-             id: 'weather_rating',
+             id: 'name',
              value: null,
-             readOnly: readOnlyOption,
-             onChange: value => changeHandler('weather_rating', parseInt(value))
-           },
-           {
-             id: 'nightlife_rating',
-             value: null,
-             readOnly: readOnlyOption,
-             onChange: value => changeHandler('nightlife_rating', parseInt(value))
-           },
-           {
-             id: 'fan_rating',
-             value: null,
-             readOnly: readOnlyOption,
-             onChange: value => changeHandler('fan_rating', parseInt(value))
+             readOnly: true,
+             onChange: value => changeHandler('name', value)
            },
     ];
   }

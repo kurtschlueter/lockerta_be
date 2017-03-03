@@ -141,7 +141,7 @@ class InformationTabContainer extends Component {
       }
       if (this.state.createState) {
         this.props.showModal({
-          message: Constants.createClientSuccessMessage,
+          message: Constants.createReviewSuccessMessage,
           isConfirmed: true
         });
       }

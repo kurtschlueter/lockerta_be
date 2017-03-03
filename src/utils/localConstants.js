@@ -16,6 +16,8 @@ const Constants = {
   deleteReviewSuccessMessage: 'Review has been successfully deleted!',
   createSuccessMessage: 'Account Manager successfully created!',
   createClientSuccessMessage: 'Client successfully created!',
+  createProgramSuccessMessage: 'Program successfully created!',
+  createReviewSuccessMessage: 'Review successfully created!',
   fileTypeErrorMessage: 'Oops, only CSV files are accepted',
   fileCountErrorMessage: 'Oops, only 1 file can be uploaded at a time',
   newAccountManagerView: 'new',
