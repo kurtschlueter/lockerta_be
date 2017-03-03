@@ -128,6 +128,33 @@ export const reviewListMetaData = {
   ]
 };
 
+export const programListMetaData = {
+  columns: [
+        { field: 'athlete_fname', title: 'FIRST', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'athlete_lname', title: 'LAST', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'name', title: 'SCHOOL', headerDefinition: 'nameHeader', ascending: false },
+        { field: 'sport', title: 'TEAM', headerDefinition: 'nameHeader', ascending: false },
+  ],
+  cells: [
+    {
+      id: 'nameHeader',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '24px', color: 'red' }
+    },
+    {
+      id: 'nameRow',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '14px', color: 'red'}
+    },
+    {
+      id: 'logoHeader',
+      style: { width: '10%', marginRight: '20px' }
+    },
+    {
+      id: 'logoRow',
+      style: { width: '10%', marginRight: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }
+    },
+  ]
+};
+
 
 
 
@@ -150,6 +177,31 @@ export function mappedReviews(reviews) {
       },
       athlete_lname: {
         value: review.athlete_lname ? review.athlete_lname : '',
+        cellDefinition: 'nameRow'
+      },
+    };
+  });
+}
+
+export function mappedPrograms(programs) {
+  return programs.map((program) => {
+    let leftMargin = 12;
+    return {
+      id: program.id,
+      name: {
+        value: program.name ? program.name : '',
+        cellDefinition: 'nameRow'
+      },
+      sport: {
+        value: program.sport ? program.sport : '',
+        cellDefinition: 'nameRow'
+      },
+      athlete_fname: {
+        value: program.athlete_fname ? program.athlete_fname : '',
+        cellDefinition: 'nameRow'
+      },
+      athlete_lname: {
+        value: program.athlete_lname ? program.athlete_lname : '',
         cellDefinition: 'nameRow'
       },
     };
@@ -210,6 +262,179 @@ export const clientDetailInformationTabElements = [
 
 
 export const reviewDetailInformationTabElements = [
+  {
+    type: 'TextInput',
+    title: 'First Name',
+    id: 'athlete_fname',
+    name: 'athlete_fname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Last Name',
+    id: 'athlete_lname',
+    name: 'nickname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Jersey No.',
+    id: 'athlete_jersey_no'
+  },
+  {
+    type: 'TextInput',
+    title: 'Email',
+    id: 'athlete_email'
+  },
+  {
+    type: 'TextInput',
+    title: 'Best Teammate',
+    id: 'best_teammate'
+  },
+  {
+    type: 'TextInput',
+    title: 'Best Conf Player',
+    id: 'best_conf_player'
+  },
+  {
+    type: 'TextInput',
+    title: 'Rival',
+    id: 'team_rival',
+    name: 'team_rival'
+  },
+  {
+    type: 'TextInput',
+    title: 'Toughest Arena',
+    id: 'toughest_arena',
+    name: 'toughest_arena'
+  },
+  {
+    type: 'TextInput',
+    title: 'Head Coach',
+    id: 'head_coach_name',
+    name: 'head_coach_name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Recruiting',
+    id: 'recruiting_rating',
+    name: 'recruiting_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Relationships',
+    id: 'relationships_rating',
+    name: 'relationships_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Development',
+    id: 'development_rating',
+    name: 'development_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Knowledge',
+    id: 'knowledge_sport_rating',
+    name: 'knowledge_sport_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Program Tradition',
+    id: 'program_tradition_rating',
+    name: 'program_tradition_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Arena',
+    id: 'arena_rating',
+    name: 'arena_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Home Crowds',
+    id: 'home_crowds_rating',
+    name: 'home_crowds_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Weight Room',
+    id: 'weight_room_rating',
+    name: 'weight_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Locker Room',
+    id: 'locker_room_rating',
+    name: 'locker_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Training Room',
+    id: 'training_room_rating',
+    name: 'training_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Class Difficulty',
+    id: 'class_difficulty_rating',
+    name: 'class_difficulty_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Academic Reputation',
+    id: 'academic_rep_rating',
+    name: 'academic_rep_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Tutors',
+    id: 'tutors_rating',
+    name: 'tutors_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Weather',
+    id: 'weather_rating',
+    name: 'weather_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Nightlife',
+    id: 'nightlife_rating',
+    name: 'nightlife_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Fans',
+    id: 'fan_rating',
+    name: 'fan_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Graduated',
+    id: 'graduate',
+    name: 'graduate'
+  },
+  {
+    type: 'TextInput',
+    title: 'Comments',
+    id: 'comments',
+    name: 'comments'
+  },
+  {
+    type: 'TextInput',
+    title: 'School',
+    id: 'name',
+    name: 'name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Sport',
+    id: 'sport',
+    name: 'sport'
+  },
+];
+
+export const programDetailInformationTabElements = [
   {
     type: 'TextInput',
     title: 'First Name',

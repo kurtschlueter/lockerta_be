@@ -4,7 +4,9 @@ import {
   HIDE_NEW_CLIENT_BUTTON,
   SHOW_NEW_CLIENT_BUTTON,
   HIDE_NEW_REVIEW_BUTTON,
-  SHOW_NEW_REVIEW_BUTTON
+  SHOW_NEW_REVIEW_BUTTON,
+  HIDE_NEW_PROGRAM_BUTTON,
+  SHOW_NEW_PROGRAM_BUTTON
 } from './actionTypes';
 
 export function hideNewManagerButton() {
@@ -35,5 +37,15 @@ export function hideNewReviewButton() {
 export function showNewReviewButton() {
   return {
     type: SHOW_NEW_REVIEW_BUTTON
+  }
+}
+export function hideNewProgramButton() {
+  return {
+    type: HIDE_NEW_PROGRAM_BUTTON
+  }
+}
+export function showNewProgramButton() {
+  return {
+    type: SHOW_NEW_PROGRAM_BUTTON
   }
 }

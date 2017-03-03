@@ -5,6 +5,8 @@ const NavbarPresenter = ({
   newSchoolClickHandler,
   showNewReviewButton,
   newReviewClickHandler,
+  showNewProgramButton,
+  newProgramClickHandler,
   showNewManagerButton,
   showNewManagerView,
 }) => {
@@ -29,6 +31,13 @@ const NavbarPresenter = ({
           <div className="navbarinfo" onClick={() => newReviewClickHandler()}>
             <a href="#">
               <i className="fa fa-plus" aria-hidden="true" /><span> &nbsp;New Review</span>
+            </a>
+          </div>
+        }
+        {showNewProgramButton &&
+          <div className="navbarinfo" onClick={() => newProgramClickHandler()}>
+            <a href="#">
+              <i className="fa fa-plus" aria-hidden="true" /><span> &nbsp;New Program</span>
             </a>
           </div>
         }

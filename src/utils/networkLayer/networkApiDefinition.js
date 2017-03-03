@@ -28,12 +28,32 @@ export function getReviewDefinition(id) {
   };
 }
 
+export function getProgramDefinition(id) {
+  // console.log('getSchoolDefinition', id)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/teams/${id}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
 export function searchSchoolsDefinition(term) {
   // console.log('getSchoolDefinition', term)
   return {
     method: httpMethods.GET,
     headers: basicHeaders,
     path: `/Test/schools/search/${term}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
+export function searchProgramsDefinition(term) {
+  // console.log('getSchoolDefinition', term)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/teams/search/${term}`,
     basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
   };
 }
@@ -72,6 +92,15 @@ export function getReviewsDefinition() {
     method: httpMethods.GET,
     headers: basicHeaders,
     path: '/Test/reviews',
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
+export function getProgramsDefinition() {
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: '/Test/teams',
     basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
   };
 }
@@ -142,6 +171,46 @@ export function postReviewDefinition(review) {
   };
 }
 
+export function postProgramDefinition(program) {
+  return {
+    method: httpMethods.POST,
+    headers: basicHeaders,
+    path: `/Test/teams`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
+    body: JSON.stringify({
+      // will need to update team and school id, but can't do it yet
+      sport: program.sport,
+      division: program.division,
+      conference: program.conference,
+      gear: program.gear,
+      last_season_record: program.last_season_record,
+      national_titles: program.national_titles,
+      conference_titles: program.conference_titles,
+      projected_openings: program.projected_openings,
+      coach_fname: program.coach_fname,
+      coach_lname: program.coach_lname,
+      coach_last_record: program.coach_last_record,
+      coach_school_record: program.coach_school_record,
+      coach_alma_mater: program.coach_alma_mater,
+      coach_year_started: program.coach_year_started,
+      coach_win_percent: program.coach_win_percent,
+      coach_seasons_w_team: program.coach_seasons_w_team,
+      coach_ncaa_appearances: program.coach_ncaa_appearances,
+      coach_conf_championships: program.coach_conf_championships,
+      facilities_arena_name: program.facilities_arena_name,
+      facilities_arena_built: program.facilities_arena_built,
+      facilities_capacity: program.facilities_capacity,
+      facilities_home_attendance: program.facilities_home_attendance,
+      education_cost: program.education_cost,
+      education_enrollment: program.education_enrollment,
+      education_graduation_rate: program.education_graduation_rate,
+      school_id: 1,
+      is_hidden: program.is_hidden,
+      is_deleted: program.is_deleted
+    })
+  };
+}
+
 export function deleteSchoolDefinition(school) {
   // debugger
   return {
@@ -158,6 +227,16 @@ export function deleteReviewDefinition(review) {
     method: httpMethods.DELETE,
     headers: basicHeaders,
     path: `/Test/reviews/${review.id}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
+  };
+}
+
+export function deleteProgramDefinition(program) {
+  // debugger
+  return {
+    method: httpMethods.DELETE,
+    headers: basicHeaders,
+    path: `/Test/teams/${program.id}`,
     basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
   };
 }
@@ -225,6 +304,46 @@ export function putReviewDefinition(review) {
       comments: review.comments,
       is_hidden: review.is_hidden,
       is_deleted: review.is_deleted
+    })
+  };
+}
+
+export function putProgramDefinition(program) {
+  // debugger
+  return {
+    method: httpMethods.POST,
+    headers: basicHeaders,
+    path: `/Test/teams/${program.id}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
+    body: JSON.stringify({
+      sport: program.sport,
+      division: program.division,
+      conference: program.conference,
+      gear: program.gear,
+      last_season_record: program.last_season_record,
+      national_titles: program.national_titles,
+      conference_titles: program.conference_titles,
+      projected_openings: program.projected_openings,
+      coach_fname: program.coach_fname,
+      coach_lname: program.coach_lname,
+      coach_last_record: program.coach_last_record,
+      coach_school_record: program.coach_school_record,
+      coach_alma_mater: program.coach_alma_mater,
+      coach_year_started: program.coach_year_started,
+      coach_win_percent: program.coach_win_percent,
+      coach_seasons_w_team: program.coach_seasons_w_team,
+      coach_ncaa_appearances: program.coach_ncaa_appearances,
+      coach_conf_championships: program.coach_conf_championships,
+      facilities_arena_name: program.facilities_arena_name,
+      facilities_arena_built: program.facilities_arena_built,
+      facilities_capacity: program.facilities_capacity,
+      facilities_home_attendance: program.facilities_home_attendance,
+      education_cost: program.education_cost,
+      education_enrollment: program.education_enrollment,
+      education_graduation_rate: program.education_graduation_rate,
+      school_id: program.school_id,
+      is_hidden: program.is_hidden,
+      is_deleted: program.is_deleted
     })
   };
 }
