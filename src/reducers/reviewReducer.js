@@ -3,7 +3,7 @@ import {
   GET_REVIEW,
   SET_REVIEW,
   DELETE_REVIEW,
-  PUT_CLIENT,
+  PUT_REVIEW,
   POST_CLIENT,
   GET_ACCOUNT_MANAGERS,
   UPLOAD_CSV_SUCCESS,
@@ -120,14 +120,14 @@ export default function reviewReducer(state = defaultState, action) {
     //      }
     //   }
 
-    // case PUT_CLIENT:
-    //   {
-    //     return {
-    //       ...state,
-    //       clients: [...state, action.data],
-    //       success: true
-    //     }
-    //   }
+    case PUT_REVIEW:
+      {
+        return {
+          ...state,
+          reviews: [...state, action.data],
+          success: true
+        }
+      }
     // case UPLOAD_CSV_SUCCESS:
     //   {
     //     return {
@@ -192,11 +192,11 @@ export const getReviews = (state) => {
 //   return state.clients;
 // }
 export const deleteReview = (state) => {
-  return state.clients;
+  return state.reviews;
 }
-// export const putClient = (state) => {
-//   return state.clients;
-// }
+export const putReview = (state) => {
+  return state.reviews;
+}
 export const setReview = (state) => {
   return state.review
 }

@@ -5,7 +5,7 @@ import {
   getReviewsDefinition,
   getReviewDefinition,
   postSchoolDefinition,
-  putSchoolDefinition,
+  putReviewDefinition,
   searchSchoolsDefinition,
   deleteReviewDefinition,
   uploadCSVDefiniton
@@ -34,8 +34,8 @@ export function postSchool(school) {
   return networkClient.observableClient(postSchoolDefinition(school));
 }
 
-export function putSchool(school) {
-  return networkClient.observableClient(putSchoolDefinition(school))
+export function putReview(review) {
+  return networkClient.observableClient(putReviewDefinition(review))
 }
 
 

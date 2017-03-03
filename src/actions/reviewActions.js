@@ -6,7 +6,7 @@ import {
   GET_SCHOOL,
   SET_SCHOOL,
   POST_SCHOOL,
-  PUT_SCHOOL,
+  PUT_REVIEW,
   DELETE_REVIEW,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
@@ -138,20 +138,20 @@ export function setReview(data) {
   }
 };
 
-export function putSchool(data) {
+export function putReview(data) {
 
   return {
-    type: PUT_SCHOOL,
+    type: PUT_REVIEW,
     data
   };
 };
 
-export const requestPutSchool = (school) => (dispatch) => {
+export const requestPutReview = (review) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    reviewApi.putSchool(school).subscribe(
+    reviewApi.putReview(review).subscribe(
       (data) => {
         if (data) {
-          dispatch(putSchool(data));
+          dispatch(putReview(data));
         }
         resolve();
       },

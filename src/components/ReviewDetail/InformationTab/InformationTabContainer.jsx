@@ -183,7 +183,7 @@ class InformationTabContainer extends Component {
           delete profile.specialistName;
           delete profile.agencyName;
           if (this.state.putState) {
-            this.props.editSchoolHandler({ ...profile, is_hidden: 0, is_deleted: 0});
+            this.props.editReviewHandler({ ...profile, is_hidden: 0, is_deleted: 0});
             this.setState({
               readOnlyOption: true,
               saveCancelOption: false,
@@ -394,7 +394,7 @@ const mapDispatchToProps = dispatch => ({
   updateProfile: client => dispatch(clientDetailFunctions.updatedProfile(client)),
 
   deleteReviewHandler: review => dispatch(reviewActions.requestDeleteReview(review)),
-  editSchoolHandler: school => dispatch(clientActions.requestPutSchool(school)),
+  editReviewHandler: review => dispatch(reviewActions.requestPutReview(review)),
   addSchoolHandler: school => dispatch(clientActions.requestPostSchool(school)),
 
   fetchAgencies: options => dispatch(agencyActions.fetchAgencies(options)),
