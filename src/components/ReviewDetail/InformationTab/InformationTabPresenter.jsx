@@ -1,7 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import { browserHistory } from 'react-router';
-import ImageUploader from '../ImageUploader/ImageUploader.jsx';
 
 
 import Form from './../../tcReactUI/Form.jsx';
