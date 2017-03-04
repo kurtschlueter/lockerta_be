@@ -9,6 +9,7 @@ import { browserHistory } from 'react-router';
 
 
 import * as programActions from './../../../actions/programActions.js';
+import * as reviewActions from './../../../actions/reviewActions.js';
 import * as clientActions from './../../../actions/clientActions.js';
 import * as navbarActions from './../../../actions/navbarActions.js';
 
@@ -61,14 +62,14 @@ class ProgramReviewsTabContainer extends Component {
   newClientDropdownHandler() {
     this.setState({ showNewClientDropdown: !this.state.showNewClientDropdown });
   }
-  rowClickListener(program) {
+  rowClickListener(review) {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
-    this.props.setProgram(this.state.filteredProgramReviews.filter(s => s.id === program.id));
+    this.props.setReview(this.state.filteredProgramReviews.filter(s => s.id === review.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
     this.props.hideNewProgramButton();
-    browserHistory.push(`/programDetail/${program.id}`);
+    browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
   searchHandler(e) {
@@ -122,6 +123,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchProgramReviews: (id) => dispatch(programActions.fetchProgramReviews(id)),
   setProgram: review => dispatch(programActions.setProgram(review)),
+  setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
