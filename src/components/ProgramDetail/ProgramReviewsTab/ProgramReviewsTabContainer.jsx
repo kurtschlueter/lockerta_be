@@ -65,6 +65,7 @@ class ProgramReviewsTabContainer extends Component {
   rowClickListener(review) {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
+    localStorage.setItem('index', 2)
     this.props.setReview(this.state.filteredProgramReviews.filter(s => s.id === review.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
