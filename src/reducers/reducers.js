@@ -55,6 +55,11 @@ export const getPrograms = (state) => {
   return programSelectors.getPrograms(state.programs);
 }
 
+export const getProgramReviews = (state) => {
+  // console.log('clientSelectors', clientSelectors  )
+  return programSelectors.getProgramReviews(state.programs);
+}
+
 export const getIntegrations = (state) => {
   return integrationSelectors.getIntegrations(state.integrations);
 }

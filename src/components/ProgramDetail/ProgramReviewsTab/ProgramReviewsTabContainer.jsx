@@ -21,7 +21,7 @@ class ProgramReviewsTabContainer extends Component {
       hasClients: null,
       showNewClientDropdown: false,
       showImportCSV: false,
-      filteredPrograms: [],
+      filteredProgramReviews: [],
       searchTerm: "",
     };
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
@@ -32,7 +32,9 @@ class ProgramReviewsTabContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.fetchPrograms();
+    console.log('program reviews tab will mount props', this.props)
+    console.log('program reviews tabl will mount state', this.state)
+    this.props.fetchProgramReviews(this.props.program.id);
     this.props.showNewProgramButton();
   }
 
@@ -43,7 +45,7 @@ class ProgramReviewsTabContainer extends Component {
         hasClients: nextProps.hasClients,
         showImportCSV: nextProps.showImportCSV,
         // filteredSchools: nextProps.schools
-        filteredPrograms: nextProps.programs.filter(program => !program.is_deleted)
+        filteredProgramReviews: nextProps.programreviews.filter(review => !review.is_deleted)
       });
     }
   }
@@ -62,7 +64,7 @@ class ProgramReviewsTabContainer extends Component {
   rowClickListener(program) {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
-    this.props.setProgram(this.state.filteredPrograms.filter(s => s.id === program.id));
+    this.props.setProgram(this.state.filteredProgramReviews.filter(s => s.id === program.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
     this.props.hideNewProgramButton();
@@ -75,7 +77,7 @@ class ProgramReviewsTabContainer extends Component {
       console.log(this.state.searchTerm);
       this.props.searchPrograms(this.state.searchTerm)
     } else {
-      this.props.fetchPrograms()
+      this.props.fetchProgramReviews(this.props.program.id)
     }
   }
 
@@ -94,7 +96,7 @@ class ProgramReviewsTabContainer extends Component {
     }
     return (
       <ProgramReviewsTabPresenter
-        programs={this.state.filteredPrograms}
+        programreviews={this.state.filteredProgramReviews}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
         searchHandler={this.searchHandler}
@@ -111,13 +113,14 @@ ProgramReviewsTabContainer.contextTypes = {
 
 const mapStateToProps = state => ({
   programs: selectors.getPrograms(state),
+  programreviews: selectors.getProgramReviews(state),
   schools: selectors.getSchools(state),
   hasClients: state.schools.hasClients,
   showImportCSV: state.schools.showImportCSV
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPrograms: () => dispatch(programActions.fetchPrograms()),
+  fetchProgramReviews: (id) => dispatch(programActions.fetchProgramReviews(id)),
   setProgram: review => dispatch(programActions.setProgram(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),

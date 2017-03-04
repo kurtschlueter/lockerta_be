@@ -5,7 +5,8 @@ import {
   DELETE_PROGRAM,
   PUT_PROGRAM,
   POST_PROGRAM,
-  SET_DETAIL_VIEW
+  SET_DETAIL_VIEW,
+  GET_PROGRAM_REVIEWS
 } from '../actions/actionTypes.js';
 
 import Constants from '../utils/localConstants';
@@ -13,6 +14,7 @@ import Constants from '../utils/localConstants';
 const defaultState = {
   programs: [],
   program: {},
+  programreviews: [],
   success: false
 };
 
@@ -21,9 +23,8 @@ export default function programReducer(state = defaultState, action) {
   switch (action.type) {
     case GET_PROGRAM:
       {
-        console.log('WILL IT EVER GET HERE')
-          console.log('action', action)
-        let newState = state;
+        console.log('action', action)
+        let newState = state;       
         const currentProgram = state.programs.find(c => c.id === action.data.id)
         if (currentProgram) {
           const index = state.programs.indexOf(currentProgram);
@@ -59,6 +60,25 @@ export default function programReducer(state = defaultState, action) {
           {
             ...state,
             programs: action.data,
+            hasClients: false,
+            success: false
+           }
+        )
+      }
+    case GET_PROGRAM_REVIEWS:
+    console.log('getting program reviews here data', action.data)
+      {
+        return action.data.length > 0 ? (
+          {
+            ...state,
+            programreviews: action.data,
+            hasClients: true,
+            success: false
+          }
+        ) : (
+          {
+            ...state,
+            programreviews: action.data,
             hasClients: false,
             success: false
            }
@@ -127,6 +147,9 @@ export default function programReducer(state = defaultState, action) {
 // }
 export const getPrograms = (state) => {
   return state.programs;
+}
+export const getProgramReviews = (state) => {
+  return state.programreviews;
 }
 export const postProgram = (state) => {
   return state.programs;

@@ -1579,10 +1579,9 @@ a {
   margin-left: 12.7%;
   height: 100%; }
 
-  .content-wrapper.programreviews {
-    margin-left: 0;
-    margin-top: 0;
-  }
+.content-wrapper.programreviews {
+  margin-left: 0;
+  margin-top: 0; }
 
 .content-header {
   position: relative;

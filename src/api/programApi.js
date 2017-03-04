@@ -5,7 +5,8 @@ import {
   postProgramDefinition,
   putProgramDefinition,
   searchProgramsDefinition,
-  deleteProgramDefinition
+  deleteProgramDefinition,
+  getProgramReviewsDefinition
 } from '../utils/networkLayer/networkApiDefinition';
 
 
@@ -13,6 +14,12 @@ export function getProgram(id) {
   // console.log('getSchool api', id)
   const program = networkClient.observableClient(getProgramDefinition(id));
   return program;
+}
+
+export function getProgramReviews(id) {
+  console.log('GETPROGRAMREVIEWS api', id)
+  const reviews = networkClient.observableClient(getProgramReviewsDefinition(id));
+  return reviews;
 }
 
 export function getPrograms() {

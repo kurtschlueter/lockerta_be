@@ -4,7 +4,8 @@ import {
   SET_PROGRAM,
   POST_PROGRAM,
   PUT_PROGRAM,
-  DELETE_PROGRAM
+  DELETE_PROGRAM,
+  GET_PROGRAM_REVIEWS
 } from './actionTypes';
 
 import * as programApi from './../api/programApi';
@@ -44,6 +45,29 @@ export const fetchProgram = (id) => (dispatch) => {
   programApi.getProgram(id).subscribe(
     (data) => {
       dispatch(getProgram(data[0]));
+    },
+    (error) => {
+      console.log('parsing failed', error);
+    },
+    () => {}
+  );
+};
+
+export function getProgramReviews(data) {
+  console.log('get program reviews $$$$$$$$ action', data)
+
+  // console.log('get school action', data)
+  return {
+    type: GET_PROGRAM_REVIEWS,
+    data
+  };
+}
+
+export const fetchProgramReviews = (id) => (dispatch) => {
+  console.log('fetch program reviews $$$$$$$$ action', id)
+  programApi.getProgramReviews(id).subscribe(
+    (data) => {
+      dispatch(getProgramReviews(data));
     },
     (error) => {
       console.log('parsing failed', error);

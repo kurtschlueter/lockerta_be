@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import TextInput from './../../tcReactUI/TextInput.jsx';
 import Grid from 'tc-reactui/components/Grid/Grid.jsx';
 var FontAwesome = require('react-fontawesome');
 
@@ -7,7 +6,7 @@ const resourceConstants = require(`../../../assets/resources/${process.env.RESOU
 const resourceConstantsLockerta = require(`../../../assets/resources/lockerta/constants.js`);
 
 const ProgramReviewsTabPresenter = ({
-  programs,
+  programreviews,
   importCSVHandler,
   rowClickListener,
   searchTerm,
@@ -26,14 +25,14 @@ const ProgramReviewsTabPresenter = ({
 
   return (
     <div className="content-wrapper programreviews">
-      {(programs.length !== 0) ? (
+      {(programreviews.length !== 0) ? (
 
         <div>
           <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
           <section style={sectionStyle}>
             <Grid
-              metadata={resourceConstantsLockerta.programListMetaData}
-              data={resourceConstantsLockerta.mappedPrograms(programs)}
+              metadata={resourceConstantsLockerta.reviewListMetaData}
+              data={resourceConstantsLockerta.mappedReviews(programreviews)}
               rowClickListener={rowClickListener}
             />
           </section>
@@ -42,11 +41,7 @@ const ProgramReviewsTabPresenter = ({
       ) : (
         <div>
           <div id="csv-container">
-            <h2>It looks like you do not have any programs added.</h2>
-            <h4>Once you add a school they will appear here.</h4>
-            <div id="csv-button-container">
-              <button onClick={() => importCSVHandler()} id="add-client" style={{ marginRight: '20px' }}>Import CSV</button>
-            </div>
+            <h2>There are no reviews for this program</h2>
           </div>
         </div>
       )}
