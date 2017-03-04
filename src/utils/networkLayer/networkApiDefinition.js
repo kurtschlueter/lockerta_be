@@ -68,6 +68,16 @@ export function searchProgramsDefinition(term) {
   };
 }
 
+export function searchProgramReviewsDefinition(id, term) {
+  // console.log('SEARCH PROGRAM REVIEWS DEFINITION', id, term)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/teams/${id}/reviews/search/${term}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
 export function searchReviewsDefinition(term) {
   // console.log('getSchoolDefinition', term)
   return {

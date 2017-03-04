@@ -97,6 +97,27 @@ export const searchPrograms = (query) => (dispatch) => {
   );
 };
 
+export function getSearchedProgramReviews(data) {
+  // console.log('get school action', data)
+  return {
+    type: GET_PROGRAM_REVIEWS,
+    data
+  };
+}
+
+export const searchProgramReviews = (id, query) => (dispatch) => {
+  // console.log('fetchSchool action', query)
+  programApi.getSearchedProgramReviews(id, query).subscribe(
+    (data) => {
+      dispatch(getSearchedProgramReviews(data));
+    },
+    (error) => {
+      console.log('parsing failed', error);
+    },
+    () => {}
+  );
+};
+
 
 export function postProgram(data) {
   return {

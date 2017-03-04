@@ -74,10 +74,8 @@ class ProgramReviewsTabContainer extends Component {
   }
 
   searchHandler(e) {
-    console.log("come on")
     if (this.state.searchTerm !== "") {
-      console.log(this.state.searchTerm);
-      this.props.searchPrograms(this.state.searchTerm)
+      this.props.searchProgramReviews(this.props.program.id, this.state.searchTerm)
     } else {
       this.props.fetchProgramReviews(this.props.program.id)
     }
@@ -128,7 +126,7 @@ const mapDispatchToProps = dispatch => ({
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
-  searchPrograms: query => dispatch(programActions.searchPrograms(query))
+  searchProgramReviews: (id, query) => dispatch(programActions.searchProgramReviews(id, query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProgramReviewsTabContainer);

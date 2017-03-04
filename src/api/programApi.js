@@ -6,7 +6,8 @@ import {
   putProgramDefinition,
   searchProgramsDefinition,
   deleteProgramDefinition,
-  getProgramReviewsDefinition
+  getProgramReviewsDefinition,
+  searchProgramReviewsDefinition
 } from '../utils/networkLayer/networkApiDefinition';
 
 
@@ -31,6 +32,12 @@ export function getPrograms() {
 export function getSearchedPrograms(query) {
   // console.log('getClients api data')
   const client = networkClient.observableClient(searchProgramsDefinition(query));
+  return client;
+}
+
+export function getSearchedProgramReviews(id, query) {
+  // console.log('getClients api data')
+  const client = networkClient.observableClient(searchProgramReviewsDefinition(id, query));
   return client;
 }
 
