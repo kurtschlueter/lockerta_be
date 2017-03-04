@@ -48,6 +48,16 @@ export function getProgramReviewsDefinition(id) {
   };
 }
 
+export function getSchoolProgramsDefinition(id) {
+  // console.log('getSchoolDefinition', id)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/schools/${id}/teams`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
 export function searchSchoolsDefinition(term) {
   // console.log('getSchoolDefinition', term)
   return {
@@ -74,6 +84,16 @@ export function searchProgramReviewsDefinition(id, term) {
     method: httpMethods.GET,
     headers: basicHeaders,
     path: `/Test/teams/${id}/reviews/search/${term}`,
+    basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
+  };
+}
+
+export function searchSchoolProgramsDefinition(id, term) {
+  // console.log('SEARCH PROGRAM REVIEWS DEFINITION', id, term)
+  return {
+    method: httpMethods.GET,
+    headers: basicHeaders,
+    path: `/Test/schools/${id}/teams/search/${term}`,
     basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com'
   };
 }

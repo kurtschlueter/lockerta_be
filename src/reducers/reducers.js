@@ -60,6 +60,11 @@ export const getProgramReviews = (state) => {
   return programSelectors.getProgramReviews(state.programs);
 }
 
+export const getSchoolPrograms = (state) => {
+  // console.log('clientSelectors', clientSelectors  )
+  return clientSelectors.getSchoolPrograms(state.schools);
+}
+
 export const getIntegrations = (state) => {
   return integrationSelectors.getIntegrations(state.integrations);
 }

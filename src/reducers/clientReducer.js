@@ -11,7 +11,8 @@ import {
   SHOW_NEW_CLIENT_BUTTON,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
-  SET_DETAIL_VIEW
+  SET_DETAIL_VIEW,
+  GET_SCHOOL_PROGRAMS
 } from '../actions/actionTypes.js';
 
 import Constants from '../utils/localConstants';
@@ -20,6 +21,7 @@ const defaultState = {
   schools: [],
   managers: [],
   school: {},
+  schoolprograms: [],
   showNewClientButton: false,
   showImportCSV: false,
   csvError: null,
@@ -77,6 +79,25 @@ export default function clientReducer(state = defaultState, action) {
            }
         )
       }
+    case GET_SCHOOL_PROGRAMS:
+      console.log('getting school programs here data', action.data)
+        {
+          return action.data.length > 0 ? (
+            {
+              ...state,
+              schoolprograms: action.data,
+              hasClients: true,
+              success: false
+            }
+          ) : (
+            {
+              ...state,
+              schoolprograms: action.data,
+              hasClients: false,
+              success: false
+             }
+          )
+        }
     case SET_SCHOOL:
       {
         return {
@@ -187,4 +208,7 @@ export const csvSuccess = (state) => {
 }
 export const setDetailView = (state) => {
   return state.detailViewNew;
+}
+export const getSchoolPrograms = (state) => {
+  return state.schoolprograms;
 }

@@ -10,7 +10,8 @@ import {
   UPLOAD_CSV_SUCCESS,
   UPLOAD_CSV_ERROR,
   SET_DETAIL_VIEW,
-  SEARCH_SCHOOLS
+  SEARCH_SCHOOLS,
+  GET_SCHOOL_PROGRAMS
 } from './actionTypes';
 
 import * as clientApi from './../api/clientApi';
@@ -58,6 +59,29 @@ export const fetchSchool = (id) => (dispatch) => {
   );
 };
 
+export function getSchoolPrograms(data) {
+  console.log('get school programs $$$$$$$$ action', data)
+
+  // console.log('get school action', data)
+  return {
+    type: GET_SCHOOL_PROGRAMS,
+    data
+  };
+}
+
+export const fetchSchoolPrograms = (id) => (dispatch) => {
+  console.log('fetch school programs $$$$$$$$ action', id)
+  clientApi.getSchoolPrograms(id).subscribe(
+    (data) => {
+      dispatch(getSchoolPrograms(data));
+    },
+    (error) => {
+      console.log('parsing failed', error);
+    },
+    () => {}
+  );
+};
+
 export function getSearchedSchools(data) {
   // console.log('get school action', data)
   return {
@@ -71,6 +95,27 @@ export const searchSchools = (query) => (dispatch) => {
   clientApi.getSearchedSchools(query).subscribe(
     (data) => {
       dispatch(getSearchedSchools(data));
+    },
+    (error) => {
+      console.log('parsing failed', error);
+    },
+    () => {}
+  );
+};
+
+export function getSearchedSchoolPrograms(data) {
+  // console.log('get school action', data)
+  return {
+    type: GET_SCHOOL_PROGRAMS,
+    data
+  };
+}
+
+export const searchSchoolPrograms = (id, query) => (dispatch) => {
+  // console.log('fetchSchool action', query)
+  clientApi.getSearchedSchoolPrograms(id, query).subscribe(
+    (data) => {
+      dispatch(getSearchedSchoolPrograms(data));
     },
     (error) => {
       console.log('parsing failed', error);

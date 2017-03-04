@@ -10,6 +10,7 @@ export const PUT_SCHOOL = 'PUT_SCHOOL';
 export const SEARCH_SCHOOLS = 'SEARCH_SCHOOLS';
 export const POST_SCHOOL= 'POST_SCHOOL';
 export const DELETE_SCHOOL = 'DELETE_SCHOOL';
+export const GET_SCHOOL_PROGRAMS = 'GET_SCHOOL_PROGRAMS';
 
 // Reviews
 export const GET_REVIEW = 'GET_REVIEW';
