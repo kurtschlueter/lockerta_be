@@ -3,7 +3,10 @@ import React from 'react';
 const NavbarPresenter = ({
   showNewSchoolButton,
   newSchoolClickHandler,
-
+  showNewReviewButton,
+  newReviewClickHandler,
+  showNewProgramButton,
+  newProgramClickHandler,
   showNewManagerButton,
   showNewManagerView,
 }) => {
@@ -21,6 +24,20 @@ const NavbarPresenter = ({
           <div className="navbarinfo" onClick={() => newSchoolClickHandler()}>
             <a href="#">
               <i className="fa fa-plus" aria-hidden="true" /><span> &nbsp;New School</span>
+            </a>
+          </div>
+        }
+        {showNewReviewButton &&
+          <div className="navbarinfo" onClick={() => newReviewClickHandler()}>
+            <a href="#">
+              <i className="fa fa-plus" aria-hidden="true" /><span> &nbsp;New Review</span>
+            </a>
+          </div>
+        }
+        {showNewProgramButton &&
+          <div className="navbarinfo" onClick={() => newProgramClickHandler()}>
+            <a href="#">
+              <i className="fa fa-plus" aria-hidden="true" /><span> &nbsp;New Program</span>
             </a>
           </div>
         }

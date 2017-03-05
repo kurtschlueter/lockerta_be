@@ -5,8 +5,8 @@ var FontAwesome = require('react-fontawesome');
 const resourceConstants = require(`../../../assets/resources/${process.env.RESOURCES}/constants.js`);
 const resourceConstantsLockerta = require(`../../../assets/resources/lockerta/constants.js`);
 
-const IntegrationsTabPresenter = ({
-  schoolprograms,
+const ProgramReviewsTabPresenter = ({
+  programreviews,
   importCSVHandler,
   rowClickListener,
   searchTerm,
@@ -25,14 +25,14 @@ const IntegrationsTabPresenter = ({
 
   return (
     <div className="content-wrapper programreviews">
-      {(schoolprograms.length !== 0) ? (
+      {(programreviews.length !== 0) ? (
 
         <div>
           <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
           <section style={sectionStyle}>
             <Grid
-              metadata={resourceConstantsLockerta.programListMetaData}
-              data={resourceConstantsLockerta.mappedPrograms(schoolprograms)}
+              metadata={resourceConstantsLockerta.reviewListMetaData}
+              data={resourceConstantsLockerta.mappedReviews(programreviews)}
               rowClickListener={rowClickListener}
             />
           </section>
@@ -41,7 +41,7 @@ const IntegrationsTabPresenter = ({
       ) : (
         <div>
           <div id="csv-container">
-            <h2>There are no programs for this school</h2>
+            <h2>There are no reviews for this program</h2>
           </div>
         </div>
       )}
@@ -49,9 +49,9 @@ const IntegrationsTabPresenter = ({
   );
 };
 
-IntegrationsTabPresenter.contextTypes = {
+ProgramReviewsTabPresenter.contextTypes = {
   store: React.PropTypes.object
 };
 
-export default IntegrationsTabPresenter;
+export default ProgramReviewsTabPresenter;
 

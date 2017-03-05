@@ -2,8 +2,12 @@ import React from 'react';
 import { Route } from 'react-router';
 import TestContainer from './components/Test/TestContainer.jsx';
 import SchoolDetailContainer from './components/SchoolDetail/SchoolDetailContainer.jsx';
+import ReviewDetailContainer from './components/ReviewDetail/ReviewDetailContainer.jsx';
+import ProgramDetailContainer from './components/ProgramDetail/ProgramDetailContainer.jsx';
 import MainLayout from './components/MainLayout/MainLayoutPresenter.jsx';
 import SchoolListContainer from './components/SchoolList/SchoolListContainer.jsx';
+import ReviewListContainer from './components/ReviewList/ReviewListContainer.jsx';
+import ProgramListContainer from './components/ProgramList/ProgramListContainer.jsx';
 import LoginContainer from './components/Login/LoginContainer.jsx';
 import ManagersContainer from './components/Managers/ManagersContainer.jsx';
 import GroupsContainer from './components/Groups/GroupsContainer.jsx';
@@ -27,7 +31,13 @@ export default (store) => {
           <Route path="/" component={SchoolListContainer} />
           <Route path="schoolDetail/:schoolId" component={SchoolDetailContainer} />
           <Route path="schoolDetail" component={SchoolDetailContainer} />
+          <Route path="ReviewDetail/:reviewId" component={ReviewDetailContainer} />
+          <Route path="ReviewDetail" component={ReviewDetailContainer} />
+          <Route path="ProgramDetail/:programId" component={ProgramDetailContainer} />
+          <Route path="ProgramDetail" component={ProgramDetailContainer} />
           <Route path="schoolList" component={SchoolListContainer} />
+          <Route path="reviewList" component={ReviewListContainer} />
+          <Route path="programList" component={ProgramListContainer} />
           <Route path="login" component={LoginContainer} />
           <Route path="test" component={TestContainer} />
           <Route path="managers" component={ManagersContainer} />

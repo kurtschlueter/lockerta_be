@@ -101,6 +101,113 @@ export function mappedSchools(schools) {
   });
 }
 
+export const reviewListMetaData = {
+  columns: [
+        { field: 'athlete_fname', title: 'FIRST', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'athlete_lname', title: 'LAST', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'name', title: 'SCHOOL', headerDefinition: 'nameHeader', ascending: false },
+        { field: 'sport', title: 'TEAM', headerDefinition: 'nameHeader', ascending: false },
+  ],
+  cells: [
+    {
+      id: 'nameHeader',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '24px', color: 'red' }
+    },
+    {
+      id: 'nameRow',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '14px', color: 'red'}
+    },
+    {
+      id: 'logoHeader',
+      style: { width: '10%', marginRight: '20px' }
+    },
+    {
+      id: 'logoRow',
+      style: { width: '10%', marginRight: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }
+    },
+  ]
+};
+
+export const programListMetaData = {
+  columns: [
+        { field: 'name', title: 'SCHOOL', headerDefinition: 'nameHeader', ascending: false },
+        { field: 'sport', title: 'TEAM', headerDefinition: 'nameHeader', ascending: false },
+        { field: 'division', title: 'DIVISION', headerDefinition: 'nameHeader', ascending: true },
+        { field: 'conference', title: 'CONFERENCE', headerDefinition: 'nameHeader', ascending: true },
+  ],
+  cells: [
+    {
+      id: 'nameHeader',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '24px', color: 'red' }
+    },
+    {
+      id: 'nameRow',
+      style: { width: '30%', marginRight: '20px', fontWeight: '400', fontSize: '14px', color: 'red'}
+    },
+    {
+      id: 'logoHeader',
+      style: { width: '10%', marginRight: '20px' }
+    },
+    {
+      id: 'logoRow',
+      style: { width: '10%', marginRight: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }
+    },
+  ]
+};
+
+
+
+
+export function mappedReviews(reviews) {
+  return reviews.map((review) => {
+    let leftMargin = 12;
+    return {
+      id: review.id,
+      name: {
+        value: review.name ? review.name : '',
+        cellDefinition: 'nameRow'
+      },
+      sport: {
+        value: review.sport ? review.sport : '',
+        cellDefinition: 'nameRow'
+      },
+      athlete_fname: {
+        value: review.athlete_fname ? review.athlete_fname : '',
+        cellDefinition: 'nameRow'
+      },
+      athlete_lname: {
+        value: review.athlete_lname ? review.athlete_lname : '',
+        cellDefinition: 'nameRow'
+      },
+    };
+  });
+}
+
+export function mappedPrograms(programs) {
+  return programs.map((program) => {
+    let leftMargin = 12;
+    return {
+      id: program.id,
+      name: {
+        value: program.name ? program.name : '',
+        cellDefinition: 'nameRow'
+      },
+      sport: {
+        value: program.sport ? program.sport : '',
+        cellDefinition: 'nameRow'
+      },
+      division: {
+        value: program.division ? program.division : '',
+        cellDefinition: 'nameRow'
+      },
+      conference: {
+        value: program.conference ? program.conference : '',
+        cellDefinition: 'nameRow'
+      },
+    };
+  });
+}
+
 export const clientDetailInformationTabElements = [
   {
     type: 'TextInput',
@@ -152,3 +259,332 @@ export const clientDetailInformationTabElements = [
     name: 'logo'
   },
 ];
+
+
+export const reviewDetailInformationTabElements = [
+  {
+    type: 'TextInput',
+    title: 'First Name',
+    id: 'athlete_fname',
+    name: 'athlete_fname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Last Name',
+    id: 'athlete_lname',
+    name: 'nickname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Jersey No.',
+    id: 'athlete_jersey_no'
+  },
+  {
+    type: 'TextInput',
+    title: 'Email',
+    id: 'athlete_email'
+  },
+  {
+    type: 'TextInput',
+    title: 'Best Teammate',
+    id: 'best_teammate'
+  },
+  {
+    type: 'TextInput',
+    title: 'Best Conf Player',
+    id: 'best_conf_player'
+  },
+  {
+    type: 'TextInput',
+    title: 'Rival',
+    id: 'team_rival',
+    name: 'team_rival'
+  },
+  {
+    type: 'TextInput',
+    title: 'Toughest Arena',
+    id: 'toughest_arena',
+    name: 'toughest_arena'
+  },
+  {
+    type: 'TextInput',
+    title: 'Head Coach',
+    id: 'head_coach_name',
+    name: 'head_coach_name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Recruiting',
+    id: 'recruiting_rating',
+    name: 'recruiting_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Relationships',
+    id: 'relationships_rating',
+    name: 'relationships_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Development',
+    id: 'development_rating',
+    name: 'development_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Knowledge',
+    id: 'knowledge_sport_rating',
+    name: 'knowledge_sport_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Program Tradition',
+    id: 'program_tradition_rating',
+    name: 'program_tradition_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Arena',
+    id: 'arena_rating',
+    name: 'arena_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Home Crowds',
+    id: 'home_crowds_rating',
+    name: 'home_crowds_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Weight Room',
+    id: 'weight_room_rating',
+    name: 'weight_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Locker Room',
+    id: 'locker_room_rating',
+    name: 'locker_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Training Room',
+    id: 'training_room_rating',
+    name: 'training_room_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Class Difficulty',
+    id: 'class_difficulty_rating',
+    name: 'class_difficulty_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Academic Reputation',
+    id: 'academic_rep_rating',
+    name: 'academic_rep_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Tutors',
+    id: 'tutors_rating',
+    name: 'tutors_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Weather',
+    id: 'weather_rating',
+    name: 'weather_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Nightlife',
+    id: 'nightlife_rating',
+    name: 'nightlife_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Fans',
+    id: 'fan_rating',
+    name: 'fan_rating'
+  },
+  {
+    type: 'TextInput',
+    title: 'Graduated',
+    id: 'graduate',
+    name: 'graduate'
+  },
+  {
+    type: 'TextInput',
+    title: 'Comments',
+    id: 'comments',
+    name: 'comments'
+  },
+  {
+    type: 'TextInput',
+    title: 'School',
+    id: 'name',
+    name: 'name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Sport',
+    id: 'sport',
+    name: 'sport'
+  },
+];
+
+export const programDetailInformationTabElements = [
+  {
+    type: 'TextInput',
+    title: 'Sport',
+    id: 'sport',
+    name: 'sport'
+  },
+  {
+    type: 'TextInput',
+    title: 'Division',
+    id: 'division'
+  },
+  {
+    type: 'TextInput',
+    title: 'Conference',
+    id: 'conference'
+  },
+  {
+    type: 'TextInput',
+    title: 'Gear',
+    id: 'gear'
+  },
+  {
+    type: 'TextInput',
+    title: 'Last Season Record',
+    id: 'last_season_record'
+  },
+  {
+    type: 'TextInput',
+    title: 'Natl Titles',
+    id: 'national_titles'
+  },
+  {
+    type: 'TextInput',
+    title: 'Conf Titles',
+    id: 'conference_titles',
+    name: 'conference_titles'
+  },
+  {
+    type: 'TextInput',
+    title: 'Projected Openings',
+    id: 'projected_openings',
+    name: 'projected_openings'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach First Name',
+    id: 'coach_fname',
+    name: 'coach_fname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Last Name',
+    id: 'coach_lname',
+    name: 'coach_lname'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Last Record',
+    id: 'coach_last_record',
+    name: 'coach_last_record'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach School Record',
+    id: 'coach_school_record',
+    name: 'coach_school_record'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Alma Mater',
+    id: 'coach_alma_mater',
+    name: 'coach_alma_mater'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Year Started',
+    id: 'coach_year_started',
+    name: 'coach_year_started'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Win Percent',
+    id: 'coach_win_percent',
+    name: 'coach_win_percent'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Seasons w Team',
+    id: 'coach_seasons_w_team',
+    name: 'coach_seasons_w_team'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach NCAA Appearances',
+    id: 'coach_ncaa_appearances',
+    name: 'coach_ncaa_appearances'
+  },
+  {
+    type: 'TextInput',
+    title: 'Coach Conf Champs',
+    id: 'coach_conf_championships',
+    name: 'coach_conf_championships'
+  },
+  {
+    type: 'TextInput',
+    title: 'Arena Name',
+    id: 'facilities_arena_name',
+    name: 'facilities_arena_name'
+  },
+  {
+    type: 'TextInput',
+    title: 'Arena Built',
+    id: 'facilities_arena_built',
+    name: 'facilities_arena_built'
+  },
+  {
+    type: 'TextInput',
+    title: 'Arena Capacity',
+    id: 'facilities_capacity',
+    name: 'facilities_capacity'
+  },
+  {
+    type: 'TextInput',
+    title: 'Home Attendance',
+    id: 'facilities_home_attendance',
+    name: 'facilities_home_attendance'
+  },
+  {
+    type: 'TextInput',
+    title: 'Cost',
+    id: 'education_cost',
+    name: 'education_cost'
+  },
+  {
+    type: 'TextInput',
+    title: 'Enrollment',
+    id: 'education_enrollment',
+    name: 'education_enrollment'
+  },
+  {
+    type: 'TextInput',
+    title: 'Grad Rate',
+    id: 'education_graduation_rate',
+    name: 'education_graduation_rate'
+  },
+  {
+    type: 'TextInput',
+    title: 'School',
+    id: 'name',
+    name: 'name'
+  },
+];
+

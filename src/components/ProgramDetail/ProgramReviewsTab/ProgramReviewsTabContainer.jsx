@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import IntegrationsTabPresenter from './IntegrationsTabPresenter.jsx';
+import ProgramReviewsTabPresenter from './ProgramReviewsTabPresenter.jsx';
 import * as integrationActions from './../../../actions/integrationActions.js';
 import * as selectors from './../../../reducers/reducers.js';
 import * as modalActions from './../../../actions/modalActions.js';
@@ -15,14 +15,14 @@ import * as navbarActions from './../../../actions/navbarActions.js';
 
 const resourceConstants = require(`../../../assets/resources/${process.env.RESOURCES}/constants.js`);
 
-class IntegrationsTabContainer extends Component {
+class ProgramReviewsTabContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hasClients: null,
       showNewClientDropdown: false,
       showImportCSV: false,
-      filteredSchoolPrograms: [],
+      filteredProgramReviews: [],
       searchTerm: "",
     };
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
@@ -33,10 +33,10 @@ class IntegrationsTabContainer extends Component {
   }
 
   componentWillMount() {
-    console.log('school programs tab will mount props', this.props)
-    console.log('school programs tabl will mount state', this.state)
-    this.props.fetchSchoolPrograms(this.props.school.id);
-    this.props.showNewClientButton();
+    console.log('program reviews tab will mount props', this.props)
+    console.log('program reviews tabl will mount state', this.state)
+    this.props.fetchProgramReviews(this.props.program.id);
+    this.props.showNewProgramButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,14 +46,14 @@ class IntegrationsTabContainer extends Component {
         hasClients: nextProps.hasClients,
         showImportCSV: nextProps.showImportCSV,
         // filteredSchools: nextProps.schools
-        filteredSchoolPrograms: nextProps.schoolprograms.filter(program => !program.is_deleted)
+        filteredProgramReviews: nextProps.programreviews.filter(review => !review.is_deleted)
       });
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextState.showImportCSV) this.props.hideNewClientButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewClientButton();
+    if (nextState.showImportCSV) this.props.hideNewProgramButton();
+    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewProgramButton();
   }
 
   importCSVHandler() {
@@ -62,22 +62,22 @@ class IntegrationsTabContainer extends Component {
   newClientDropdownHandler() {
     this.setState({ showNewClientDropdown: !this.state.showNewClientDropdown });
   }
-  rowClickListener(program) {
+  rowClickListener(review) {
     // console.log('yassssss', school)
     // console.log('filtered school', this.state.filteredSchools)
-    localStorage.setItem('index', 1)
-    this.props.setProgram(this.state.filteredSchoolPrograms.filter(s => s.id === program.id));
+    localStorage.setItem('index', 2)
+    this.props.setReview(this.state.filteredProgramReviews.filter(s => s.id === review.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
-    this.props.hideNewClientButton();
-    browserHistory.push(`/programDetail/${program.id}`);
+    this.props.hideNewProgramButton();
+    browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
   searchHandler(e) {
     if (this.state.searchTerm !== "") {
-      this.props.searchSchoolPrograms(this.props.school.id, this.state.searchTerm)
+      this.props.searchProgramReviews(this.props.program.id, this.state.searchTerm)
     } else {
-      this.props.fetchSchoolPrograms(this.props.school.id)
+      this.props.fetchProgramReviews(this.props.program.id)
     }
   }
 
@@ -91,9 +91,12 @@ class IntegrationsTabContainer extends Component {
     if (this.state.hasClients === null) {
       return <div>Loading</div>;
     }
+    if (this.state.showImportCSV) {
+      return <ImportCSVContainer />;
+    }
     return (
-      <IntegrationsTabPresenter
-        schoolprograms={this.state.filteredSchoolPrograms}
+      <ProgramReviewsTabPresenter
+        programreviews={this.state.filteredProgramReviews}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
         searchHandler={this.searchHandler}
@@ -104,27 +107,26 @@ class IntegrationsTabContainer extends Component {
   }
 }
 
-IntegrationsTabContainer.contextTypes = {
+ProgramReviewsTabContainer.contextTypes = {
   store: React.PropTypes.object
 };
 
 const mapStateToProps = state => ({
   programs: selectors.getPrograms(state),
-  schoolprograms: selectors.getSchoolPrograms(state),
+  programreviews: selectors.getProgramReviews(state),
   schools: selectors.getSchools(state),
   hasClients: state.schools.hasClients,
   showImportCSV: state.schools.showImportCSV
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchSchoolPrograms: (id) => dispatch(clientActions.fetchSchoolPrograms(id)),
+  fetchProgramReviews: (id) => dispatch(programActions.fetchProgramReviews(id)),
   setProgram: review => dispatch(programActions.setProgram(review)),
   setReview: review => dispatch(reviewActions.setReview(review)),
-  setSchool: school => dispatch(clientActions.setSchool(school)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
-  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
-  searchSchoolPrograms: (id, query) => dispatch(clientActions.searchSchoolPrograms(id, query))
+  showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
+  hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
+  searchProgramReviews: (id, query) => dispatch(programActions.searchProgramReviews(id, query))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(IntegrationsTabContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProgramReviewsTabContainer);

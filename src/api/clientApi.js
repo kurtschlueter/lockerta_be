@@ -6,7 +6,9 @@ import {
   putSchoolDefinition,
   searchSchoolsDefinition,
   deleteSchoolDefinition,
-  uploadCSVDefiniton
+  uploadCSVDefiniton,
+  getSchoolProgramsDefinition,
+  searchSchoolProgramsDefinition
 } from '../utils/networkLayer/networkApiDefinition';
 
 
@@ -14,6 +16,12 @@ export function getSchool(id) {
   // console.log('getSchool api', id)
   const school = networkClient.observableClient(getSchoolDefinition(id));
   return school;
+}
+
+export function getSchoolPrograms(id) {
+  console.log('GETSCHOOLPROGRAMS api', id)
+  const programs = networkClient.observableClient(getSchoolProgramsDefinition(id));
+  return programs;
 }
 
 export function getSchools() {
@@ -25,6 +33,12 @@ export function getSchools() {
 export function getSearchedSchools(query) {
   // console.log('getClients api data')
   const client = networkClient.observableClient(searchSchoolsDefinition(query));
+  return client;
+}
+
+export function getSearchedSchoolPrograms(id, query) {
+  // console.log('getClients api data')
+  const client = networkClient.observableClient(searchSchoolProgramsDefinition(id, query));
   return client;
 }
 

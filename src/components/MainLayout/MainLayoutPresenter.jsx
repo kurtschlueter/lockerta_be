@@ -15,9 +15,10 @@ const menuItems =
   [
     { title: 'SCHOOLS', path: '/schoolList' },
     {
-      title: userTitle,
-      path: `/${userType}`
-    }
+      title: 'PROGRAMS',
+      path: `/programList`
+    },
+    { title: 'REVIEWS', path: '/reviewList'}
   ];
 
 class MainLayout extends Component {

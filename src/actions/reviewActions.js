@@ -1,20 +1,23 @@
 import {
+  GET_REVIEWS,
+  GET_REVIEW,
+  SET_REVIEW,
   GET_SCHOOLS,
   GET_SCHOOL,
   SET_SCHOOL,
-  POST_SCHOOL,
-  PUT_SCHOOL,
-  DELETE_SCHOOL,
+  POST_REVIEW,
+  PUT_REVIEW,
+  DELETE_REVIEW,
   SHOW_IMPORT_CSV,
   HIDE_IMPORT_CSV,
   UPLOAD_CSV_SUCCESS,
   UPLOAD_CSV_ERROR,
   SET_DETAIL_VIEW,
   SEARCH_SCHOOLS,
-  GET_SCHOOL_PROGRAMS
+  SET_REVIEW_DETAIL_VIEW
 } from './actionTypes';
 
-import * as clientApi from './../api/clientApi';
+import * as reviewApi from './../api/reviewApi';
 
 export function getSchools(data) {
   // console.log('getSchools actions data', data)
@@ -27,7 +30,7 @@ export function getSchools(data) {
 export const fetchSchools = (filters, offset, limit) => (dispatch) => {
   // console.log('fetch schools')
 
-  clientApi.getSchools().subscribe(
+  reviewApi.getSchools().subscribe(
     (data) => {
       dispatch(getSchools(data));
     },
@@ -38,19 +41,41 @@ export const fetchSchools = (filters, offset, limit) => (dispatch) => {
   );
 };
 
-export function getSchool(data) {
-  // console.log('get school action', data)
+export function getReviews(data) {
+  // console.log('getSchools actions data', data)
   return {
-    type: GET_SCHOOL,
+    type: GET_REVIEWS,
     data
   };
 }
 
-export const fetchSchool = (id) => (dispatch) => {
+export const fetchReviews = (filters, offset, limit) => (dispatch) => {
+  console.log('fetch reviews')
+
+  reviewApi.getReviews().subscribe(
+    (data) => {
+      dispatch(getReviews(data));
+    },
+    (error) => {
+      console.log('parsing failed', error);
+    },
+    () => {}
+  );
+};
+
+export function getReview(data) {
+  // console.log('get school action', data)
+  return {
+    type: GET_REVIEW,
+    data
+  };
+}
+
+export const fetchReview = (id) => (dispatch) => {
   // console.log('fetchSchool action', id)
-  clientApi.getSchool(id).subscribe(
+  reviewApi.getReview(id).subscribe(
     (data) => {
-      dispatch(getSchool(data[0]));
+      dispatch(getReview(data[0]));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -59,63 +84,19 @@ export const fetchSchool = (id) => (dispatch) => {
   );
 };
 
-export function getSchoolPrograms(data) {
-  console.log('get school programs $$$$$$$$ action', data)
-
+export function getSearchedReviews(data) {
   // console.log('get school action', data)
   return {
-    type: GET_SCHOOL_PROGRAMS,
+    type: GET_REVIEWS,
     data
   };
 }
 
-export const fetchSchoolPrograms = (id) => (dispatch) => {
-  console.log('fetch school programs $$$$$$$$ action', id)
-  clientApi.getSchoolPrograms(id).subscribe(
-    (data) => {
-      dispatch(getSchoolPrograms(data));
-    },
-    (error) => {
-      console.log('parsing failed', error);
-    },
-    () => {}
-  );
-};
-
-export function getSearchedSchools(data) {
-  // console.log('get school action', data)
-  return {
-    type: GET_SCHOOLS,
-    data
-  };
-}
-
-export const searchSchools = (query) => (dispatch) => {
+export const searchReviews = (query) => (dispatch) => {
   // console.log('fetchSchool action', query)
-  clientApi.getSearchedSchools(query).subscribe(
+  reviewApi.getSearchedReviews(query).subscribe(
     (data) => {
-      dispatch(getSearchedSchools(data));
-    },
-    (error) => {
-      console.log('parsing failed', error);
-    },
-    () => {}
-  );
-};
-
-export function getSearchedSchoolPrograms(data) {
-  // console.log('get school action', data)
-  return {
-    type: GET_SCHOOL_PROGRAMS,
-    data
-  };
-}
-
-export const searchSchoolPrograms = (id, query) => (dispatch) => {
-  // console.log('fetchSchool action', query)
-  clientApi.getSearchedSchoolPrograms(id, query).subscribe(
-    (data) => {
-      dispatch(getSearchedSchoolPrograms(data));
+      dispatch(getSearchedReviews(data));
     },
     (error) => {
       console.log('parsing failed', error);
@@ -125,19 +106,19 @@ export const searchSchoolPrograms = (id, query) => (dispatch) => {
 };
 
 
-export function postSchool(data) {
+export function postReview(data) {
   return {
-    type: POST_SCHOOL,
+    type: POST_REVIEW,
     data
   };
 }
 
-export const requestPostSchool = (school) => (dispatch) => {
+export const requestPostReview = (review) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    clientApi.postSchool(school).subscribe(
+    reviewApi.postReview(review).subscribe(
       (data) => {
         if (data) {
-          dispatch(postSchool(data));
+          dispatch(postReview(data));
         }
         resolve();
       },
@@ -149,28 +130,28 @@ export const requestPostSchool = (school) => (dispatch) => {
   });
 };
 
-export function setSchool(data) {
+export function setReview(data) {
   // console.log('data setClient', data)
   return {
-    type: SET_SCHOOL,
+    type: SET_REVIEW,
     data
   }
 };
 
-export function putSchool(data) {
+export function putReview(data) {
 
   return {
-    type: PUT_SCHOOL,
+    type: PUT_REVIEW,
     data
   };
 };
 
-export const requestPutSchool = (school) => (dispatch) => {
+export const requestPutReview = (review) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    clientApi.putSchool(school).subscribe(
+    reviewApi.putReview(review).subscribe(
       (data) => {
         if (data) {
-          dispatch(putSchool(data));
+          dispatch(putReview(data));
         }
         resolve();
       },
@@ -182,19 +163,19 @@ export const requestPutSchool = (school) => (dispatch) => {
   });
 };
 
-export function deleteSchool(data) {
+export function deleteReview(data) {
   return {
-    type: DELETE_SCHOOL,
+    type: DELETE_REVIEW,
     data
   };
 }
 
-export const requestDeleteSchool = (school) => (dispatch) => {
+export const requestDeleteReview = (review) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    clientApi.deleteSchool(school).subscribe(
+    reviewApi.deleteReview(review).subscribe(
       (data) => {
         if (data) {
-          dispatch(deleteSchool(data));
+          dispatch(deleteReview(data));
         }
         resolve();
       },
@@ -221,7 +202,7 @@ export function uploadCSVError(error) {
 }
 
 export const requestUploadCSV = (json) => (dispatch) => {
-  clientApi.uploadCSVFiles(json).subscribe(
+  reviewApi.uploadCSVFiles(json).subscribe(
     (data) => {
       dispatch(uploadCSVSuccess(data))
     },
@@ -244,7 +225,7 @@ export function hideImportCSV() {
 }
 
 export const fetchUsers = (filters, offset, limit) => (dispatch) => {
-  clientApi.getClients(client).subscribe(
+  reviewApi.getClients(client).subscribe(
     (data) => {
       dispatch(getUsers(data));
     },
@@ -255,10 +236,10 @@ export const fetchUsers = (filters, offset, limit) => (dispatch) => {
   );
 };
 
-export function setDetailView(data) {
-  console.log('in set detail view ')
+export function setReviewDetailView(data) {
+  console.log('in set detail view reviews')
   return {
-    type: SET_DETAIL_VIEW,
+    type: SET_REVIEW_DETAIL_VIEW,
     data
   }
 };

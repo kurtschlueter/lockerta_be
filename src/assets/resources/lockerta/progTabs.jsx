@@ -1,8 +1,8 @@
 import React from 'react';
 
-import InformationTabContainer from '../../../components/SchoolDetail/InformationTab/InformationTabContainer.jsx'; //eslint-disable-line import/extensions
+import InformationTabContainer from '../../../components/ProgramDetail/InformationTab/InformationTabContainer.jsx'; //eslint-disable-line import/extensions
 import SchedulingTabContainer from '../../../components/SchoolDetail/SchedulingTab/SchedulingTabContainer.jsx';
-import IntegrationsTabContainer from '../../../components/SchoolDetail/IntegrationsTab/IntegrationsTabContainer.jsx'; //eslint-disable-line import/extensions
+import ProgramReviewsTabContainer from '../../../components/ProgramDetail/ProgramReviewsTab/ProgramReviewsTabContainer.jsx'; //eslint-disable-line import/extensions
 
 export const tabs = [
     {
@@ -15,10 +15,10 @@ export const tabs = [
     },
     {
         tabID: 'integrations',
-        label: 'Programs',
+        label: 'Reviews',
         tabIndex: 1,
         generateComponent(props) {
-            return <IntegrationsTabContainer {...props} />;
+            return <ProgramReviewsTabContainer {...props} />;
         }
     }
 ];
