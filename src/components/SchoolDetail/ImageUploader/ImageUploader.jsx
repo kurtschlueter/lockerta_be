@@ -44,15 +44,28 @@ class ImageUploader extends Component {
     });
   }
 
+  makeid() {
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      for( var i=0; i < 5; i++ )
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+      return text;
+  }
+
   handleFile(e) {
     const reader = new FileReader();
     const file = e.target.files[0];
 
     reader.onload = (upload) => {
-      console.log('uploading!!!')
+      console.log('uploading!!')
+      var fullname = file.name.split('.')
+      fullname[fullname.length - 2] = fullname[fullname.length - 2] + this.makeid();
+      fullname = fullname.join('.')
       this.setState({
         data_uri: upload.target.result,
-        filename: file.name,
+        filename: fullname,
         filetype: file.type
       });
       this.handleSubmit(e);
