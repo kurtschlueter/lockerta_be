@@ -25,10 +25,10 @@ const SchoolListPresenter = ({
 
   return (
     <div className="content-wrapper">
+      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
       {(schools.length !== 0) ? (
 
         <div>
-          <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
           <section style={sectionStyle}>
             <Grid
               metadata={resourceConstantsLockerta.schoolListMetaData}
@@ -43,9 +43,6 @@ const SchoolListPresenter = ({
           <div id="csv-container">
             <h2>It looks like you do not have any schools added.</h2>
             <h4>Once you add a school they will appear here.</h4>
-            <div id="csv-button-container">
-              <button onClick={() => importCSVHandler()} id="add-client" style={{ marginRight: '20px' }}>Import CSV</button>
-            </div>
           </div>
         </div>
       )}

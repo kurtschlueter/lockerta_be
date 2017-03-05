@@ -25,10 +25,10 @@ const ProgramReviewsTabPresenter = ({
 
   return (
     <div className="content-wrapper programreviews">
+      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
       {(programreviews.length !== 0) ? (
 
         <div>
-          <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
           <section style={sectionStyle}>
             <Grid
               metadata={resourceConstantsLockerta.reviewListMetaData}
