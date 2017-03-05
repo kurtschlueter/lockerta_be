@@ -323,6 +323,9 @@ class InformationTabContainer extends Component {
       updatedProfile.agencyId = param.id;
       updatedProfile.agencyName = param.name;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
+    } else if (typeof param == 'number' && isNaN(param)) {
+      updatedProfile[field] = '';
+      this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
     } else {
       updatedProfile[field] = param;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
