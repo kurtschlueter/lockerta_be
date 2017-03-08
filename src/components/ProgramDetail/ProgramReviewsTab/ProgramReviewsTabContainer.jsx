@@ -36,7 +36,7 @@ class ProgramReviewsTabContainer extends Component {
     console.log('program reviews tab will mount props', this.props)
     console.log('program reviews tabl will mount state', this.state)
     this.props.fetchProgramReviews(this.props.program.id);
-    this.props.showNewProgramButton();
+    this.props.showNewReviewButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,7 +53,7 @@ class ProgramReviewsTabContainer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.showImportCSV) this.props.hideNewProgramButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewProgramButton();
+    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewReviewButton();
   }
 
   importCSVHandler() {
@@ -124,7 +124,7 @@ const mapDispatchToProps = dispatch => ({
   setProgram: review => dispatch(programActions.setProgram(review)),
   setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
+  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
   searchProgramReviews: (id, query) => dispatch(programActions.searchProgramReviews(id, query))
 });

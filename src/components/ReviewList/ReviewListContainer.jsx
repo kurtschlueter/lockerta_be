@@ -31,7 +31,6 @@ class ReviewListContainer extends Component {
 
   componentWillMount() {
     this.props.fetchReviews();
-    this.props.showNewReviewButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,7 +47,6 @@ class ReviewListContainer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.showImportCSV) this.props.hideNewReviewButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewReviewButton();
   }
 
   importCSVHandler() {
@@ -118,7 +116,6 @@ const mapDispatchToProps = dispatch => ({
   fetchReviews: () => dispatch(reviewActions.fetchReviews()),
   setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewReviewButton: () => dispatch(navbarActions.hideNewReviewButton()),
   searchReviews: query => dispatch(reviewActions.searchReviews(query))
 });
