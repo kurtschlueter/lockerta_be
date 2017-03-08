@@ -168,6 +168,7 @@ export function postSchoolDefinition(school) {
 }
 
 export function postReviewDefinition(review) {
+  console.log('post review definition!!!', review)
   return {
     method: httpMethods.POST,
     headers: basicHeaders,
@@ -175,8 +176,8 @@ export function postReviewDefinition(review) {
     basePath: 'https://ev5rn7db1a.execute-api.us-east-1.amazonaws.com',
     body: JSON.stringify({
       // will need to update team and school id, but can't do it yet
-      team_id: 1,
-      school_id: 1,
+      team_id: review.team_id,
+      school_id: review.school_id,
       athlete_fname: review.athlete_fname,
       athlete_lname: review.athlete_lname,
       athlete_jersey_no: review.athlete_jersey_no,

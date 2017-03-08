@@ -46,12 +46,14 @@ class NavbarContainer extends Component {
   newReviewClickHandler() {
     this.props.hideNewReviewButton();
     this.props.setDetailView(true);
+    localStorage.setItem('index', 2)
     browserHistory.push(`/reviewDetail/`);
   }
 
   newProgramClickHandler() {
     this.props.hideNewProgramButton();
     this.props.setDetailView(true);
+    localStorage.setItem('index', 1)
     browserHistory.push(`/programDetail/`);
   }
 

@@ -31,7 +31,6 @@ class ProgramListContainer extends Component {
 
   componentWillMount() {
     this.props.fetchPrograms();
-    this.props.showNewProgramButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,7 +62,7 @@ class ProgramListContainer extends Component {
     this.props.setProgram(this.state.filteredPrograms.filter(s => s.id === program.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
-    this.props.hideNewProgramButton();
+    this.props.showNewReviewButton();
     browserHistory.push(`/programDetail/${program.id}`);
   }
 
@@ -119,6 +118,7 @@ const mapDispatchToProps = dispatch => ({
   setProgram: review => dispatch(programActions.setProgram(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
+  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
   searchPrograms: query => dispatch(programActions.searchPrograms(query))
 });
