@@ -35,6 +35,7 @@ class SchoolListContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     console.log('nextProps', nextProps)
+    this.props.hideNewProgramButton();
     if (this.props !== nextProps) {
       this.setState({
         hasClients: nextProps.hasClients,
@@ -46,7 +47,6 @@ class SchoolListContainer extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextState.showImportCSV) this.props.hideNewClientButton();
     if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewClientButton();
   }
 
@@ -62,7 +62,7 @@ class SchoolListContainer extends Component {
     this.props.setSchool(this.state.filteredSchools.filter(s => s.id === school.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
-    this.props.hideNewClientButton();
+    this.props.showNewProgramButton();
     browserHistory.push(`/schoolDetail/${school.id}`);
   }
 
@@ -117,6 +117,8 @@ const mapDispatchToProps = dispatch => ({
   setSchool: school => dispatch(clientActions.setSchool(school)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
+  showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
+  hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchSchools: query => dispatch(clientActions.searchSchools(query))
 });

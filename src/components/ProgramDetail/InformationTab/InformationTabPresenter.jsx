@@ -12,6 +12,7 @@ const resourceConstants = require(`./../../../assets/resources/${process.env.RES
 const InformationTabPresenter = ({
   changeHandler,
   profile,
+  school,
   managers,
   states,
   readOnlyOption,
@@ -335,7 +336,7 @@ const InformationTabPresenter = ({
            },
            {
              id: 'name',
-             value: null,
+             value: school.name,
              readOnly: true,
              onChange: value => changeHandler('name', value)
            },

@@ -36,7 +36,7 @@ class IntegrationsTabContainer extends Component {
     console.log('school programs tab will mount props', this.props)
     console.log('school programs tabl will mount state', this.state)
     this.props.fetchSchoolPrograms(this.props.school.id);
-    this.props.showNewClientButton();
+    this.props.showNewProgramButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,7 +53,7 @@ class IntegrationsTabContainer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.showImportCSV) this.props.hideNewClientButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewClientButton();
+    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewProgramButton();
   }
 
   importCSVHandler() {
@@ -122,7 +122,7 @@ const mapDispatchToProps = dispatch => ({
   setReview: review => dispatch(reviewActions.setReview(review)),
   setSchool: school => dispatch(clientActions.setSchool(school)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
+  showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchSchoolPrograms: (id, query) => dispatch(clientActions.searchSchoolPrograms(id, query))
 });

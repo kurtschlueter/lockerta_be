@@ -13,6 +13,7 @@ class ProgramDetailContainer extends Component {
     super(props);
     this.state = {
       program: {},
+      school: {},
       activeTab: null,
       basicTabs: {}
     };
@@ -34,11 +35,13 @@ class ProgramDetailContainer extends Component {
       if (nextProps.program) {
         this.setState({
           program: nextProps.program,
+          school: nextProps.school,
           activeTab: 0,
           basicTabs: {
             metadata: tabs.map(tab => {
               const compProps = {
                 program: nextProps.program,
+                school: nextProps.school,
                 updateProgram: tab.tabID === 'information' ? this.updateProgram : null
               };
               tab.component = tab.generateComponent(compProps);
@@ -85,6 +88,7 @@ ProgramDetailContainer.contextTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   program: selectors.setProgram(state),
+  school: selectors.setSchool(state),
   detailViewNew: state.schools.detailViewNew
 });
 

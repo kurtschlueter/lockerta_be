@@ -245,7 +245,7 @@ export function postProgramDefinition(program) {
       education_cost: program.education_cost,
       education_enrollment: program.education_enrollment,
       education_graduation_rate: program.education_graduation_rate,
-      school_id: 1,
+      school_id: program.school_id,
       is_hidden: program.is_hidden,
       is_deleted: program.is_deleted
     })

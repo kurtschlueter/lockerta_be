@@ -31,6 +31,9 @@ class ReviewListContainer extends Component {
 
   componentWillMount() {
     this.props.fetchReviews();
+    this.props.hideNewClientButton();
+    this.props.hideNewReviewButton();
+    this.props.hideNewProgramButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -117,6 +120,8 @@ const mapDispatchToProps = dispatch => ({
   setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   hideNewReviewButton: () => dispatch(navbarActions.hideNewReviewButton()),
+  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
+  hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
   searchReviews: query => dispatch(reviewActions.searchReviews(query))
 });
 

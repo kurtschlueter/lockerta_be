@@ -39,6 +39,7 @@ class NavbarContainer extends Component {
 
   newSchoolClickHandler() {
     this.props.hideNewClientButton();
+    this.props.hideNewProgramButton();
     this.props.setDetailView(true);
     browserHistory.push(`/schoolDetail/`);
   }
@@ -51,6 +52,7 @@ class NavbarContainer extends Component {
   }
 
   newProgramClickHandler() {
+    console.log('clicking new program...')
     this.props.hideNewProgramButton();
     this.props.setDetailView(true);
     localStorage.setItem('index', 1)
