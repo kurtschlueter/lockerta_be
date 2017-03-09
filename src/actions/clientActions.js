@@ -25,7 +25,7 @@ export function getSchools(data) {
 }
 
 export const fetchSchools = (filters, offset, limit) => (dispatch) => {
-  // console.log('fetch schools')
+  
 
   clientApi.getSchools().subscribe(
     (data) => {
@@ -39,7 +39,7 @@ export const fetchSchools = (filters, offset, limit) => (dispatch) => {
 };
 
 export function getSchool(data) {
-  // console.log('get school action', data)
+  console.log('get school action*************************', data)
   return {
     type: GET_SCHOOL,
     data
@@ -47,7 +47,7 @@ export function getSchool(data) {
 }
 
 export const fetchSchool = (id) => (dispatch) => {
-  // console.log('fetchSchool action', id)
+  console.log('fetchSchool action***************************', id)
   clientApi.getSchool(id).subscribe(
     (data) => {
       dispatch(getSchool(data[0]));

@@ -21,18 +21,30 @@ class SchoolDetailContainer extends Component {
   }
 
   componentWillMount() {
+    console.log('in componentWillMount SCHOOL DEtAIL', this.props)
+    // debugger
+    if (this.props.detailViewNew == true && this.props.schoolId) {
+      
+      this.props.fetchSchool(this.props.schoolId);
+      this.props.setDetailView(false);
+      // debugger
+    } else if (this.props.detailViewNew == false && this.props.schoolId){
+      this.props.fetchSchool(this.props.schoolId);
 
-    if (this.props.detailViewNew == false) {
-      this.props.fetchSchool(this.props.school.id);
-    }
+    } else if (this.props.detailViewNew == true && !this.props.schoolId){
+      // this.props.fetchSchool(this.props.schoolId);
+    }    
   }
 
   componentWillReceiveProps(nextProps) {
     console.log('componentWillReceiveProps', nextProps)
     if (this.props !== nextProps) {
+      // debugger
+      console.log("yes in here")
       if (nextProps.school) {
+        console.log("yes in here2")
         this.setState({
-          school: nextProps.school,
+          school: nextProps.school.school,
           activeTab: 0,
           basicTabs: {
             metadata: tabs.map(tab => {
@@ -84,10 +96,12 @@ SchoolDetailContainer.contextTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   school: selectors.setSchool(state),
+  schoolId: ownProps.params.schoolId,
   detailViewNew: state.schools.detailViewNew
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   fetchSchool: (id) => {
     return dispatch(clientActions.fetchSchool(id));
   }

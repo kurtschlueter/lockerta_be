@@ -14,6 +14,7 @@ import navbarReducer from './navbarReducer';
 
 const moranReducers = combineReducers({
   schools: clientReducer,
+  school: clientReducer,
   reviews: reviewReducer,
   programs: programReducer,
   loginState: loginReducer,
@@ -43,6 +44,11 @@ import * as modalSelector from './modalReducer'
 export const getSchools = (state) => {
   // console.log('clientSelectors', clientSelectors  )
   return clientSelectors.getSchools(state.schools);
+}
+
+export const getSchool = (state) => {
+  // console.log('clientSelectors', clientSelectors  )
+  return clientSelectors.getSchool(state.school);
 }
 
 export const getReviews = (state) => {

@@ -581,10 +581,10 @@ export const programDetailInformationTabElements = [
     name: 'education_graduation_rate'
   },
   {
-    type: 'TextInput',
+    type: 'DropDown',
     title: 'School',
     id: 'name',
     name: 'name'
-  },
+  }
 ];
 

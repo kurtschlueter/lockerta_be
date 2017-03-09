@@ -24,7 +24,6 @@ class SchoolListContainer extends Component {
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
@@ -66,20 +65,20 @@ class SchoolListContainer extends Component {
     browserHistory.push(`/schoolDetail/${school.id}`);
   }
 
-  searchHandler(e) {
-    console.log("come on")
+  handleSearchChange(e) {
+    console.log("handle search change")
+    this.setState({
+      searchTerm: e.target.value,
+    }, this.triggerSearch)
+  }
+
+  triggerSearch(){
     if (this.state.searchTerm !== "") {
       console.log(this.state.searchTerm);
       this.props.searchSchools(this.state.searchTerm)
     } else {
       this.props.fetchSchools()
     }
-  }
-
-  handleSearchChange(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    })
   }
 
   render() {
@@ -94,7 +93,6 @@ class SchoolListContainer extends Component {
         schools={this.state.filteredSchools}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
-        searchHandler={this.searchHandler}
         searchTerm={this.searchTerm}
         handleSearchChange={this.handleSearchChange}
       />

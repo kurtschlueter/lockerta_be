@@ -63,10 +63,6 @@ class InformationTabContainer extends Component {
     //   offset: 0
     // });
 
-
-
-
-
     console.log('information tab container fuck', this.props)
     if (Object.keys(this.props.school).length > 0 && this.props.detailViewNew == false) {
 

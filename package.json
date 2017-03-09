@@ -79,7 +79,7 @@
     "rx": "^4.1.0",
     "style-loader": "^0.13.1",
     "superagent": "^2.3.0",
-    "tc-reactui": "^1.0.3",
+    "tc-reactui": "^1.0.5",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.2",
     "webpack-hot-middleware": "^2.10.0",
