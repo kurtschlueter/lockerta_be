@@ -178,10 +178,12 @@ const InformationTabPresenter = ({
           {
             id: 'name',
             value: profile.name,
-            readOnly: true,
-            onChange: value => changeHandler('name', value)
-          },
+            readOnly: readOnlyOption,
+            options: states.map(s => ({ key: s.name, text: s.name })),
+            onChange: state => changeHandler('name', state)
+          }
     ];
+    // debugger
   } else {
     var values = [
            {

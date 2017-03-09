@@ -35,7 +35,7 @@ export default function clientReducer(state = defaultState, action) {
   switch (action.type) {
     case GET_SCHOOL:
       {
-          console.log('action', action)
+          console.log('action*********get single school **************', action)
         let newState = state;
         const currentSchool = state.schools.find(c => c.id === action.data.id)
         if (currentSchool) {
@@ -188,6 +188,11 @@ export default function clientReducer(state = defaultState, action) {
 export const getSchools = (state) => {
   return state.schools;
 }
+
+export const getSchool = (state) => {
+  return state.school;
+}
+
 export const postClient = (state) => {
   return state.clients;
 }

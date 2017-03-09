@@ -10,8 +10,7 @@ const SchoolListPresenter = ({
   importCSVHandler,
   rowClickListener,
   searchTerm,
-  handleSearchChange,
-  searchHandler,
+  handleSearchChange
 }) => {
   const sectionStyle = {
     position: 'absolute',
@@ -25,9 +24,8 @@ const SchoolListPresenter = ({
 
   return (
     <div className="content-wrapper">
-      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
+    <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} /><FontAwesome name='search' />
       {(schools.length !== 0) ? (
-
         <div>
           <section style={sectionStyle}>
             <Grid
