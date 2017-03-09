@@ -84,7 +84,7 @@ class ProgramReviewsTabContainer extends Component {
       console.log(this.state.searchTerm);
       this.props.searchProgramReviews(this.props.program.id, this.state.searchTerm)
     } else {
-      this.props.fetchPrograms(this.props.program.id)
+      this.props.fetchProgramReviews(this.props.program.id)
     }
   }
 

@@ -71,7 +71,6 @@ const InformationTabPresenter = ({
             id: 'state',
             value: profile.state,
             readOnly: readOnlyOption,
-            options: states.map(s => ({ key: s.name, text: s.name })),
             onChange: state => changeHandler('state', state)
           }, 
           {
@@ -129,12 +128,11 @@ const InformationTabPresenter = ({
             id: 'state',
             value: null,
             readOnly: readOnlyOption,
-            options: states.map(s => ({ key: s.name, text: s.name })),
             onChange: state => changeHandler('state', state)
           },
           {
             id: 'logo',
-            value: null,
+            value: profile.logo,
             readOnly: readOnlyOption,
             onChange: value => changeHandler('logo', value)
           }
@@ -144,7 +142,7 @@ const InformationTabPresenter = ({
   return (
     <div className="tab-content-info-tab">
       <div className="col-lg-6-info-tab">
-        <h3>Client Detail</h3>
+        <h3>School Detail</h3>
       </div>
       <div className="col-lg-6-info-tab text-right" style={{ paddingRight: '26px' }}>
         {(editOption) &&
@@ -177,7 +175,7 @@ const InformationTabPresenter = ({
       }
       {(deleteOption) &&
         <div className="col-lg-12-info-tab">
-          <input type="delete" value="Delete Client" onClick={() => buttonClicked('deleteButton')} />
+          <input type="delete" value="Delete School" onClick={() => buttonClicked('deleteButton')} />
         </div>
       }
     </div>

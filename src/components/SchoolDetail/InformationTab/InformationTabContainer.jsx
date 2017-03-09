@@ -86,6 +86,7 @@ class InformationTabContainer extends Component {
       this.setState({
         // managers: this.props.managers,
         readOnlyOption: false,
+        profile: {logo: ''},
         saveCancelOption: true,
         editOption: false,
         deleteOption: false,
@@ -189,7 +190,7 @@ class InformationTabContainer extends Component {
           }
           if (this.state.createState) {
             console.log('yeeessss')
-            this.props.addSchoolHandler({ ...profile, is_hidden: 0, is_deleted: 0, logo: "https://s-media-cache-ak0.pinimg.com/originals/00/23/70/0023707f1caf3eb3757e751d08f06ac5.gif"});
+            this.props.addSchoolHandler({ ...profile, is_hidden: 0, is_deleted: 0});
           }
         }
         break;
@@ -214,7 +215,7 @@ class InformationTabContainer extends Component {
           message: Constants.deleteClientMessage,
           isConfirmed: false,
           subMessage: Constants.deleteSubMessage,
-          okValue: 'Yes, delete client',
+          okValue: 'Yes, delete school',
           type: Constants.delete
         });
         break;
@@ -337,12 +338,11 @@ class InformationTabContainer extends Component {
     } else {
       updatedProfile[field] = param;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
+      console.log('the state is now', this.state)
     }
   }
 
   imageLoaderCallback(value) {
-
-    console.log('fubckfuckcfuckfuckfuckfuck')
     this.changeHandler('logo', value)
   }
 

@@ -248,7 +248,7 @@ export const clientDetailInformationTabElements = [
     name: 'city'
   },
   {
-    type: 'DropDown',
+    type: 'TextInput',
     title: 'State',
     id: 'state'
   },
