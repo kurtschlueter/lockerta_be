@@ -25,7 +25,7 @@ const ReviewListPresenter = ({
 
   return (
     <div className="content-wrapper">
-      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
+      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} /><FontAwesome name='search' />
       {(reviews.length !== 0) ? (
 
         <div>

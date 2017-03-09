@@ -25,7 +25,6 @@ class ReviewListContainer extends Component {
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
@@ -68,20 +67,20 @@ class ReviewListContainer extends Component {
     browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
-  searchHandler(e) {
-    console.log("come on")
+  handleSearchChange(e) {
+    console.log("handle search change")
+    this.setState({
+      searchTerm: e.target.value,
+    }, this.triggerSearch)
+  }
+
+  triggerSearch(){
     if (this.state.searchTerm !== "") {
       console.log(this.state.searchTerm);
       this.props.searchReviews(this.state.searchTerm)
     } else {
       this.props.fetchReviews()
     }
-  }
-
-  handleSearchChange(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    })
   }
 
   render() {

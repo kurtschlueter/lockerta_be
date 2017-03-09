@@ -25,7 +25,7 @@ const ProgramListPresenter = ({
 
   return (
     <div className="content-wrapper">
-      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
+      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} /><FontAwesome name='search' />
       {(programs.length !== 0) ? (
 
         <div>
