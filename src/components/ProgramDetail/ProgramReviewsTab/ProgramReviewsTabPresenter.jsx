@@ -25,7 +25,7 @@ const ProgramReviewsTabPresenter = ({
 
   return (
     <div className="content-wrapper programreviews">
-      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} onKeyDown={(e) => searchHandler(e)} /><FontAwesome name='search' />
+      <input className="searchbox" type="Text" placeholder="Search" onChange={(e) => handleSearchChange(e)} value={searchTerm} /><FontAwesome name='search' />
       {(programreviews.length !== 0) ? (
 
         <div>
