@@ -26,8 +26,8 @@ export default (store) => {
 
   return (
     <Route>
-      <Route path="/login" component={SchoolListContainer} />
-        <Route component={MainLayout}>
+      <Route path="/login" component={LoginContainer} />
+        <Route component={MainLayout} onEnter={requireLogin}>
           <Route path="/" component={SchoolListContainer} />
           <Route path="schoolDetail/:schoolId" component={SchoolDetailContainer} />
           <Route path="schoolDetail" component={SchoolDetailContainer} />
