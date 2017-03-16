@@ -32,6 +32,7 @@ class ProgramListContainer extends Component {
     this.props.fetchPrograms();
     this.props.hideNewProgramButton();
     this.props.hideNewClientButton();
+    this.props.hideNewReviewButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -121,6 +122,7 @@ const mapDispatchToProps = dispatch => ({
   showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
   showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
+  hideNewReviewButton: () => dispatch(navbarActions.hideNewReviewButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchPrograms: query => dispatch(programActions.searchPrograms(query))
 });

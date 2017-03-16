@@ -4,7 +4,7 @@ import {
   SET_SCHOOL,
   DELETE_SCHOOL,
   PUT_CLIENT,
-  POST_CLIENT,
+  POST_SCHOOL,
   GET_ACCOUNT_MANAGERS,
   UPLOAD_CSV_SUCCESS,
   UPLOAD_CSV_ERROR,
@@ -115,11 +115,12 @@ export default function clientReducer(state = defaultState, action) {
         }
       }
 
-    case POST_CLIENT:
+    case POST_SCHOOL:
       {
+        console.log('is it getting here')
         return {
           ...state,
-           clients: [...state, action.data],
+           schools: [...state, action.data],
            success: true
          }
       }
@@ -193,8 +194,8 @@ export const getSchool = (state) => {
   return state.school;
 }
 
-export const postClient = (state) => {
-  return state.clients;
+export const postSchool = (state) => {
+  return state.schools;
 }
 export const deleteClient = (state) => {
   return state.clients;
