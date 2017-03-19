@@ -28,7 +28,6 @@ class ProgramReviewsTabContainer extends Component {
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
@@ -36,7 +35,7 @@ class ProgramReviewsTabContainer extends Component {
     console.log('program reviews tab will mount props', this.props)
     console.log('program reviews tabl will mount state', this.state)
     this.props.fetchProgramReviews(this.props.program.id);
-    this.props.showNewProgramButton();
+    this.props.showNewReviewButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,7 +52,7 @@ class ProgramReviewsTabContainer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.showImportCSV) this.props.hideNewProgramButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewProgramButton();
+    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewReviewButton();
   }
 
   importCSVHandler() {
@@ -73,18 +72,20 @@ class ProgramReviewsTabContainer extends Component {
     browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
-  searchHandler(e) {
+  handleSearchChange(e) {
+    console.log("handle search change")
+    this.setState({
+      searchTerm: e.target.value,
+    }, this.triggerSearch)
+  }
+
+  triggerSearch(){
     if (this.state.searchTerm !== "") {
+      console.log(this.state.searchTerm);
       this.props.searchProgramReviews(this.props.program.id, this.state.searchTerm)
     } else {
       this.props.fetchProgramReviews(this.props.program.id)
     }
-  }
-
-  handleSearchChange(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    })
   }
 
   render() {
@@ -99,7 +100,6 @@ class ProgramReviewsTabContainer extends Component {
         programreviews={this.state.filteredProgramReviews}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
-        searchHandler={this.searchHandler}
         searchTerm={this.searchTerm}
         handleSearchChange={this.handleSearchChange}
       />
@@ -124,7 +124,7 @@ const mapDispatchToProps = dispatch => ({
   setProgram: review => dispatch(programActions.setProgram(review)),
   setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
+  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
   searchProgramReviews: (id, query) => dispatch(programActions.searchProgramReviews(id, query))
 });

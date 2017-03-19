@@ -28,7 +28,6 @@ class IntegrationsTabContainer extends Component {
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
@@ -36,7 +35,7 @@ class IntegrationsTabContainer extends Component {
     console.log('school programs tab will mount props', this.props)
     console.log('school programs tabl will mount state', this.state)
     this.props.fetchSchoolPrograms(this.props.school.id);
-    this.props.showNewClientButton();
+    this.props.showNewProgramButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,7 +52,7 @@ class IntegrationsTabContainer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.showImportCSV) this.props.hideNewClientButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewClientButton();
+    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewProgramButton();
   }
 
   importCSVHandler() {
@@ -73,18 +72,20 @@ class IntegrationsTabContainer extends Component {
     browserHistory.push(`/programDetail/${program.id}`);
   }
 
-  searchHandler(e) {
+  handleSearchChange(e) {
+    console.log("handle search change")
+    this.setState({
+      searchTerm: e.target.value,
+    }, this.triggerSearch)
+  }
+
+  triggerSearch(){
     if (this.state.searchTerm !== "") {
+      console.log(this.state.searchTerm);
       this.props.searchSchoolPrograms(this.props.school.id, this.state.searchTerm)
     } else {
       this.props.fetchSchoolPrograms(this.props.school.id)
     }
-  }
-
-  handleSearchChange(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    })
   }
 
   render() {
@@ -96,7 +97,6 @@ class IntegrationsTabContainer extends Component {
         schoolprograms={this.state.filteredSchoolPrograms}
         importCSVHandler={this.importCSVHandler}
         rowClickListener={this.rowClickListener}
-        searchHandler={this.searchHandler}
         searchTerm={this.searchTerm}
         handleSearchChange={this.handleSearchChange}
       />
@@ -122,7 +122,7 @@ const mapDispatchToProps = dispatch => ({
   setReview: review => dispatch(reviewActions.setReview(review)),
   setSchool: school => dispatch(clientActions.setSchool(school)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewClientButton: () => dispatch(navbarActions.showNewClientButton()),
+  showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
   hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchSchoolPrograms: (id, query) => dispatch(clientActions.searchSchoolPrograms(id, query))
 });

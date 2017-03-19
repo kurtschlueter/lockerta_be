@@ -15,7 +15,7 @@ const Constants = {
   deleteProgramSuccessMessage: 'Program has been successfully deleted!',
   deleteReviewSuccessMessage: 'Review has been successfully deleted!',
   createSuccessMessage: 'Account Manager successfully created!',
-  createClientSuccessMessage: 'Client successfully created!',
+  createClientSuccessMessage: 'School successfully created!',
   createProgramSuccessMessage: 'Program successfully created!',
   createReviewSuccessMessage: 'Review successfully created!',
   fileTypeErrorMessage: 'Oops, only CSV files are accepted',

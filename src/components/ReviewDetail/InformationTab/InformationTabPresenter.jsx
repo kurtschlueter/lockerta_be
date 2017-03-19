@@ -14,6 +14,7 @@ const InformationTabPresenter = ({
   profile,
   managers,
   states,
+  program,
   readOnlyOption,
   saveCancelOption,
   editOption,
@@ -207,7 +208,17 @@ const InformationTabPresenter = ({
     ];
   } else {
     var values = [
- {
+            {
+              id: 'name',
+              value: program.name,
+              readOnly: true
+            },
+            {
+              id: 'sport',
+              value: program.sport,
+              readOnly: true
+            },
+           {
              id: 'athlete_fname',
              value: null,
              readOnly: readOnlyOption,

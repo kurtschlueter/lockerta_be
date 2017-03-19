@@ -25,13 +25,14 @@ class ReviewListContainer extends Component {
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchReviews();
-    this.props.showNewReviewButton();
+    this.props.hideNewClientButton();
+    this.props.hideNewReviewButton();
+    this.props.hideNewProgramButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,7 +49,6 @@ class ReviewListContainer extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.showImportCSV) this.props.hideNewReviewButton();
-    if (this.state.showImportCSV && !nextState.showImportCSV) this.props.showNewReviewButton();
   }
 
   importCSVHandler() {
@@ -67,20 +67,20 @@ class ReviewListContainer extends Component {
     browserHistory.push(`/reviewDetail/${review.id}`);
   }
 
-  searchHandler(e) {
-    console.log("come on")
+  handleSearchChange(e) {
+    console.log("handle search change")
+    this.setState({
+      searchTerm: e.target.value,
+    }, this.triggerSearch)
+  }
+
+  triggerSearch(){
     if (this.state.searchTerm !== "") {
       console.log(this.state.searchTerm);
       this.props.searchReviews(this.state.searchTerm)
     } else {
       this.props.fetchReviews()
     }
-  }
-
-  handleSearchChange(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    })
   }
 
   render() {
@@ -118,8 +118,9 @@ const mapDispatchToProps = dispatch => ({
   fetchReviews: () => dispatch(reviewActions.fetchReviews()),
   setReview: review => dispatch(reviewActions.setReview(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
-  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewReviewButton: () => dispatch(navbarActions.hideNewReviewButton()),
+  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
+  hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
   searchReviews: query => dispatch(reviewActions.searchReviews(query))
 });
 

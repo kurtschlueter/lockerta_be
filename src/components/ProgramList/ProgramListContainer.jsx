@@ -25,13 +25,14 @@ class ProgramListContainer extends Component {
     this.newClientDropdownHandler = this.newClientDropdownHandler.bind(this);
     this.importCSVHandler = this.importCSVHandler.bind(this);
     this.rowClickListener = this.rowClickListener.bind(this);
-    this.searchHandler = this.searchHandler.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchPrograms();
-    this.props.showNewProgramButton();
+    this.props.hideNewProgramButton();
+    this.props.hideNewClientButton();
+    this.props.hideNewReviewButton();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,24 +64,24 @@ class ProgramListContainer extends Component {
     this.props.setProgram(this.state.filteredPrograms.filter(s => s.id === program.id));
     this.props.setDetailView(false);
     // console.log('after setschool in row click listener', this.props)
-    this.props.hideNewProgramButton();
+    this.props.showNewReviewButton();
     browserHistory.push(`/programDetail/${program.id}`);
   }
 
-  searchHandler(e) {
-    console.log("come on")
+  handleSearchChange(e) {
+    console.log("handle search change")
+    this.setState({
+      searchTerm: e.target.value,
+    }, this.triggerSearch)
+  }
+
+  triggerSearch(){
     if (this.state.searchTerm !== "") {
       console.log(this.state.searchTerm);
       this.props.searchPrograms(this.state.searchTerm)
     } else {
       this.props.fetchPrograms()
     }
-  }
-
-  handleSearchChange(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    })
   }
 
   render() {
@@ -119,7 +120,10 @@ const mapDispatchToProps = dispatch => ({
   setProgram: review => dispatch(programActions.setProgram(review)),
   setDetailView: bool => dispatch(clientActions.setDetailView(bool)),
   showNewProgramButton: () => dispatch(navbarActions.showNewProgramButton()),
+  showNewReviewButton: () => dispatch(navbarActions.showNewReviewButton()),
   hideNewProgramButton: () => dispatch(navbarActions.hideNewProgramButton()),
+  hideNewReviewButton: () => dispatch(navbarActions.hideNewReviewButton()),
+  hideNewClientButton: () => dispatch(navbarActions.hideNewClientButton()),
   searchPrograms: query => dispatch(programActions.searchPrograms(query))
 });
 

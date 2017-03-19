@@ -86,7 +86,8 @@ class InformationTabContainer extends Component {
         putState: false,
         deleteState: false,
         createState: true,
-        newProgram: true
+        newProgram: true,
+        school: this.props.school
       });
     }
   }
@@ -323,8 +324,12 @@ class InformationTabContainer extends Component {
       updatedProfile.agencyId = param.id;
       updatedProfile.agencyName = param.name;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
+    } else if (typeof param == 'number' && isNaN(param)) {
+      updatedProfile[field] = '';
+      this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
     } else {
       updatedProfile[field] = param;
+      updatedProfile['school_id'] = this.state.school.id;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
     }
   }
@@ -347,6 +352,7 @@ class InformationTabContainer extends Component {
         managerOption = {this.state.managerOption}
         stateOption = {this.state.stateOption}
         profile={this.state.profile}
+        school={this.state.school}
         managers={this.state.managers}
         states={Constants.states}
         selectTestOptions={this.state.selectTestOptions}

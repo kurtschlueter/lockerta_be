@@ -19,6 +19,7 @@ class InformationTabContainer extends Component {
       agencies: [],
       managers: [],
       specialists: [],
+      program: {},
 
       // this is the state that holds the last save in case a cancel happens
       holdingClientState: {},
@@ -87,6 +88,7 @@ class InformationTabContainer extends Component {
       });
     } else {
       console.log('information tab container fuck entered for new review')
+      console.log('program', this.props.program)
       this.setState({
         // managers: this.props.managers,
         readOnlyOption: false,
@@ -96,7 +98,8 @@ class InformationTabContainer extends Component {
         putState: false,
         deleteState: false,
         createState: true,
-        newReview: true
+        newReview: true,
+        program: this.props.program
       });
     }
   }
@@ -335,8 +338,13 @@ class InformationTabContainer extends Component {
       updatedProfile.agencyId = param.id;
       updatedProfile.agencyName = param.name;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
+    } else if (typeof param == 'number' && isNaN(param)) {
+      updatedProfile[field] = '';
+      this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
     } else {
       updatedProfile[field] = param;
+      updatedProfile['school_id'] = this.state.program.school_id;
+      updatedProfile['team_id'] = this.state.program.id;
       this.setState({ profile: updatedProfile, managerOption: false, stateOption: false });
     }
   }
@@ -361,6 +369,7 @@ class InformationTabContainer extends Component {
         profile={this.state.profile}
         managers={this.state.managers}
         states={Constants.states}
+        program={this.state.program}
         selectTestOptions={this.state.selectTestOptions}
         buttonClicked={this.buttonClicked}
         yesButtonClicked={this.yesButtonClicked}

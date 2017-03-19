@@ -13,6 +13,7 @@ class ReviewDetailContainer extends Component {
     super(props);
     this.state = {
       review: {},
+      program: {},
       activeTab: null,
       basicTabs: {}
     };
@@ -34,12 +35,14 @@ class ReviewDetailContainer extends Component {
       if (nextProps.review) {
         this.setState({
           review: nextProps.review,
+          program: nextProps.program,
           activeTab: 0,
           basicTabs: {
             metadata: tabs.map(tab => {
               const compProps = {
                 review: nextProps.review,
-                updateSchool: tab.tabID === 'information' ? this.updateSchool : null
+                updateSchool: tab.tabID === 'information' ? this.updateSchool : null,
+                program: nextProps.program
               };
               tab.component = tab.generateComponent(compProps);
               return tab;
@@ -85,7 +88,8 @@ ReviewDetailContainer.contextTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   review: selectors.setReview(state),
-  detailViewNew: state.schools.detailViewNew
+  detailViewNew: state.schools.detailViewNew,
+  program: selectors.setProgram(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
